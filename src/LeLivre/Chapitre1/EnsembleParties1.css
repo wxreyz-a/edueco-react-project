@@ -55,6 +55,8 @@
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  position: relative; /* Évite des conflits de z-index */
+  z-index: 10;
 }
 
 /* Assure que toute la carte est cliquable */
@@ -63,16 +65,6 @@
   text-decoration: none;
   width: 100%;
   max-width: 500px;
-}
-
-/* Évite tout chevauchement indésirable */
-.chapter-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-  position: relative; /* Évite des conflits de z-index */
-  z-index: 10;
 }
 
 /* Rendre toute la carte réactive */
@@ -131,9 +123,6 @@
     font-size: 1.2rem; /* Réduit la taille du titre des cartes */
   }
 
-  .chapter-sections {
-    gap: 10px; /* Réduit l'espace entre les cartes */
-  }
 }
 
 /* Mobile plus grand ou tablettes: écran de 601px à 768px */
@@ -158,9 +147,6 @@
     font-size: 1.3rem; /* Ajuste la taille du titre des cartes */
   }
 
-  .chapter-sections {
-    gap: 12px; /* Ajuste l'espace entre les cartes */
-  }
 }
 
 /* Tablettes et petites tablettes */
