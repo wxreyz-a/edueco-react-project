@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+/* Actualités Page Styles modifiés */
+.actualites-page {
+  background-color: #F2F2F2; /* Fond gris clair */
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 150px; /* Pour compenser le header si besoin */
+  min-height: 100vh;
+}
+
+/* Header modifié pour ressembler à celui de la page1 */
+.actualites-header {
+  background-color: #F2F2F2;
+  padding: 1rem 0;
+  text-align: center;
+  margin-bottom: 3rem;
+  /* Suppression du positionnement fixe et de l'ombre pour une apparence plus légère */
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+}
+
+.header-wrapper-actualites {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  /* On peut retirer le positionnement relatif si inutile */
+}
+
+.slogan-actualites {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.5rem;
+  color: #002147; /* Couleur similaire au deuxième CSS */
+  margin: 0 0 0.5rem;
+}
+
+.brand-actualites {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #555; /* Couleur du deuxième CSS */
+  /* Retrait du positionnement absolu pour un alignement centré */
+  margin: 0;
+}
+
+/* Container général */
+.container-actualites {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  overflow: hidden;
+  background-color: #F2F2F2;
+}
+
+/* Section Articles */
+.articles-section-actualites {
+  padding: 2rem 0;
+}
+
+.articles-container-actualites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+/* Cartes d'article modifiées pour une allure plus moderne */
+.article-card-actualites {
+  background: #FFF;
+  border-radius: 8px; /* Coins plus arrondis */
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre plus prononcée */
+  width: calc(40% - 0.75rem); /* Ajustez la largeur selon vos besoins */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card-actualites:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.article-image-actualites img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.article-content-actualites {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.article-content-actualites h3 {
+  font-size: 1.8rem;
+  color: #002147;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.article-content-actualites p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: justify;
+  flex-grow: 1;
+}
+
+/* Bouton "Lire la suite" */
+.read-more-actualites {
+  display: block;
+  text-align: center;
+  background: #00539C;
+  color: #FFF;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  margin-top: auto;
+}
+
+.read-more-actualites:hover {
+  background: #007ACC;
+}
+
+/* Footer */
+.actualites-footer {
+  background: #162B44;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+}
+
+.footer-container {
+  text-align: center;
+  color: #FFF;
+  border-top: 2px solid rgba(255,255,255,0.2);
+  padding: 1rem 0;
+}
+
+.footer-container p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slogan-actualites {
+    font-size: 2rem;
+  }
+  .article-content-actualites h3 {
+    font-size: 1.6rem;
+  }
+  .article-content-actualites p,
+  .read-more-actualites {
+    font-size: 0.9rem;
+  }
+  .articles-container-actualites {
+    flex-direction: column;
+    align-items: center;
+  }
+  .article-card-actualites {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+

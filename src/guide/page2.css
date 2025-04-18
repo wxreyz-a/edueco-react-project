@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+/* Style général de la page Guides et Conseils */
+.page2-guides-page {
+  background: #fff;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  padding-top: 30px;
+}
+
+.page2-guides-page main.page2-container {
+  margin-top: 0;
+}
+
+/* Header */
+/* Masquer la marque "Mes Finances" */
+.page2-guides-brand {
+  display: none;
+}
+
+/* Réduire la taille du header */
+.page2-guides-header {
+  background: #fff;
+  padding: 0.5rem 0; /* Moins d'espace vertical */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.page2-guides-header-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.page2-guides-slogan {
+  font-family: var(--font-heading);
+  font-size: 2rem; /* Taille réduite */
+  color: black;
+  margin: 0;
+  text-align: center;
+}
+
+/* Conteneur centralisé */
+.page2-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Main : réduction du margin-top pour rapprocher le contenu du header */
+main.page2-container {
+  margin-top: 80px;
+}
+
+/* Section Introduction */
+.page2-guides-intro {
+  background: #FFF;
+  padding: 2rem;
+  margin: 1.5rem auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 950px;
+}
+
+.page2-intro-title {
+  font-size: 2rem;
+  color: #002147;
+  margin-bottom: 1rem;
+}
+
+.page2-intro-text {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Section Guides Cards */
+.page2-guides-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.page2-guide-card {
+  background: #FFF;
+  border-radius: 4px;
+  padding: 1.5rem;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.page2-guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.page2-guide-card-title {
+  font-size: 1.5rem;
+  color: #002147;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.page2-guide-card-text {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Bouton "Lire la suite" aligné en bas */
+.page2-guide-card-link {
+  display: block;
+  text-align: center;
+  background: #00539C;
+  color: #FFF;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  margin-top: auto;
+}
+
+.page2-guide-card-link:hover {
+  background: #007ACC;
+}
+
+/* Footer */
+.page2-guides-footer {
+  background: #162B44;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+}
+
+.page2-footer-container {
+  text-align: center;
+  color: #FFF;
+  border-top: 2px solid rgba(255,255,255,0.2);
+  padding: 1rem 0;
+}
+
+.page2-footer-container p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page2-container {
+    max-width: 95%;
+    padding: 0 1rem;
+  }
+
+  .page2-guides-header {
+    padding: 0.75rem 0;
+  }
+
+  .page2-guides-slogan {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .page2-guides-intro {
+    width: 90%;
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .page2-intro-title {
+    font-size: 1.6rem;
+  }
+
+  .page2-intro-text {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .page2-guides-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .page2-guide-card {
+    width: 100%;
+    max-width: 350px;
+    padding: 1rem;
+  }
+
+  .page2-guide-card-title {
+    font-size: 1.4rem;
+  }
+
+  .page2-guide-card-text {
+    font-size: 1rem;
+  }
+
+  .page2-guide-card-link {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .page2-guides-footer {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .page2-guides-header {
+    padding: 0.5rem 0;
+  }
+
+  .page2-guides-slogan {
+    font-size: 1.4rem;
+  }
+
+  .page2-guides-intro {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .page2-intro-title {
+    font-size: 1.4rem;
+  }
+
+  .page2-intro-text {
+    font-size: 0.95rem;
+  }
+
+  .page2-guide-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .page2-guide-card-title {
+    font-size: 1.3rem;
+  }
+
+  .page2-guide-card-text {
+    font-size: 0.95rem;
+  }
+
+  .page2-guide-card-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .page2-footer-container {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,192 @@
+/* Conteneur principal */
+.chapter-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f0e1; /* Fond beige doux */
+  padding: 20px;
+}
+
+/* Apparence du livre */
+.chapter-book {
+  background: #fff;
+  width: 90%;
+  max-width: 700px;
+  padding: 40px 30px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Effet de page ouverte */
+.chapter-book::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
+  border-radius: 5px;
+}
+
+/* Titre du chapitre */
+.chapter-title {
+  font-size: 2rem;
+  color: #3e3d3d;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* Introduction */
+.chapter-intro {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Conteneur des cartes */
+.chapter-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Assure que toute la carte est cliquable */
+.chapter-link {
+  display: block; /* Rend toute la div cliquable */
+  text-decoration: none;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Évite tout chevauchement indésirable */
+.chapter-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  position: relative; /* Évite des conflits de z-index */
+  z-index: 10;
+}
+
+/* Rendre toute la carte réactive */
+.chapter-card {
+  background: #faf8f2;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-left: 4px solid #b08968;
+  cursor: pointer; /* Indique bien qu'on peut cliquer */
+  position: relative;
+  width: 100%;
+}
+
+/* Assure que le texte ne bloque pas l’interaction */
+.chapter-card h2 {
+  font-size: 1.4rem;
+  color: #3e3d3d;
+  margin: 0;
+  pointer-events: none; /* Empêche le texte de bloquer le clic */
+}
+
+/* Effet au survol amélioré */
+.chapter-card:hover {
+  transform: scale(1.02);
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------------------------- */
+/* Optimisation pour les mobiles avec @media */
+/* --------------------------------------- */
+
+/* Mobile: écran jusqu'à 600px */
+@media (max-width: 600px) {
+  .chapter-book {
+    padding: 20px 15px; /* Réduit l'espacement */
+    width: 100%;
+  }
+
+  .chapter-title {
+    font-size: 1.6rem; /* Réduit la taille du titre */
+    margin-bottom: 10px;
+  }
+
+  .chapter-intro {
+    font-size: 1rem; /* Réduit la taille de l'introduction */
+    margin-bottom: 20px;
+  }
+
+  .chapter-card {
+    padding: 10px 15px; /* Réduit le padding des cartes */
+  }
+
+  .chapter-card h2 {
+    font-size: 1.2rem; /* Réduit la taille du titre des cartes */
+  }
+
+  .chapter-sections {
+    gap: 10px; /* Réduit l'espace entre les cartes */
+  }
+}
+
+/* Mobile plus grand ou tablettes: écran de 601px à 768px */
+@media (max-width: 768px) {
+  .chapter-book {
+    padding: 30px 25px; /* Légère réduction du padding */
+  }
+
+  .chapter-title {
+    font-size: 1.8rem; /* Légère réduction de la taille du titre */
+  }
+
+  .chapter-intro {
+    font-size: 1.1rem; /* Légère réduction de la taille de l'introduction */
+  }
+
+  .chapter-card {
+    padding: 12px 18px; /* Ajuste le padding des cartes */
+  }
+
+  .chapter-card h2 {
+    font-size: 1.3rem; /* Ajuste la taille du titre des cartes */
+  }
+
+  .chapter-sections {
+    gap: 12px; /* Ajuste l'espace entre les cartes */
+  }
+}
+
+/* Tablettes et petites tablettes */
+@media (max-width: 1024px) {
+  .chapter-book {
+    padding: 35px 25px;
+  }
+
+  .chapter-title {
+    font-size: 1.9rem;
+  }
+
+  .chapter-intro {
+    font-size: 1.15rem;
+  }
+
+  .chapter-card {
+    padding: 14px 20px;
+  }
+
+  .chapter-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .chapter-sections {
+    gap: 14px;
+  }
+}
+

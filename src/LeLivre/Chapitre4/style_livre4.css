@@ -1,0 +1,171 @@
+/* Conteneur principal centré */
+.book-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f0e1; /* Fond beige doux comme un vieux papier */
+  padding: 20px;
+}
+
+/* Apparence de la page du livre */
+.book-page {
+  background: #fff;
+  width: 90%;
+  max-width: 700px;
+  padding: 40px 30px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: 'Georgia', serif;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* Effet de pliure pour un aspect livre */
+.book-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
+  border-radius: 5px;
+}
+
+/* Titre principal */
+.book-title {
+  font-size: 2rem;
+  color: #3e3d3d;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Sous-titre du chapitre */
+.book-subtitle {
+  font-size: 1.5rem;
+  color: #5a4a42;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Paragraphes */
+.book-paragraph {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Citation mise en valeur */
+.book-quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  text-align: center;
+  color: #7a5c3b;
+  padding: 15px;
+  margin: 30px 0;
+  border-left: 4px solid #b08968;
+}
+
+.book-quote span {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: bold;
+  color: #555;
+}
+
+/* ------------------------------- */
+/* Optimisation pour les mobiles avec @media */
+/* ------------------------------- */
+
+/* Mobile: écran jusqu'à 600px */
+@media (max-width: 600px) {
+  .book-page {
+    padding: 20px 15px; /* Réduit l'espacement pour plus de place */
+    width: 100%; /* Utilise toute la largeur disponible */
+  }
+
+  .book-title {
+    font-size: 1.6rem; /* Réduit la taille du titre pour les petits écrans */
+    margin-bottom: 10px; /* Réduit l'espace en bas du titre */
+  }
+
+  .book-subtitle {
+    font-size: 1.3rem; /* Réduit la taille du sous-titre */
+    margin-bottom: 8px; /* Réduit l'espace sous le sous-titre */
+  }
+
+  .book-paragraph {
+    font-size: 1rem; /* Réduit la taille de la police des paragraphes */
+    margin-bottom: 15px; /* Réduit l'espacement entre les paragraphes */
+  }
+
+  .book-quote {
+    font-size: 1.1rem; /* Réduit la taille de la citation */
+    margin: 20px 0; /* Réduit l'espace autour de la citation */
+  }
+
+  .book-quote span {
+    font-size: 0.9rem; /* Réduit la taille du texte dans la citation */
+  }
+}
+
+/* Mobile plus grand ou tablettes: écran de 601px à 768px */
+@media (max-width: 768px) {
+  .book-page {
+    padding: 30px 20px; /* Ajuste légèrement le padding */
+  }
+
+  .book-title {
+    font-size: 1.8rem; /* Ajuste la taille du titre */
+  }
+
+  .book-subtitle {
+    font-size: 1.4rem; /* Ajuste la taille du sous-titre */
+  }
+
+  .book-paragraph {
+    font-size: 1.1rem; /* Ajuste la taille du texte des paragraphes */
+  }
+
+  .book-quote {
+    font-size: 1.2rem; /* Ajuste la taille de la citation */
+  }
+
+  .book-quote span {
+    font-size: 1rem; /* Ajuste la taille du texte dans la citation */
+  }
+}
+
+/* Tablettes et petites tablettes */
+@media (max-width: 1024px) {
+  .book-page {
+    padding: 35px 25px; /* Réduit légèrement le padding */
+  }
+
+  .book-title {
+    font-size: 1.9rem; /* Ajuste la taille du titre */
+  }
+
+  .book-subtitle {
+    font-size: 1.45rem; /* Ajuste la taille du sous-titre */
+  }
+
+  .book-paragraph {
+    font-size: 1.15rem; /* Ajuste la taille du texte des paragraphes */
+  }
+
+  .book-quote {
+    font-size: 1.25rem; /* Ajuste la taille de la citation */
+  }
+
+  .book-quote span {
+    font-size: 1.05rem; /* Ajuste la taille du texte dans la citation */
+  }
+}

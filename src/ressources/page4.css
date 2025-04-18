@@ -1,0 +1,152 @@
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+:root {
+  --body-bg: #F2F2F2;
+  --header-bg: #002147;
+  --primary-text: #333;
+  --button-bg: #00539C;
+  --button-hover: #007ACC;
+  --button-active: #003D73;
+  --button-text: #FFFFFF;
+  --font-body: 'Montserrat', sans-serif;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--primary-text);
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.slogan {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.5rem;
+  color: var(--button-text);
+}
+
+
+ h3 {
+  font-size: 1.4rem;
+  color: var(--button-bg);
+  margin-bottom: 0.5rem;
+}
+
+.ressource-content p {
+  font-size: 1rem;
+  color: var(--primary-text);
+  flex-grow: 1;
+}
+
+/* Bouton Lire la suite */
+.read-more {
+  display: inline-block;
+  background: var(--button-bg);
+  color: var(--button-text);
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.read-more:hover {
+  background: var(--button-hover);
+}
+
+.read-more:active {
+  background: var(--button-active);
+}
+
+/* Footer */
+.ressources-footer {
+  background: #162B44;
+  color: var(--button-text);
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+.footer-container p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+/* Passage en mode “article” pour les recommandations */
+.books-container {
+  display: block;           /* Texte linéaire */
+  padding: 0 1rem;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+.book-card {
+  display: block;
+  width: auto;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-left: 4px solid var(--button-bg);
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: border-color var(--transition-speed);
+}
+
+.book-card:hover {
+  border-color: var(--button-hover);
+}
+
+.book-card h3 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.6rem;
+  color: var(--button-bg);
+  margin-bottom: 0.75rem;
+}
+
+.book-card p {
+  font-size: 1rem;
+  color: var(--primary-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Séparateur discret entre chaque recommandation */
+.book-card + .book-card {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 2rem;
+}
+
+/* Style responsive */
+@media (max-width: 768px) {
+  .books-container {
+    padding: 0 1rem;
+  }
+  .book-card {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slogan {
+    font-size: 2rem;
+  }
+
+  .ressources-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ressource-card {
+    width: 90%;
+  }
+}
+

@@ -1,0 +1,265 @@
+/* Styles unifiés pour les deux calculateurs - Epargne & Investissement */
+
+/* Variables CSS réutilisables */
+:root {
+  --primary-color: #002147;
+  --secondary-color-calculate: #00539C;
+  --accent-color: #007ACC;
+  --section-bg: #f7f7f7;
+  --text-color: #333;
+  --gradient-primary: linear-gradient(135deg, #00539C 0%, #007ACC 100%);
+  --border-radius: 8px;
+}
+
+/* Conteneur principal */
+.epargne-calculator-page,
+.investment-simulator-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  margin-top: 1rem;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Titre */
+.calculator-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Conteneur principal interne */
+.calculator-container,
+.simulator-container {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Formulaire */
+.calculator-form,
+.simulator-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.calculator-form label,
+.simulator-form label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+.calculator-form input,
+.simulator-form input {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.calculator-form input:focus,
+.simulator-form input:focus {
+  border-color: var(--secondary-color-calculate);
+  box-shadow: 0 0 0 3px rgba(0,83,156,0.1);
+}
+
+/* Bouton de calcul */
+.calculate-button,
+.simulate-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculate-button:hover,
+.simulate-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0,83,156,0.3);
+}
+
+.calculate-button:active,
+.simulate-button:active {
+  transform: translateY(0);
+}
+
+/* Résultats */
+.result-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.result {
+  width: 100%;
+  padding: 2rem;
+  background: var(--section-bg);
+  border-radius: var(--border-radius);
+  text-align: center;
+  animation: slideUp 0.4s ease-out;
+}
+
+.result-values {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.result p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.result strong {
+  font-size: 1.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Encadré info épargne */
+.result-and-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.epargne-info {
+  background-color: var(--section-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .epargne-calculator-page,
+  .investment-simulator-page {
+    max-width: 90%;
+    margin-top: 7rem;
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator-container,
+  .simulator-container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .calculator-form,
+  .simulator-form {
+    margin-top: 0;
+    order: 2;
+  }
+
+  .result-container {
+    order: 1;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .result-and-info {
+    order: 3;
+    padding: 0;
+  }
+
+  .epargne-info {
+    padding: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .calculator-title {
+    font-size: 1.8rem;
+  }
+
+  .calculator-form input,
+  .simulator-form input {
+    padding: 1rem;
+    border-radius: 50px;
+  }
+
+  .calculate-button,
+  .simulate-button {
+    padding: 1.1rem;
+    border-radius: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .epargne-calculator-page,
+  .investment-simulator-page {
+    margin-top: 6rem;
+    padding: 1rem;
+  }
+
+  .calculator-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .epargne-info {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,30 @@
+/* LegalMentions.css */
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .legal-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .legal-container section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .legal-container h2 {
+    color: #007BFF;
+    margin-bottom: 10px;
+  }
+  
+  .legal-container p {
+    line-height: 1.6;
+    margin: 8px 0;
+  }
+  

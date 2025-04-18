@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+/* Réinitialisation spécifique pour cette page (avec body.page1) */
+body.page1 {
+  margin-top: 3rem;
+  padding: 0;
+}
+
+/* Container général pour la page */
+.page1-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem; /* Réduction de la padding pour rapprocher le contenu du haut */
+  background-color: #F2F2F2;
+}
+
+.intro-text {
+  padding-top:40px;
+}
+
+/* Header de la page */
+.page1-header {
+  margin-bottom: 3rem; /* Légère réduction de l'espace sous le header */
+  text-align: center;
+  padding-top: 1rem; /* Permet un léger espace interne si nécessaire */
+}
+.page1-header .slogan {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.5rem;
+  color: #002147;
+  margin-bottom: 0.5rem;
+}
+.page1-header .brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Section du parcours d'apprentissage */
+.learning-path {
+  margin-bottom: 2rem;
+  margin-top:2rem;  /* Espace réduit */
+}
+.learning-path  {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem; /* Espace réduit */
+  text-align: center;
+  line-height: 1.4;
+  padding:40px;
+}
+
+.intro-text {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem; /* Espace réduit */
+  text-align: center;
+  line-height: 1.4;
+  padding:40px;
+  margin-top:1rem;
+}
+/* Conteneur des boutons (cartes d'apprentissage) */
+.learning-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Style des cartes interactives (boutons) */
+.learning-buttons .button {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 250px;
+  border: none;
+  border-radius: 8px;  /* Correction de la syntaxe */
+  overflow: hidden;
+  text-decoration: none;
+  background-color: #fff;  /* Fond blanc pour plus de contraste */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.learning-buttons .button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.learning-buttons .button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Partie supérieure du bouton : titre */
+.learning-buttons .button .button-title {
+  flex: 0 0 60%;
+  background-color: #00539C; /* Couleur professionnelle */
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+/* Partie inférieure du bouton : description */
+.learning-buttons .button .button-description {
+  flex: 0 0 40%;
+  background-color: #FFFFFF;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .page1-container {
+    max-width: 90%;
+    padding: 0.5rem;
+  }
+
+  .page1-header {
+    padding-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .page1-header .slogan {
+    font-size: 2rem;
+  }
+
+  .page1-header .brand {
+    font-size: 1rem;
+  }
+
+  .learning-path {
+    padding: 20px;
+    font-size: 1.3rem;
+  }
+
+  .intro-text {
+    padding: 20px;
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+  }
+
+  .learning-buttons {
+    gap: 1rem;
+  }
+
+  .learning-buttons .button {
+    width: 200px;
+    height: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page1-container {
+    max-width: 95%;
+    padding: 0.5rem;
+  }
+
+  .page1-header .slogan {
+    font-size: 1.8rem;
+  }
+
+  .page1-header .brand {
+    font-size: 0.95rem;
+  }
+
+  .learning-path {
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+
+  .intro-text {
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+
+  #premierbouton {
+    margin-top:2rem;
+  }
+
+  .learning-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .learning-buttons .button {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .learning-buttons .button .button-title {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .learning-buttons .button .button-description {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page1-container {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  .page1-header .slogan {
+    font-size: 1.6rem;
+  }
+
+  .page1-header .brand {
+    font-size: 0.9rem;
+  }
+
+  .learning-path {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+
+  .intro-text {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+
+  .learning-buttons .button {
+    max-width: 260px;
+  }
+
+  .learning-buttons .button .button-title {
+    font-size: 0.85rem;
+  }
+
+  .learning-buttons .button .button-description {
+    font-size: 0.8rem;
+  }
+}
+
