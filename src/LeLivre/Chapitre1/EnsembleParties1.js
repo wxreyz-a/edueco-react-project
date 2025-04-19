@@ -5,10 +5,10 @@ import "./EnsembleParties1.css"; // Import du CSS spécifique
 
 const ChapterOneParts = () => {
   const sections = [
-    { title: "Introduction au chapitre", path: "/chapitre-un-partie-une" },
-    { title: "Les premières formes d'échange", path: "/chapitre-un-partie-deux" },
-    { title: "L'apparition de la monnaie", path: "/chapitre-un-partie-trois" },
-    { title: "Les banques et leur rôle", path: "/chapitre-un-partie-quatre" },
+    { id: "section1", title: "Introduction au chapitre", path: "/chapitre-un-partie-une" },
+    { id: "section2", title: "Les premières formes d'échange", path: "/chapitre-un-partie-deux" },
+    { id: "section3", title: "L'apparition de la monnaie", path: "/chapitre-un-partie-trois" },
+    { id: "section4", title: "Les banques et leur rôle", path: "/chapitre-un-partie-quatre" },
   ];
 
   // JSON‑LD pour un fil d’Ariane (BreadcrumbList)
@@ -77,8 +77,8 @@ const ChapterOneParts = () => {
           </p>
 
           <div className="chapter-sections">
-            {sections.map((section, index) => (
-              <Link key={index} to={section.path} className="chapter-link">
+            {sections.map((section) => (
+              <Link key={section.id} to={section.path} className="chapter-link">
                 <div className="chapter-card">
                   <h2>{section.title}</h2>
                 </div>

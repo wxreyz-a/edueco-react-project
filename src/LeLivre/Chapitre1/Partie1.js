@@ -21,7 +21,7 @@ const ChapterOnePartOne = () => {
 
         <blockquote className="book-quote">
           "L'argent n'est pas simplement un moyen d'échange, c'est une histoire que nous nous racontons tous."  
-          <span> - Yuval Noah Harari</span>
+          <span>- Yuval Noah Harari</span>
         </blockquote>
 
         <p className="book-paragraph">

@@ -18,7 +18,7 @@ const RessourcesUtiles = () => {
             <div className="tool-card">
               <h3>Calculatrice d'épargne</h3>
               <p>Projetez votre épargne sur plusieurs années.</p>
-              <Link to="/calculateur_epargne" className="tool-link" aria-label="Utiliser la calculatrice d'épargne">
+              <Link to="/calculateur-epargne" className="tool-link" aria-label="Utiliser la calculatrice d'épargne">
                 Utiliser l'outil
               </Link>
             </div>
@@ -26,7 +26,7 @@ const RessourcesUtiles = () => {
             <div className="tool-card">
               <h3>Simulateur d'investissement</h3>
               <p>Estimez vos retours sur investissement potentiels.</p>
-              <Link to="/simulateur_invest" className="tool-link" aria-label="Utiliser le simulateur d'investissement">
+              <Link to="/simulateur-investissement" className="tool-link" aria-label="Utiliser le simulateur d'investissement">
                 Utiliser l'outil
               </Link>
             </div>

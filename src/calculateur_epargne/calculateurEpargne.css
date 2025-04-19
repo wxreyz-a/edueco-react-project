@@ -1,16 +1,3 @@
-/* Styles unifiés pour les deux calculateurs - Epargne & Investissement */
-
-/* Variables CSS réutilisables */
-:root {
-  --primary-color: #002147;
-  --secondary-color-calculate: #00539C;
-  --accent-color: #007ACC;
-  --section-bg: #f7f7f7;
-  --text-color: #333;
-  --gradient-primary: linear-gradient(135deg, #00539C 0%, #007ACC 100%);
-  --border-radius: 8px;
-}
-
 /* Conteneur principal */
 .epargne-calculator-page,
 .investment-simulator-page {

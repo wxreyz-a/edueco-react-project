@@ -25,7 +25,6 @@ import ChapitreQuatrePartieDeux from './LeLivre/Chapitre4/Chap4Partie2';
 import ChapitreQuatrePartieTrois from './LeLivre/Chapitre4/Chap4Partie3';
 import ChapitreQuatrePartieQuatre from './LeLivre/Chapitre4/Chap4Partie4';
 import Page1 from './finance/page1';
-import FormationComplete from './Parcours_payant/payant';
 import Budget from './finance/apprendre_finance/budget';
 import Epargne from './finance/apprendre_finance/epargne';
 import Investissement from './finance/apprendre_finance/investissement';
@@ -80,7 +79,6 @@ function App() {
         <Route path="/chapitre-quatre-partie-trois" element={<ChapitreQuatrePartieTrois />} />
         <Route path="/chapitre-quatre-partie-quatre" element={<ChapitreQuatrePartieQuatre />} />
         <Route path="/apprendre" element={<Page1 />} />
-        <Route path="/formation-complete" element={<FormationComplete />} />
         <Route path="/faire-un-budget" element={<Budget />} />
         <Route path="/epargne" element={<Epargne />} />
         <Route path="/investissement" element={<Investissement />} />

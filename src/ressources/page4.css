@@ -1,19 +1,5 @@
  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
-:root {
-  --body-bg: #F2F2F2;
-  --header-bg: #002147;
-  --primary-text: #333;
-  --button-bg: #00539C;
-  --button-hover: #007ACC;
-  --button-active: #003D73;
-  --button-text: #FFFFFF;
-  --font-body: 'Montserrat', sans-serif;
-  --border-radius: 12px;
-  --transition-speed: 0.3s;
-}
-
-/* Reset */
 * {
   margin: 0;
   padding: 0;

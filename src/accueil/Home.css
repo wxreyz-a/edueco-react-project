@@ -1,21 +1,3 @@
-:root {
-  /* Harmonisation des variables */
-  --primary-color: #00539C;
-  --secondary-color: #FFCD00;
-  --accent-color: #1C86EE;
-  --text-primary: #2A2A2A;
-  --text-secondary: #555;
-  --button-bg: var(--primary-color);
-  --button-text: #FFFFFF;
-  --max-width: 1280px;
-  --section-spacing: 4rem;
-  --header-height: 80px;
-  
-  /* Nouvelles variables */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
-  --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
-}
 /* Container global */
 .container {
   max-width: var(--max-width);

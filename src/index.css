@@ -11,23 +11,56 @@
    Variables CSS Personnalisées
 =============================== */
 :root {
+  /* Couleurs principales */
+  --primary-color: #00539C; /* La dernière valeur déclarée */
+  --secondary-color: #FFCD00;
+  --accent-color: #FF7043;
+  --accent-hover: #FF8A65;
+  --secondary-color-calculate: #00539C;
+
+  /* Fond et textes */
   --body-bg: #F2F2F2;
-  --header-bg: #2A2A2A;
-  --primary-text: #3e3d3d;
+  --background: #D3D3D3;
+  --header-bg: #002147;
+  --section-bg: #f7f7f7;
+  --info-bg: #FFFFFF;
+
+  --primary-text: #333;
+  --text-primary: #2A2A2A;
+  --text-secondary: #555;
+  --text-color: #333;
+
+  /* Boutons */
   --button-bg: #00539C;
-  --button-bg-hover: #007ACC;
-  --button-bg-active: #003D73;
+  --button-hover: #007ACC;
+  --button-active: #003D73;
   --button-text: #FFFFFF;
+
+  /* Police */
   --font-body: 'Montserrat', sans-serif;
   --font-slogan: 'Roboto Slab', serif;
-  --max-width: 1200px;
-  --border-radius: 8px;
-  --transition-speed: 0.3s;
+  --font-header: 'Nunito', sans-serif;
+
+  /* Layout */
+  --max-width: 1280px;
+  --section-spacing: 4rem;
+  --header-height: 80px;
   --header-padding: 1rem 2rem;
-  --info-bg: #FFFFFF;
-  --section-bg: #F2F2F2;
-  --gradient-primary: linear-gradient(135deg, #00539C, #007ACC);
+
+  /* Effets */
+  --border-radius: 12px;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  --transition: 0.3s ease-in-out;
+  --transition-speed: 0.3s;
+  --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Dégradés */
+  --gradient-primary: linear-gradient(135deg, #00539C 0%, #007ACC 100%);
 }
+
 
 /* ===============================
    Reset & Règles Globales

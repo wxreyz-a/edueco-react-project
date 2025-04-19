@@ -1,16 +1,3 @@
-/* BudgetTrainingArticle.css */
-
-/* Variables pour un design simple, chaleureux et mignon avec fond blanc */
-:root {
-  --primary-color: #3E2723;         /* Brun chaleureux */
-  --accent-color: #FF7043;          /* Orange vif et amical */
-  --accent-hover: #FF8A65;          /* Couleur d'accentuation au survol */
-  --background: #D3D3D3;            /* Fond blanc */
-  --shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  --transition: 0.3s ease-in-out;   /* Durée de transition */
-  --font-header: 'Nunito', sans-serif; /* Police pour les en-têtes */
-  --font-body: 'Nunito Sans', sans-serif; /* Police pour le corps du texte */
-}
 
 /* Animation discrète pour une entrée fluide */
 @keyframes fadeIn {
