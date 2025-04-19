@@ -30,7 +30,7 @@ const LegalMentions = () => {
       <section className="contact">
         <h2>Contact</h2>
         <p>Pour toute question ou information, vous pouvez nous contacter à l'adresse suivante :</p>
-        <p><strong>Email :</strong> contact@exemple.com</p>
+        <p><strong>Email :</strong>mefinancer@edueco.fr</p>
       </section>
 
       <section className="responsibility">
