@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
 import Home from './accueil/Home';
 import Contact from './accueil/Contact';
@@ -52,7 +52,7 @@ import Mentionslegales from './accueil/MentionsLegales';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -104,9 +104,8 @@ function App() {
         <Route path="/simulateur-investissement" element={<SimulateurInvest />} />
         <Route path="/mentions-legales" element={<Mentionslegales />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
 export default App;
-
