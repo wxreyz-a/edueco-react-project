@@ -1,4 +1,3 @@
-// src/pages/Contact.js
 import React from 'react';
 import './contact.css';
 
@@ -11,7 +10,7 @@ const Contact = () => {
       <main>
         <p>
           Pour plus d'informations, n'hésitez pas à nous contacter à l'adresse : 
-          <a href="mailto:mefinancer@edueco.fr" className="email-link"> mefinancer@edueco.fr</a>
+          <a href="mailto:mefinancer@edueco.fr" className="email-link" aria-label="Envoyer un email à mefinancer@edueco.fr"> mefinancer@edueco.fr</a>
         </p>
       </main>
       <footer>
