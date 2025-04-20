@@ -1,5 +1,5 @@
-/* Container global */
-.container {
+ /* Container global */
+ .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0;
@@ -549,3 +549,4 @@ body {
   top: 10px;
   right: 20px;
 }
+

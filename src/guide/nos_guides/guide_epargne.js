@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import '../nos_guides_styles/General_guides.css';
 
 const GuideEpargneArticle = () => {
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    fetch('/src/guide/nos_guides/content/guide_epargne_content.json')
+      .then((response) => response.json())
+      .then((data) => setContent(data))
+      .catch((error) => {
+        console.error('Erreur lors du chargement du contenu:', error);
+      });
+  }, []);
+
+  if (!content) {
+    return <div>Chargement du contenu...</div>;
+  }
+
   return (
     <>
       <Helmet>
@@ -10,13 +25,13 @@ const GuideEpargneArticle = () => {
 
         {/* Titre et Meta Description */}
         <title>Guide Pratique pour Booster Votre Épargne – Conseils et Automatisation | EduEco</title>
-        <meta 
-          name="description" 
-          content="Apprenez comment booster votre épargne grâce à des conseils pratiques et des démarches concrètes pour automatiser vos économies. Un guide complet pour sécuriser votre avenir financier." 
+        <meta
+          name="description"
+          content="Apprenez comment booster votre épargne grâce à des conseils pratiques et des démarches concrètes pour automatiser vos économies. Un guide complet pour sécuriser votre avenir financier."
         />
-        <meta 
-          name="keywords" 
-          content="épargne, automatisation, économies, conseils financiers, gestion budgétaire, guide épargne" 
+        <meta
+          name="keywords"
+          content="épargne, automatisation, économies, conseils financiers, gestion budgétaire, guide épargne"
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://edueco.fr/guide-epargne" />
@@ -63,58 +78,30 @@ const GuideEpargneArticle = () => {
 
       <div className="guide-article">
         <header className="article-header">
-          <h1>Conseils Pratiques : Boostez Votre Épargne</h1>
-          <p className="article-subtitle">
-            Des étapes détaillées pour automatiser vos économies et atteindre vos objectifs financiers.
-          </p>
+          <h1>{content.title}</h1>
+          <p className="article-subtitle">{content.subtitle}</p>
         </header>
         <article className="article-content">
-          <section id="introduction" className="introduction">
-            <h2>Pourquoi mettre l'accent sur l'épargne ?</h2>
-            <p>
-              L’épargne est la base de votre sécurité financière. Ce guide vous montre comment démarrer, quels outils utiliser et comment adapter vos dépenses pour dégager une somme régulière à mettre de côté.
-            </p>
-          </section>
-          <section id="actions-cles" className="actions-cles">
-            <h2>Étapes Clés pour une Épargne Efficace</h2>
-            <ul>
-              <li>
-                <strong>Automatisation des virements :</strong> Configurez des virements automatiques depuis votre compte courant vers un compte épargne dédié.
-              </li>
-              <li>
-                <strong>Réduction des dépenses inutiles :</strong> Passez en revue vos abonnements et négociez les meilleures offres.
-              </li>
-              <li>
-                <strong>Fixation d’objectifs concrets :</strong> Définissez un montant mensuel à épargner associé à un projet spécifique.
-              </li>
-              <li>
-                <strong>Utilisation d'outils de suivi :</strong> Optez pour des applications qui vous alertent en cas de dépassement de budget.
-              </li>
-            </ul>
-          </section>
-          <section id="demarches" className="demarches">
-            <h2>Démarches Concrètes pour Automatiser et Suivre votre Épargne</h2>
-            <ol>
-              <li>
-                <strong>Évaluation initiale :</strong> Analysez vos revenus et dépenses avec un outil dédié.
-              </li>
-              <li>
-                <strong>Mise en place de l’automatisation :</strong> Contactez votre banque pour configurer des virements automatiques lors de votre paie.
-              </li>
-              <li>
-                <strong>Suivi régulier :</strong> Vérifiez mensuellement que vos virements ont bien été effectués.
-              </li>
-              <li>
-                <strong>Revoyez vos objectifs :</strong> Ajustez votre plan en fonction de l'évolution de vos finances.
-              </li>
-            </ol>
-          </section>
-          <section id="conclusion" className="conclusion">
-            <h2>En Résumé</h2>
-            <p>
-              Adoptez ces conseils en commençant par automatiser vos virements et en réévaluant régulièrement vos dépenses pour booster votre épargne.
-            </p>
-          </section>
+          {content.sections.map((section) => (
+            <section key={section.id} id={section.id} className={section.id}>
+              <h2>{section.title}</h2>
+              {section.content && <p>{section.content}</p>}
+              {section.listType === 'ul' && (
+                <ul>
+                  {section.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {section.listType === 'ol' && (
+                <ol>
+                  {section.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ol>
+              )}
+            </section>
+          ))}
         </article>
       </div>
     </>
