@@ -295,6 +295,18 @@ const Home = () => {
               "@type": "SearchAction",
               "target": "https://edueco.fr/?q={search_term_string}",
               "query-input": "required name=search_term_string"
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "EduEco"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "EduEco",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://edueco.fr/images/logo.png"
+              }
             }
           }
         `}</script>
