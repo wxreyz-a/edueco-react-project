@@ -1,71 +1,167 @@
+/* Enhanced mobile experience for articles */
+
 .article {
-  font-family: 'Georgia', serif;
-  line-height: 1.8;
+  font-family: 'Open Sans', Arial, sans-serif;
+  line-height: 1.6;
   margin: 3rem auto;
-  max-width: 800px;
-  padding: 40px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  padding: 2.5rem 3rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: #333333;
+  transition: box-shadow 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.article:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .article-header {
-  border-bottom: 3px solid #333;
-  padding-bottom: 15px;
-  margin-bottom: 30px;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
 }
 
 .article-header h1 {
   margin: 0;
-  font-size: 2.8rem;
-  color: #222;
-  font-weight: bold;
-  text-transform: uppercase;
-  max-width:100%;
+  font-size: 3rem;
+  color: #007bff;
+  font-weight: 700;
+  text-transform: none;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .subtitle {
-  font-size: 1.4rem;
-  color: #555;
-  font-style: italic;
-  margin-top: 10px;
+  font-size: 1.5rem;
+  color: #555555;
+  font-style: normal;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  word-break: break-word;
 }
 
 .article-section {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 .article-section h2 {
-  font-size: 2.2rem;
-  color: #2c3e50;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
+  font-size: 2.4rem;
+  color: #0056b3;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-family: 'Roboto Slab', serif;
+  word-break: break-word;
 }
 
 .article-section p {
-  font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 20px;
+  font-size: 1.15rem;
+  color: #444444;
+  margin-bottom: 1.25rem;
   text-align: justify;
+  word-break: break-word;
 }
 
 .article-section ul,
 .article-section ol {
-  margin-left: 40px;
-  margin-bottom: 20px;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  color: #444444;
 }
 
 .article-section li {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
 }
 
 .article-footer {
   border-top: 2px solid #ddd;
-  padding-top: 15px;
+  padding-top: 1rem;
   text-align: right;
-  color: #777;
-  font-size: 0.95rem;
+  color: #777777;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Mobile-first responsive improvements */
+@media (max-width: 1024px) {
+  .article {
+    max-width: 90%;
+    padding: 2rem;
+  }
+
+  .article-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+  }
+
+  .article-section h2 {
+    font-size: 2rem;
+  }
+
+  .article-section p,
+  .article-section li {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .article {
+    max-width: 95%;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .article-header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .article-section h2 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+
+  .article-section p,
+  .article-section li {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .article {
+    max-width: 100%;
+    padding: 1.2rem;
+    margin: 1rem auto;
+  }
+
+  .article-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .article-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .article-section p,
+  .article-section li {
+    font-size: 0.95rem;
+  }
 }

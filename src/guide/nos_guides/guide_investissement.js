@@ -75,29 +75,36 @@ const GuideInvestissementArticle = () => {
           <p>
             Investir permet de faire croître votre patrimoine sur le long terme tout en maîtrisant les risques. Ce guide vous accompagne dans l'élaboration d'une stratégie d'investissement adaptée à votre profil, en vous guidant dans le choix des actifs, la gestion des risques et l'utilisation des outils d'analyse.
           </p>
+          <img src="/images/investissement-strategie.jpg" alt="Stratégie d'investissement" style={{ maxWidth: '100%', marginTop: '1em', marginBottom: '1em' }} />
+          <p>
+            <em>Exemple :</em> Si vous avez 30 ans et un horizon d'investissement à long terme, privilégiez des actions diversifiées. Pour un investisseur proche de la retraite, une allocation plus prudente avec des obligations peut être préférable.
+          </p>
         </section>
         <section className="actions-cles">
           <h2>Démarches Pratiques pour Investir</h2>
           <ul>
             <li>
-              <strong>Définir vos objectifs :</strong> Déterminez si vous privilégiez la croissance à long terme, la préparation de la retraite ou la génération de revenus complémentaires.
+              <strong>Définir vos objectifs :</strong> Identifiez clairement vos priorités : croissance à long terme, préparation de la retraite ou génération de revenus complémentaires.
             </li>
             <li>
-              <strong>Diversifier vos investissements :</strong> Répartissez votre capital entre différentes classes d'actifs, secteurs et zones géographiques pour limiter les risques.
+              <strong>Diversifier vos investissements :</strong> Répartissez votre capital entre différentes classes d'actifs, secteurs et zones géographiques pour limiter les risques et optimiser les rendements.
             </li>
             <li>
-              <strong>Gérer les risques :</strong> Apprenez à évaluer et à gérer les risques liés à chaque investissement pour protéger votre capital.
+              <strong>Gérer les risques :</strong> Apprenez à évaluer et à maîtriser les risques liés à chaque investissement pour protéger votre capital.
             </li>
             <li>
               <strong>Utiliser des outils d'analyse :</strong> Combinez analyse fondamentale et technique pour identifier les meilleures opportunités et prendre des décisions éclairées.
             </li>
           </ul>
+          <p>
+            Pour approfondir, consultez notre <a href="/guide-budget" title="Guide Budget">Guide Budget</a> et explorez nos <a href="/simulateur-investissement" title="Simulateur d'investissement">simulateurs d'investissement</a>.
+          </p>
         </section>
         <section className="demarches">
           <h2>Démarches Concrètes et Ressources</h2>
           <ol>
             <li>
-              <strong>Ouvrir un compte chez un courtier :</strong> Sélectionnez une plateforme reconnue en fonction des frais, des outils proposés et de la sécurité.
+              <strong>Ouvrir un compte chez un courtier :</strong> Choisissez une plateforme reconnue en fonction des frais, des outils proposés et de la sécurité.
             </li>
             <li>
               <strong>Suivre des formations :</strong> Participez à des webinaires, formations en ligne et lisez des ouvrages spécialisés pour approfondir vos connaissances.
@@ -112,6 +119,11 @@ const GuideInvestissementArticle = () => {
           <p>
             En définissant clairement vos objectifs, en diversifiant intelligemment vos actifs et en maîtrisant les risques, vous poserez les bases d'une stratégie d'investissement réussie et durable.
           </p>
+          <ul>
+            <li>Fixez des objectifs clairs et réalistes.</li>
+            <li>Diversifiez pour réduire les risques.</li>
+            <li>Surveillez et ajustez votre portefeuille régulièrement.</li>
+          </ul>
         </section>
       </article>
     </div>

@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import content from './content/guide_epargne_content.json';
 import { Helmet } from 'react-helmet';
 import '../nos_guides_styles/General_guides.css';
 
 const GuideEpargneArticle = () => {
-  const [content, setContent] = useState(null);
-
-  useEffect(() => {
-    fetch('/src/guide/nos_guides/content/guide_epargne_content.json')
-      .then((response) => response.json())
-      .then((data) => setContent(data))
-      .catch((error) => {
-        console.error('Erreur lors du chargement du contenu:', error);
-      });
-  }, []);
-
-  if (!content) {
-    return <div>Chargement du contenu...</div>;
-  }
-
   return (
     <>
       <Helmet>
@@ -86,6 +72,9 @@ const GuideEpargneArticle = () => {
             <section key={section.id} id={section.id} className={section.id}>
               <h2>{section.title}</h2>
               {section.content && <p>{section.content}</p>}
+              {section.id === 'introduction' && (
+                <img src="/images/epargne-securite.jpg" alt="Sécurité financière par l'épargne" style={{ maxWidth: '100%', marginTop: '1em', marginBottom: '1em' }} />
+              )}
               {section.listType === 'ul' && (
                 <ul>
                   {section.items.map((item, index) => (
@@ -99,6 +88,16 @@ const GuideEpargneArticle = () => {
                     <li key={index}>{item}</li>
                   ))}
                 </ol>
+              )}
+              {section.id === 'actions-cles' && (
+                <p>
+                  <em>Exemple :</em> Automatiser un virement mensuel de 100€ vers un compte épargne dédié peut vous aider à constituer un fonds d'urgence en moins d'un an.
+                </p>
+              )}
+              {section.id === 'demarches' && (
+                <p>
+                  Pour plus de conseils, consultez notre <a href="/guide-budget" title="Guide Budget">Guide Budget</a> et explorez nos <a href="/outils-financiers" title="Outils Financiers">outils financiers</a>.
+                </p>
               )}
             </section>
           ))}

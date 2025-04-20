@@ -204,7 +204,7 @@ const BudgetTrainingArticle = () => {
             Commencez dès aujourd’hui et voyez l’impact positif sur votre vie financière.
           </p>
           <ul>
-            <li>📊 <a href="/calculateur_epargne">Testez notre calculateur d’épargne</a></li>
+            <li>📊 <a href="/calculateur-epargne">Testez notre calculateur d’épargne</a></li>
             <li>📚 <a href="/investissement">Apprenez à investir intelligemment</a></li>
           </ul>
           <p><strong>💬 Quelle est votre plus grande difficulté avec le budget ? Partagez en commentaire !</strong></p>

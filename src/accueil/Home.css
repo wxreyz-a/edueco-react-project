@@ -1,5 +1,5 @@
- /* Container global */
- .container {
+/* Container global */
+.container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0;
@@ -12,10 +12,7 @@ body {
   color: var(--text-primary);
 }
 
-
-/* ===============================
-   Header et Navigation Sticky
-=============================== */
+/* Header et Navigation Sticky */
 .sticky-header {
   position: sticky;
   top: 0;
@@ -77,9 +74,7 @@ body {
   color: #fff;
 }
 
-/* ===============================
-   Section Hero & Introduction
-=============================== */
+/* Section Hero & Introduction */
 .hero {
   position: relative;
   display: flex;
@@ -127,9 +122,7 @@ body {
   padding: 0;
 }
 
-/* ===============================
-   Boutons Principaux
-=============================== */
+/* Boutons Principaux */
 .cta-button,
 .cta-button-pay {
   display: flex;
@@ -161,9 +154,7 @@ body {
   background-color: var(--secondary-color);
 }
 
-/* ===============================
-   Barre de Recherche (Home)
-=============================== */
+/* Barre de Recherche (Home) */
 .search-container {
   position: absolute;
   top: 50px;
@@ -238,9 +229,7 @@ body {
   color: var(--primary-text);
 }
 
-/* ===============================
-   Boutons d'Action Accueil
-=============================== */
+/* Boutons d'Action Accueil */
 .boutons-container {
   display: flex;
   justify-content: center;
@@ -290,6 +279,7 @@ body {
   text-transform: uppercase;
   font-size: 1.1rem;
   padding: 0.5rem;
+  text-align: center;
 }
 .button-description {
   flex: 0 0 40%;
@@ -303,9 +293,7 @@ body {
   text-align: center;
 }
 
-/* ===============================
-   Sections Actualités, Outils, Feedback, Newsletter
-=============================== */
+/* Sections Actualités, Outils, Feedback, Newsletter */
 .articles-section,
 .tools-section,
 .feedback-section,
@@ -409,9 +397,7 @@ body {
   transform: scale(1.02);
 }
 
-/* ===============================
-   Feedback & Newsletter
-=============================== */
+/* Feedback & Newsletter */
 .feedback-form {
   max-width: 600px;
   margin: 0 auto;
@@ -463,9 +449,7 @@ body {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
 }
 
-/* ===============================
-   Section Témoignages
-=============================== */
+/* Testimonials Section */
 .testimonials-section {
   padding: 2.5rem 0;
   background: linear-gradient(135deg, #F7F7F7, #EAEAEA);
@@ -498,9 +482,7 @@ body {
   color: #555;
 }
 
-/* ===============================
-   Footer complet
-=============================== */
+/* Footer complet */
 .footer-container {
   background: #333;
   color: #fff;
@@ -524,9 +506,7 @@ body {
   color: var(--secondary-color);
 }
 
-/* ===============================
-   Animations
-=============================== */
+/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -536,9 +516,7 @@ body {
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* ===============================
-   Menu Hamburger & Adaptation Mobile
-=============================== */
+/* Menu Hamburger & Adaptation Mobile */
 .hamburger {
   display: none;
   background: none;
@@ -550,3 +528,40 @@ body {
   right: 20px;
 }
 
+/* Mobile specific styles */
+@media (max-width: 480px) {
+  .hero-content {
+    flex: 1 1 100%;
+  }
+  .hero-image {
+    display: none;
+  }
+  .boutonsdaccueil {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.5rem;
+  }
+  .button {
+    max-width: 100%;
+    height: auto;
+  }
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .main-nav ul li a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.5rem;
+  }
+  .slogan {
+    font-size: 1.5rem;
+  }
+  .brand-container {
+    position: static;
+    margin-bottom: 1rem;
+  }
+  .hamburger {
+    display: none;
+  }
+}

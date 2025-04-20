@@ -1,128 +1,142 @@
+/* Enhanced mobile experience for apprendre articles */
 
-/* Animation discrète pour une entrée fluide */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 body {
-  background-color: #D3D3D3 !important; /* ici, #D3D3D3 pour un gris clair */
+  background-color: #f8f9fa !important;
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #333333;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 /* Styles généraux de l'article */
 .article {
-  max-width: 800px;                /* Largeur maximale de l'article */
-  margin: 0 auto 2rem;            /* Centrage et marge inférieure */
-  padding: 2rem;                   /* Espacement interne */
-  background-color:white; /* Couleur de fond */
-  border-radius: 12px;             /* Coins arrondis */
-  line-height: 1.7;                /* Hauteur de ligne */
-  font-family: var(--font-body);   /* Police du corps */
-  animation: fadeIn 0.5s ease-out; /* Animation d'entrée */
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  padding: 2.5rem 3rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  line-height: 1.7;
+  animation: fadeIn 0.5s ease-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.article:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .article-header {
-  text-align: center;               /* Centrage du texte */
-  margin-bottom: 2rem;             /* Marge inférieure */
-  padding: 2.5rem 1rem;            /* Espacement interne */
-  background: linear-gradient(to right, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0)); /* Dégradé de fond */
-  border-radius: 12px;             /* Coins arrondis */
-  position: relative;               /* Position relative pour les éléments enfants */
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 1rem;
+  background: linear-gradient(to right, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0));
+  border-radius: 12px;
+  position: relative;
 }
 
 .article-header h1 {
-  font-family: var(--font-header); /* Police pour le titre */
-  font-size: 2.8rem;                /* Taille de police */
-  font-weight: 700;                 /* Épaisseur de police */
-  color: #0056b3;                   /* Couleur du texte */
-  margin-bottom: 0.8rem;            /* Marge inférieure */
-  display: inline-block;            /* Affichage en bloc en ligne */
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 0.8rem;
+  display: inline-block;
+  text-transform: none;
+  word-break: break-word;
 }
 
 .article-header h1::after {
-  content: "";                      /* Pseudo-élément pour la ligne sous le titre */
-  display: block;                  /* Affichage en bloc */
-  width: 60%;                      /* Largeur de la ligne */
-  height: 4px;                     /* Hauteur de la ligne */
-  background-color: #007bff;      /* Couleur de la ligne */
-  margin: 8px auto 0;             /* Marge pour centrer la ligne */
-  border-radius: 2px;              /* Coins arrondis de la ligne */
+  content: "";
+  display: block;
+  width: 60%;
+  height: 4px;
+  background-color: #007bff;
+  margin: 8px auto 0;
+  border-radius: 2px;
 }
 
-/* Style du sous-titre */
 .article-subtitle {
-  font-size: 1.2rem;               /* Taille de police */
-  color: #555;                     /* Couleur du texte */
-  font-weight: 500;                /* Épaisseur de police */
-  max-width: 600px;                /* Largeur maximale */
-  margin: 0 auto;                  /* Centrage */
-  opacity: 0.9;                    /* Opacité */
+  font-size: 1.5rem;
+  color: #555555;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+  word-break: break-word;
 }
 
-/* Styles pour le contenu de l'article */
 .article-content section {
-  margin-bottom: 2rem;             /* Marge inférieure pour les sections */
+  margin-bottom: 2.5rem;
 }
 
 .article-content h2 {
-  font-family: 'Roboto Slab', serif; /* Police pour les sous-titres */
-  font-size: 2rem;                  /* Taille de police */
-  margin-bottom: 1rem;              /* Marge inférieure */
-  color: #002147;                   /* Couleur du texte */
-  border-bottom: 2px solid #00539C; /* Ligne sous le sous-titre */
-  padding-bottom: 0.5rem;           /* Espacement interne */
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  color: #0056b3;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
+  word-break: break-word;
 }
 
 .article-content h3 {
-  font-family: 'Roboto Slab', serif; /* Police pour les titres de section */
-  font-size: 1.6rem;                /* Taille de police */
-  margin: 1 .5rem 0.5rem;                  /* Marges supérieure et inférieure */
-  color: #00539C;                   /* Couleur du texte */
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.8rem;
+  margin: 1rem 0 0.5rem;
+  color: #0056b3;
+  word-break: break-word;
 }
 
 .article-content p {
-  font-size: 1rem;                  /* Taille de police */
-  margin-bottom: 1rem;              /* Marge inférieure */
-  text-align: justify;              /* Justification du texte */
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+  color: #444444;
+  word-break: break-word;
 }
 
 .article-content ul {
-  margin-left: 1.5rem;              /* Marge à gauche pour les listes */
-  list-style-type: disc;            /* Type de liste */
-  margin-bottom: 1rem;              /* Marge inférieure */
+  margin-left: 2rem;
+  list-style-type: disc;
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  color: #444444;
 }
 
 .article-content li {
-  font-size: 1rem;                  /* Taille de police */
-  margin-bottom: 0.5rem;            /* Marge inférieure */
+  margin-bottom: 0.75rem;
 }
 
-/* Liens intégrés dans l'article */
 .article-content a {
-  color: var(--accent-color);       /* Couleur des liens */
-  text-decoration: none;             /* Pas de soulignement */
-  border-bottom: 1px solid transparent; /* Bordure inférieure transparente */
-  transition: border-bottom var(--transition); /* Transition pour l'effet au survol */
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.3s ease;
 }
 
 .article-content a:hover {
-  border-bottom: 1px solid var(--accent-color); /* Bordure au survol */
+  border-bottom: 1px solid #007bff;
 }
 
 .conclusion p {
-  font-weight: bold;                 /* Épaisseur de police pour la conclusion */
-  text-align: center;                /* Centrage du texte */
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.15rem;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
   .article {
     max-width: 90%;
-    padding: 1.8rem;
-  }
-
-  .article-header {
-    padding: 2rem 1rem;
+    padding: 2rem;
   }
 
   .article-header h1 {
@@ -130,21 +144,20 @@ body {
   }
 
   .article-subtitle {
-    font-size: 1.1rem;
-    max-width: 90%;
+    font-size: 1.3rem;
   }
 
   .article-content h2 {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 
   .article-content h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   .article-content p,
   .article-content li {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -155,46 +168,27 @@ body {
     border-radius: 10px;
   }
 
-  .article-header {
-    padding: 1.5rem 1rem;
-  }
-
   .article-header h1 {
     font-size: 2rem;
-    text-align: center;
-  }
-
-  .article-header h1::after {
-    width: 80%;
   }
 
   .article-subtitle {
-    font-size: 1rem;
-    text-align: center;
+    font-size: 1.1rem;
   }
 
   .article-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-align: center;
-    padding-bottom: 0.4rem;
   }
 
   .article-content h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .article-content p,
   .article-content li {
-    font-size: 0.95rem;
-    text-align: left;
-  }
-
-  .article-content ul {
-    margin-left: 1rem;
-  }
-
-  .conclusion p {
     font-size: 1rem;
+    text-align: left;
   }
 }
 
@@ -202,11 +196,7 @@ body {
   .article {
     max-width: 100%;
     padding: 1.2rem;
-    margin: 1rem auto;
-  }
-
-  .article-header {
-    padding: 1rem;
+    margin: 1rem auto 3rem;
   }
 
   .article-header h1 {
@@ -214,11 +204,11 @@ body {
   }
 
   .article-subtitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .article-content h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .article-content h3 {
@@ -227,14 +217,6 @@ body {
 
   .article-content p,
   .article-content li {
-    font-size: 0.9rem;
-  }
-
-  .article-content a {
-    font-size: 0.9rem;
-  }
-
-  .conclusion p {
     font-size: 0.95rem;
   }
 }

@@ -76,6 +76,10 @@ const GuideBudgetArticle = () => {
             <p>
               Établir un budget est essentiel pour avoir une vision claire de vos finances. Ce guide vous aide à comprendre vos revenus, maîtriser vos dépenses et planifier efficacement vos objectifs financiers.
             </p>
+            <img src="/images/gestion-budget.jpg" alt="Gestion de budget personnel" style={{ maxWidth: '100%', marginTop: '1em', marginBottom: '1em' }} />
+            <p>
+              <em>Exemple :</em> Si vous constatez que vos dépenses en loisirs dépassent votre budget, vous pouvez ajuster vos priorités pour économiser davantage.
+            </p>
           </section>
           <section className="actions-cles">
             <h2>Étapes Clés pour Construire et Optimiser votre Budget</h2>
@@ -93,6 +97,9 @@ const GuideBudgetArticle = () => {
                 <strong>Utilisation d'outils adaptés :</strong> Exploitez des applications et logiciels de gestion budgétaire pour suivre vos finances en temps réel et ajuster votre budget.
               </li>
             </ul>
+            <p>
+              Pour approfondir, consultez notre <a href="/guide-epargne" title="Guide Épargne">Guide Épargne</a> et découvrez nos <a href="/calculateur-epargne" title="Calculateur d'épargne">outils de calcul d'épargne</a>.
+            </p>
           </section>
           <section className="demarches">
             <h2>Démarches Concrètes et Suivi Régulier</h2>
@@ -113,6 +120,11 @@ const GuideBudgetArticle = () => {
             <p>
               Une gestion rigoureuse et régulière de votre budget vous permettra d'améliorer votre santé financière et de réaliser vos projets avec sérénité.
             </p>
+            <ul>
+              <li>Établissez un budget réaliste et adapté à votre situation.</li>
+              <li>Surveillez régulièrement vos dépenses pour éviter les surprises.</li>
+              <li>Réajustez votre budget en fonction de vos objectifs et de votre évolution financière.</li>
+            </ul>
           </section>
         </article>
       </div>
