@@ -141,7 +141,7 @@ const EpargneTrainingArticle = () => {
             <h2>Outils et Ressources</h2>
             <ul>
               <li>Applications : <a href="https://www.bankin.com" target="_blank" rel="noopener noreferrer">Bankin'</a>, <a href="https://www.ynab.com" target="_blank" rel="noopener noreferrer">YNAB</a>.</li>
-              <li>Utilisez notre <a href="/simulateur-epargne" target="_blank" rel="noopener noreferrer">simulateur d’épargne</a>.</li>
+              <li>Utilisez notre <a href="/calculateur-epargne"  rel="noopener noreferrer">simulateur d’épargne</a>.</li>
               <li>Comparez les meilleurs livrets d’épargne du marché.</li>
             </ul>
           </section>

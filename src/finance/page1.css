@@ -1,252 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
-
-/* Réinitialisation spécifique pour cette page (avec body.page1) */
-body.page1 {
-  margin-top: 3rem;
-  padding: 0;
-}
-
-/* Container général pour la page */
-.page1-container {
-  max-width: 1200px;
+  .page1-page {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  padding: var(--space-6);
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1rem; /* Réduction de la padding pour rapprocher le contenu du haut */
-  background-color: #F2F2F2;
-}
-
-.intro-text {
-  padding-top:40px;
-}
-
-/* Header de la page */
-.page1-header {
-  margin-bottom: 3rem; /* Légère réduction de l'espace sous le header */
+  }
+  
+  .page1-header {
   text-align: center;
-  padding-top: 1rem; /* Permet un léger espace interne si nécessaire */
-}
-.page1-header .slogan {
-  font-family: 'Roboto Slab', serif;
-  font-size: 2.5rem;
-  color: #002147;
-  margin-bottom: 0.5rem;
-}
-.page1-header .brand {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.2rem;
-  color: #555;
-  margin: 0;
-}
-
-/* Section du parcours d'apprentissage */
-.learning-path {
-  margin-bottom: 2rem;
-  margin-top:2rem;  /* Espace réduit */
-}
-.learning-path  {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1rem; /* Espace réduit */
-  text-align: center;
-  line-height: 1.4;
-  padding:40px;
-}
-
-.intro-text {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 0.5rem; /* Espace réduit */
-  text-align: center;
-  line-height: 1.4;
-  padding:40px;
-  margin-top:1rem;
-}
-/* Conteneur des boutons (cartes d'apprentissage) */
-.learning-buttons {
+  height:120px;
+  }
+  
+  .page1-slogan {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-top:1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: var(--font-3xl);
+    color: var(--primary-900);
+    margin: 0;
+    letter-spacing: -0.025em;
+  }
+  
+  .page1-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  padding-top:150px;
+  }
+  
+  .page1-categories {
+  margin-bottom: var(--space-6);
+  }
+  
+  .page1-categories-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-}
-
-/* Style des cartes interactives (boutons) */
-.learning-buttons .button {
+  gap: var(--space-4);
+  }
+  
+  .page1-category-button {
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-6);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+  
+  .page1-category-button.active,
+  .page1-category-button:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  }
+  
+  .page1-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  }
+  
+  .page1-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  width: 220px;
-  height: 250px;
-  border: none;
-  border-radius: 8px;  /* Correction de la syntaxe */
-  overflow: hidden;
-  text-decoration: none;
-  background-color: #fff;  /* Fond blanc pour plus de contraste */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.learning-buttons .button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
-}
-
-.learning-buttons .button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-/* Partie supérieure du bouton : titre */
-.learning-buttons .button .button-title {
-  flex: 0 0 60%;
-  background-color: #00539C; /* Couleur professionnelle */
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1rem;
-  padding: 0.5rem;
-}
-
-/* Partie inférieure du bouton : description */
-.learning-buttons .button .button-description {
-  flex: 0 0 40%;
-  background-color: #FFFFFF;
-  color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  padding: 0.5rem;
-  text-align: center;
-}
-
-@media (max-width: 1024px) {
-  .page1-container {
-    max-width: 90%;
-    padding: 0.5rem;
   }
-
-  .page1-header {
-    padding-top: 0.5rem;
-    margin-bottom: 2rem;
+  
+  .page1-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
   }
-
-  .page1-header .slogan {
-    font-size: 2rem;
+  
+  .page1-card-title {
+  font-family: var(--font-display);
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-3);
   }
-
-  .page1-header .brand {
+  
+  .page1-card-text {
+  font-size: var(--font-base);
+  color: var(--gray-600);
+  line-height: var(--line-normal);
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+  }
+  
+  .page1-card-link {
+    color: var(--primary-color);
+    font-weight: 600;
     font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    display: inline-block;
+    background-color: var(--primary-light); 
+    border: 1px solid var(--primary-color); 
+    box-shadow: 0 2px 6px rgba(0, 83, 156, 0.2);
   }
-
-  .learning-path {
-    padding: 20px;
-    font-size: 1.3rem;
+  
+  .page1-card-link:hover {
+    color: var(--white);
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 83, 156, 0.4);
+    text-decoration: none;
+    transform: translateY(-2px);
+    transition: transform 0.2s ease, background-color var(--transition-fast), box-shadow var(--transition-fast);
   }
-
-  .intro-text {
-    padding: 20px;
-    font-size: 1.3rem;
-    margin-top: 0.5rem;
-  }
-
-  .learning-buttons {
-    gap: 1rem;
-  }
-
-  .learning-buttons .button {
-    width: 200px;
-    height: 230px;
-  }
+  
+  .page1-footer {
+  margin-top: var(--space-8);
+  padding: var(--space-6) 0;
+  text-align: center;
+  color: var(--gray-700);
+  font-size: var(--font-base);
+  background-color: var(--gray-100);
+  border-top: 1px solid var(--gray-300);
+  font-family: var(--font-sans);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
-
-@media (max-width: 768px) {
-  .page1-container {
-    max-width: 95%;
-    padding: 0.5rem;
-  }
-
-  .page1-header .slogan {
-    font-size: 1.8rem;
-  }
-
-  .page1-header .brand {
-    font-size: 0.95rem;
-  }
-
-  .learning-path {
-    padding: 15px;
-    font-size: 1.2rem;
-  }
-
-  .intro-text {
-    padding: 15px;
-    font-size: 1.2rem;
-  }
-
-  #premierbouton {
-    margin-top:2rem;
-  }
-
-  .learning-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .learning-buttons .button {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    padding: 1rem;
-  }
-
-  .learning-buttons .button .button-title {
-    font-size: 0.9rem;
-    padding: 0.8rem;
-  }
-
-  .learning-buttons .button .button-description {
-    font-size: 0.85rem;
-    padding: 0.6rem;
-  }
+.page1-footer address {
+  font-style: normal;
+  line-height: var(--line-relaxed);
 }
-
-@media (max-width: 480px) {
-  .page1-container {
-    max-width: 100%;
-    padding: 0.5rem;
+  
+  
+  @media (max-width: 767px) {
+    .page1-header {
+      height: auto; /* Permet au header de s'adapter à son contenu */
+      padding: var(--space-4) 0;
+    }
+  
+    .page1-slogan {
+      padding-top: 0.5rem; /* Réduit le padding supérieur */
+      font-size: var(--font-xl); /* Ajuste la taille de la police pour mobile */
+    }
+  
+    .page1-container {
+      padding-top: 100px; /* Ajuste le padding pour éviter que le contenu soit caché */
+    }
   }
-
-  .page1-header .slogan {
-    font-size: 1.6rem;
+  
+  @media (max-width: 767px) {
+    .page1-categories-container {
+      flex-wrap: nowrap; /* Empêche l'empilement */
+      overflow-x: auto; /* Active le scroll horizontal */
+      -webkit-overflow-scrolling: touch; /* Améliore le scroll sur iOS */
+      gap: var(--space-4);
+      padding-bottom: var(--space-2); /* Espace sous les boutons */
+    }
   }
-
-  .page1-header .brand {
-    font-size: 0.9rem;
-  }
-
-  .learning-path {
-    padding: 10px;
-    font-size: 1.1rem;
-  }
-
-  .intro-text {
-    padding: 10px;
-    font-size: 1.1rem;
-  }
-
-  .learning-buttons .button {
-    max-width: 260px;
-  }
-
-  .learning-buttons .button .button-title {
-    font-size: 0.85rem;
-  }
-
-  .learning-buttons .button .button-description {
-    font-size: 0.8rem;
-  }
-}
-
+  

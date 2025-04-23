@@ -12,22 +12,30 @@ const routes = [
   '/chapitre-trois-partie-deux', '/chapitre-trois-partie-trois', '/chapitre-trois-partie-quatre',
   '/parties-chapitre-quatre', '/chapitre-quatre-partie-une', '/chapitre-quatre-partie-deux',
   '/chapitre-quatre-partie-trois', '/chapitre-quatre-partie-quatre', '/apprendre',
-  '/formation-complete', '/faire-un-budget', '/epargne', '/investissement', '/credit',
+  '/faire-un-budget', '/epargne', '/investissement', '/credit',
   '/assurance', '/fiscalite', '/immobilier', '/retraite', '/bourse', '/crypto', '/guides',
   '/guide-budget', '/guide-epargne', '/guide-investissement', '/conseils-fiscalite',
   '/strategies-investissement', '/conseils-retraite', '/actualites', '/ressources',
   '/investir-2025', '/trump-tarifs', '/calculateur-epargne', '/simulateur-investissement', '/mentions-legales',
 ];
 
+// Assurez-vous que le répertoire public existe
+const publicDir = path.join(__dirname, 'public');
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.map(route => `
   <url>
     <loc>${baseUrl}${route}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 `).join('')}
 </urlset>`;
 
-fs.writeFileSync(path.join(__dirname, 'public', 'sitemap.xml'), sitemap);
+fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap);
 
 console.log('✅ Sitemap généré dans /public/sitemap.xml');

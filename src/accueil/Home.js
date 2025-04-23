@@ -1,10 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import '../styles/variables.css';
 import './Home.css';
-import Image from '../images/clay-banks-GX8KBbVmC6c-unsplash.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import {  faSearch, faGraduationCap, faBook } from "@fortawesome/free-solid-svg-icons";
 
 // Hook personnalisé pour la gestion du debounce
 function useDebounce(value, delay) {
@@ -54,18 +55,36 @@ const articles = [
 
 const Hero = ({ query, setQuery, debouncedQuery, filteredResults }) => (
   <section className="hero">
+    <div className="hero-content">
+      <p className="intro-text">Votre bien-être financier est notre priorité</p>
+      <p className="hero-explanation">
+        Bienvenue sur EduEco, votre plateforme dédiée à l'éducation financière. Découvrez des conseils, des outils et des stratégies pour gérer vos finances et investir intelligemment.
+      </p>
+      <div className="cta-buttons">
+        <Link to="/apprendre" className="cta-button" aria-label="Commencer à apprendre">
+          <FontAwesomeIcon icon={faGraduationCap} className="cta-icon" />
+          <span>Commencer à Apprendre</span>
+        </Link>
+        <Link to="/livre" className="cta-button-pay" aria-label="Découvrir notre livre">
+          <FontAwesomeIcon icon={faBook} className="cta-icon" />
+          <span>L'Histoire de vos finances</span>
+        </Link>
+      </div>
+    </div>
+
     <div className="search-container">
       <form className="search-form" onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           className="search-input"
-          placeholder="Recherchez des conseils, outils..."
+          placeholder="Recherchez des conseils, outils, actualités..."
           aria-label="Recherche"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <button type="submit" className="search-button" aria-label="Lancer la recherche">
-          Rechercher
+          <FontAwesomeIcon icon={faSearch} className="search-icon" />
+          <span>Rechercher</span>
         </button>
       </form>
       {debouncedQuery && (
@@ -75,7 +94,7 @@ const Hero = ({ query, setQuery, debouncedQuery, filteredResults }) => (
               {filteredResults.map(article => (
                 <li key={article.id}>
                   <Link to={article.url}>
-                    <strong>{article.title}</strong><br />
+                    <strong>{article.title}</strong>
                     <span>{article.content}</span>
                   </Link>
                 </li>
@@ -86,22 +105,6 @@ const Hero = ({ query, setQuery, debouncedQuery, filteredResults }) => (
           )}
         </div>
       )}
-    </div>
-
-    <div className="hero-content">
-      <p className="intro-text">Votre bien-être financier est notre priorité</p>
-      <p className="hero-explanation">
-        Bienvenue sur EduEco, votre plateforme dédiée à l’éducation financière. Découvrez des conseils, des outils et des stratégies pour gérer vos finances et investir intelligemment.
-      </p>
-      <Link to="/apprendre" className="cta-button" aria-label="Accéder au guide gratuit">
-        Commencer à Apprendre
-      </Link>
-      <Link to="/livre" className="cta-button cta-button-pay" aria-label="Accéder à la formation complète">
-        L'Histoire de vos finances
-      </Link>
-    </div>
-    <div className="hero-image">
-      <img src={Image} alt="Illustration finance - graphique et tableur" loading="lazy" />
     </div>
 
     <div className="boutons-container">
@@ -170,7 +173,7 @@ const ToolsSection = () => (
     <p className="section-subtitle">
       Simulez vos finances et optimisez votre budget grâce à nos outils.
     </p>
-    <div className="tools-container">
+    <div className="tools-grid">
       <div className="tool-card">
         <h3>Calculatrice d'épargne</h3>
         <p>Projetez votre épargne sur plusieurs années.</p>
@@ -314,16 +317,18 @@ const Home = () => {
 
       {/* Header et Navigation */}
       <header className="sticky-header">
-        <div className="header-top container">
-          <h1 className="slogan">S'ÉDUQUER FINANCIÈREMENT</h1>
+        <div className="header-top">
           <div className="brand-container">
             <p className="brand">EduEco</p>
           </div>
-          <button className="hamburger" aria-label="Menu" onClick={() => setIsNavOpen(!isNavOpen)}>
-            ☰
-          </button>
+          <h1 className="slogan">S'ÉDUQUER FINANCIÈREMENT</h1>
+          <div className="nav-toggle-container">
+            <button className="hamburger" aria-label="Menu" onClick={() => setIsNavOpen(!isNavOpen)}>
+              ☰
+            </button>
+          </div>
         </div>
-        <nav className={`main-nav container ${isNavOpen ? 'open' : ''}`}>
+        <nav className={`main-nav ${isNavOpen ? 'open' : ''}`}>
           <ul>
             <li><Link to="/" onClick={() => setIsNavOpen(false)}>Accueil</Link></li>
             <li><Link to="/guides" onClick={() => setIsNavOpen(false)}>Guides</Link></li>
@@ -348,10 +353,12 @@ const Home = () => {
       </main>
 
       <footer>
-        <div className="footer-container container">
+        <div className="footer-container">
           <div className="footer-links">
             <Link to="/mentions-legales">Mentions légales</Link>
             <Link to="/contact">Contact</Link>
+            <Link to="/guides">Tous nos guides</Link>
+            <Link to="/actualites">Actualités</Link>
           </div>
           <div className="social-links">
             <a
@@ -359,13 +366,28 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Suivez-nous sur Instagram"
-              style={{ marginRight: "15px", color: "#E4405F", fontSize: "30px" }}
             >
               <FontAwesomeIcon icon={faInstagram} />
             </a>
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Suivez-nous sur Twitter"
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Suivez-nous sur LinkedIn"
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
           </div>
           <address>
-            <p>&copy; 2025 EduEco. Tous droits réservés.</p>
+            <p>&copy; {new Date().getFullYear()} EduEco. Tous droits réservés.</p>
           </address>
         </div>
       </footer>

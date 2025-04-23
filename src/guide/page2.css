@@ -1,263 +1,175 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
-/* Style général de la page Guides et Conseils */
-.page2-guides-page {
-  background: #fff;
-  color: #333;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  padding-top: 30px;
+/* Style général de la page */
+.page2-page {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  padding: var(--space-6);
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
-.page2-guides-page main.page2-container {
+.page2-page main.page2-container {
   margin-top: 0;
 }
 
 /* Header */
-/* Masquer la marque "Mes Finances" */
-.page2-guides-brand {
+.page2-brand {
   display: none;
 }
 
-/* Réduire la taille du header */
-.page2-guides-header {
-  background: #fff;
-  padding: 0.5rem 0; /* Moins d'espace vertical */
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.page2-header {
+  margin-bottom: var(--space-8);
+  text-align: center;
+  height: 120px;
 }
 
-.page2-guides-header-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.5rem 0;
-  text-align: center;
-}
-
-.page2-guides-slogan {
-  font-family: var(--font-heading);
-  font-size: 2rem; /* Taille réduite */
-  color: black;
-  margin: 0;
-  text-align: center;
-}
+.page2-slogan {
+  display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-top:1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: var(--font-3xl);
+    color: var(--primary-900);
+    margin: 0;
+    letter-spacing: -0.025em;
+  }
 
 /* Conteneur centralisé */
 .page2-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  padding-top: 150px;
 }
 
-/* Main : réduction du margin-top pour rapprocher le contenu du header */
 main.page2-container {
-  margin-top: 80px;
+  margin-top: 0;
+  position: relative;
+  z-index: 0;
 }
-
-/* Section Introduction */
-.page2-guides-intro {
-  background: #FFF;
-  padding: 2rem;
-  margin: 1.5rem auto;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 950px;
-}
-
-.page2-intro-title {
-  font-size: 2rem;
-  color: #002147;
-  margin-bottom: 1rem;
-}
-
-.page2-intro-text {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  text-align: justify;
-}
-
-/* Section Guides Cards */
-.page2-guides-cards {
+/* Section Catégories */
+.page2-categories {
+  margin-bottom: var(--space-6);
+  }
+  
+  .page2-categories-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 1.5rem 0;
+  gap: var(--space-4);
+  }
+  
+  .page2-category-button {
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-6);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+  
+  .page2-category-button.active,
+  .page2-category-button:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  }
+
+/* Section Cards */
+.page2-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
-.page2-guide-card {
-  background: #FFF;
-  border-radius: 4px;
-  padding: 1.5rem;
-  width: 300px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.page2-card {
+  background: white;
+  border-radius:var(--radius-md) ;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-}
-
-.page2-guide-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-
-.page2-guide-card-title {
-  font-size: 1.5rem;
-  color: #002147;
-  margin-bottom: 0.75rem;
+  align-items: center;
   text-align: center;
 }
 
-.page2-guide-card-text {
-  font-size: 1rem;
-  color: #333;
+.page2-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.page2-card-icon {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  text-align: justify;
 }
 
-/* Bouton "Lire la suite" aligné en bas */
-.page2-guide-card-link {
-  display: block;
-  text-align: center;
-  background: #00539C;
-  color: #FFF;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+.page2-card-title {
+  font-size: 1.5rem;
+  color: var(--primary-900);
+  margin-bottom: 1rem;
+  font-family: 'Roboto Slab', serif;
+}
+
+.page2-card-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.page2-card-link {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-md);
   text-decoration: none;
+  font-weight: 600;
   transition: background 0.3s ease;
   margin-top: auto;
 }
 
-.page2-guide-card-link:hover {
-  background: #007ACC;
+.page2-card-link:hover {
+  background: var(--primary-color);
+  color:white;
+  transform: translateY(-2px);
 }
 
-/* Footer */
-.page2-guides-footer {
-  background: #162B44;
-  padding: 1.5rem 0;
-  margin-top: 3rem;
-}
-
-.page2-footer-container {
+.page2-footer {
+  margin-top: var(--space-8);
+  padding: var(--space-6) 0;
   text-align: center;
-  color: #FFF;
-  border-top: 2px solid rgba(255,255,255,0.2);
-  padding: 1rem 0;
+  color: var(--gray-700);
+  font-size: var(--font-base);
+  background-color: var(--gray-100);
+  border-top: 1px solid var(--gray-300);
+  font-family: var(--font-sans);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.page2-footer address {
+  font-style: normal;
+  line-height: var(--line-relaxed);
 }
 
-.page2-footer-container p {
-  margin: 0;
-  font-size: 0.9rem;
-}
+@media (max-width: 767px) {
+  .page2-header {
+    height: auto; /* Permet au header de s'adapter à son contenu */
+    padding: var(--space-4) 0;
+  }
 
-/* Responsive */
-@media (max-width: 768px) {
+  .page2-slogan {
+    padding-top: 0.5rem; /* Réduit le padding supérieur */
+    font-size: var(--font-xl); /* Ajuste la taille de la police pour mobile */
+  }
+
   .page2-container {
-    max-width: 95%;
-    padding: 0 1rem;
-  }
-
-  .page2-guides-header {
-    padding: 0.75rem 0;
-  }
-
-  .page2-guides-slogan {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  .page2-guides-intro {
-    width: 90%;
-    padding: 1.5rem;
-    margin: 1rem auto;
-  }
-
-  .page2-intro-title {
-    font-size: 1.6rem;
-  }
-
-  .page2-intro-text {
-    font-size: 1rem;
-    text-align: left;
-  }
-
-  .page2-guides-cards {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .page2-guide-card {
-    width: 100%;
-    max-width: 350px;
-    padding: 1rem;
-  }
-
-  .page2-guide-card-title {
-    font-size: 1.4rem;
-  }
-
-  .page2-guide-card-text {
-    font-size: 1rem;
-  }
-
-  .page2-guide-card-link {
-    font-size: 1rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .page2-guides-footer {
-    padding: 1rem 0;
+    padding-top: 100px; /* Ajuste le padding pour éviter que le contenu soit caché */
   }
 }
 
-@media (max-width: 480px) {
-  .page2-guides-header {
-    padding: 0.5rem 0;
-  }
-
-  .page2-guides-slogan {
-    font-size: 1.4rem;
-  }
-
-  .page2-guides-intro {
-    width: 95%;
-    padding: 1rem;
-  }
-
-  .page2-intro-title {
-    font-size: 1.4rem;
-  }
-
-  .page2-intro-text {
-    font-size: 0.95rem;
-  }
-
-  .page2-guide-card {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .page2-guide-card-title {
-    font-size: 1.3rem;
-  }
-
-  .page2-guide-card-text {
-    font-size: 0.95rem;
-  }
-
-  .page2-guide-card-link {
-    font-size: 0.9rem;
-    padding: 0.5rem 0.8rem;
-  }
-
-  .page2-footer-container {
-    font-size: 0.8rem;
-  }
-}

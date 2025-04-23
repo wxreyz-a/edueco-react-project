@@ -57,9 +57,13 @@
 }
 
 /* ===============================
+   Style système moderne
+=============================== */
+
+/* ===============================
    Reset & Règles Globales
 =============================== */
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -67,31 +71,97 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+  font-family: var(--font-sans);
 }
 
 body {
-  background: var(--body-bg);
-  font-family: var(--font-body);
-  color: var(--primary-text);
-  line-height: 1.6;
-  text-align: center;
-}
-
-html, body {
-  max-width: 100%;
+  background-color: var(--body-bg);
+  color: var(--gray-800);
+  line-height: var(--line-normal);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
 }
 
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Typographie */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--line-tight);
+  color: var(--gray-900);
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: var(--font-4xl);
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: var(--font-3xl);
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: var(--font-2xl);
+}
+
+h4 {
+  font-size: var(--font-xl);
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Layout */
 .container {
+  width: 100%;
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+/* Aides visuelles */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* ===============================

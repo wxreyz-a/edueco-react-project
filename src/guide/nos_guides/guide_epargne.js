@@ -1,9 +1,13 @@
 import React from 'react';
 import content from './content/guide_epargne_content.json';
 import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom';
+import { getCanonicalUrl } from '../../utils/canonical';
 import '../nos_guides_styles/General_guides.css';
 
 const GuideEpargneArticle = () => {
+  const location = useLocation();
+
   return (
     <>
       <Helmet>
@@ -20,13 +24,13 @@ const GuideEpargneArticle = () => {
           content="épargne, automatisation, économies, conseils financiers, gestion budgétaire, guide épargne"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://edueco.fr/guide-epargne" />
+        <link rel="canonical" href={getCanonicalUrl(location.pathname)} />
 
         {/* Open Graph & Twitter Card */}
         <meta property="og:title" content="Guide Pratique pour Booster Votre Épargne" />
         <meta property="og:description" content="Découvrez des conseils pratiques pour automatiser vos économies et atteindre vos objectifs financiers." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://edueco.fr/guide-epargne" />
+        <meta property="og:url" content={getCanonicalUrl(location.pathname)} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Guide Pratique pour Booster Votre Épargne" />
         <meta name="twitter:description" content="Boostez votre épargne avec nos conseils pratiques et démarches pour automatiser vos économies." />
@@ -55,7 +59,7 @@ const GuideEpargneArticle = () => {
               "dateModified": "2025-04-16",
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://edueco.fr/guide-epargne"
+                "@id": "${getCanonicalUrl(location.pathname)}"
               }
             }
           `}
