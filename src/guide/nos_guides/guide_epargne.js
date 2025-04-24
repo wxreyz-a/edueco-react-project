@@ -3,7 +3,7 @@ import content from './content/guide_epargne_content.json';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
 import { getCanonicalUrl } from '../../utils/canonical';
-import '../nos_guides_styles/General_guides.css';
+import '../../styles/General_consolidated.css';
 
 const GuideEpargneArticle = () => {
   const location = useLocation();

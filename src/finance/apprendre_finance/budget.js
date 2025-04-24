@@ -1,6 +1,6 @@
 import React from 'react';
-import Helmet from 'react-helmet';
-import '../apprendre_finance_styles/General_apprendre.css';
+import { Helmet } from 'react-helmet';
+import '../../styles/General_consolidated.css';
 
 const BudgetTrainingArticle = () => {
   return (
@@ -197,7 +197,7 @@ const BudgetTrainingArticle = () => {
         </section>
 
         <section className="conclusion">
-          <h2>Conclusion : Passez à l’Action dès Aujourd’hui !</h2>
+          <h2>Conclusion : Passez à l’Action !</h2>
           <p>
             Vous avez maintenant toutes les clés pour maîtriser votre 
             budget <strong>sans frustration</strong>. 
@@ -207,7 +207,7 @@ const BudgetTrainingArticle = () => {
             <li>📊 <a href="/calculateur-epargne">Testez notre calculateur d’épargne</a></li>
             <li>📚 <a href="/investissement">Apprenez à investir intelligemment</a></li>
           </ul>
-          <p><strong>💬 Quelle est votre plus grande difficulté avec le budget ? Partagez en commentaire !</strong></p>
+          <p><strong>💬 Quelle est votre plus grande difficulté avec le budget ?</strong></p>
         </section>
       </article>
     </div>

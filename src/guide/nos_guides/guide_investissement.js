@@ -1,10 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import '../nos_guides_styles/General_guides.css';
-
+import '../../styles/General_consolidated.css';
 const GuideInvestissementArticle = () => {
   return (
-    <div className="guide-article">
+    <div className="article">
       <Helmet>
         <html lang="fr" />
 

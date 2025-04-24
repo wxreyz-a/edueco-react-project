@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import '../nos_guides_styles/General_guides.css';
+import '../../styles/General_consolidated.css';
 
 const GuideBudgetArticle = () => {
   return (
@@ -63,7 +63,7 @@ const GuideBudgetArticle = () => {
         </script>
       </Helmet>
 
-      <div className="guide-article">
+      <div className="article">
         <header className="article-header">
           <h1>Conseils Pratiques : Optimisez Votre Budget</h1>
           <p className="article-subtitle">

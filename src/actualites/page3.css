@@ -35,7 +35,6 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   color: #555; /* Couleur du deuxième CSS */
-  /* Retrait du positionnement absolu pour un alignement centré */
   margin: 0;
 }
 

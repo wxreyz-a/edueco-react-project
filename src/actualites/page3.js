@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import ImageUn from '../images/aidan-hancock-dA0SA67EgOQ-unsplash.jpg';
-import ImageDeux from '../images/darren-halstead-B_vXFdzvw3g-unsplash.jpg';
+import ArticleCard from './ArticleCard';
+import articlesData from './articlesData';
 import './page3.css';
 
 const Actualites = () => {
@@ -66,37 +65,9 @@ const Actualites = () => {
       <main className="container-actualites">
         <section className="articles-section-actualites">
           <div className="articles-container-actualites">
-            {/* Article 1 */}
-            <article className="article-card-actualites">
-              <div className="article-image-actualites">
-                <img src={ImageUn} alt="Stratégies pour investir en 2025" loading="lazy" />
-              </div>
-              <div className="article-content-actualites">
-                <h3>Investir en 2025</h3> 
-                <p>
-                  Découvrez les stratégies clés pour investir intelligemment cette année et saisir les opportunités du marché.
-                </p>
-                <Link to="/investir-2025" className="read-more-actualites" aria-label="Lire l'article Investir en 2025">
-                  Lire la suite
-                </Link>
-              </div>
-            </article>
-
-            {/* Article 2 */}
-            <article className="article-card-actualites">
-              <div className="article-image-actualites">
-                <img src={ImageDeux} alt="Optimiser son budget : Tarifs Douaniers" loading="lazy" />
-              </div>
-              <div className="article-content-actualites">
-                <h3>Tarifs Douaniers : Une Clé de bras de la part de Donald Trump</h3>
-                <p>
-                  Des conseils pratiques pour maîtriser vos dépenses et améliorer votre gestion financière.
-                </p>
-                <Link to="/trump-tarifs" className="read-more-actualites" aria-label="Lire l'article Optimiser son budget">
-                  Lire la suite
-                </Link>
-              </div>
-            </article>
+            {articlesData.map(article => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
           </div>
         </section>
       </main>

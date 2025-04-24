@@ -6,20 +6,6 @@ import './page1.css';
 const Finance = () => {
   const [selectedCategory, setSelectedCategory] = useState('tous');
 
-  const categories = [
-    { id: 'tous', label: 'Tous les modules' },
-    { id: 'budget', label: 'Budget' },
-    { id: 'epargne', label: 'Épargne' },
-    { id: 'investissement', label: 'Investissement' },
-    { id: 'credit', label: 'Crédit' },
-    { id: 'assurance', label: 'Assurance' },
-    { id: 'fiscalite', label: 'Fiscalité' },
-    { id: 'immobilier', label: 'Immobilier' },
-    { id: 'retraite', label: 'Retraite' },
-    { id: 'bourse', label: 'Bourse' },
-    { id: 'crypto', label: 'Crypto' }
-  ];
-
   const modules = [
     {
       id: 'budget',
@@ -92,6 +78,19 @@ const Finance = () => {
       link: '/crypto'
     }
   ];
+
+  // Génération des catégories
+  const uniqueCategoryIds = ['tous'];
+  modules.forEach(module => {
+    if (!uniqueCategoryIds.includes(module.category)) {
+      uniqueCategoryIds.push(module.category);
+    }
+  });
+
+  const categories = uniqueCategoryIds.map(categoryId => ({
+    id: categoryId,
+    label: categoryId === 'tous' ? 'Tous' : categoryId.charAt(0).toUpperCase() + categoryId.slice(1)
+  }));
 
   const filteredModules = selectedCategory === 'tous' 
     ? modules 

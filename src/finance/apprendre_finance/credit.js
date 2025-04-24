@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import '../apprendre_finance_styles/General_apprendre.css';
+import '../../styles/General_consolidated.css';
 
 const CreditTrainingArticle = () => {
   return (
