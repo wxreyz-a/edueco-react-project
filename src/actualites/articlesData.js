@@ -13,7 +13,7 @@ const articlesData = [
     summary: 'Des conseils pratiques pour maîtriser vos dépenses et améliorer votre gestion financière.',
     image: '',
     link: '/trump-tarifs',
-    date: 'Date à définir',
+    date: '14 mars 2025',
   },
 ];
 
