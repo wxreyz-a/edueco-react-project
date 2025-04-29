@@ -1,138 +1,120 @@
- @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+/* Styles specific to the ressources page layout and unique elements */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.ressources-page {
+  width: 100%;
+  min-height: 100vh;
 }
 
-body {
-  background-color: var(--body-bg);
-  color: var(--primary-text);
-  font-family: var(--font-body);
+.page-header {
+  padding: 2rem 1.5rem 1rem 1.5rem;
+  background-color: var(--white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
   text-align: center;
 }
 
-.slogan {
-  font-family: 'Roboto Slab', serif;
-  font-size: 2.5rem;
-  color: var(--button-text);
+.page-title {
+  margin: 0;
 }
 
-
- h3 {
-  font-size: 1.4rem;
-  color: var(--button-bg);
-  margin-bottom: 0.5rem;
+.page-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem 1.5rem;
 }
 
-.ressource-content p {
-  font-size: 1rem;
-  color: var(--primary-text);
-  flex-grow: 1;
+.tools-section {
+  margin-bottom: 3rem;
 }
 
-/* Bouton Lire la suite */
-.read-more {
-  display: inline-block;
-  background: var(--button-bg);
-  color: var(--button-text);
-  text-decoration: none;
-  padding: 0.6rem 1rem;
+.tools-list {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2.5rem;
+  flex-wrap: nowrap;
+}
+
+.tool-card {
+  background-color: var(--info-bg);
   border-radius: var(--border-radius);
-  transition: background var(--transition-speed);
-  font-weight: bold;
-  text-align: center;
-  margin-top: 1rem;
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  max-width: 45%;
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+  user-select: none;
 }
 
-.read-more:hover {
-  background: var(--button-hover);
+.tool-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 83, 156, 0.3);
+  transform: translateY(-5px);
 }
 
-.read-more:active {
-  background: var(--button-active);
+.books-section {
+  margin-top: 4rem;
 }
 
-/* Footer */
-.ressources-footer {
-  background: #162B44;
-  color: var(--button-text);
-  padding: 1rem 0;
-  margin-top: 2rem;
-}
-
-.footer-container p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-/* Passage en mode “article” pour les recommandations */
-.books-container {
-  display: block;           /* Texte linéaire */
-  padding: 0 1rem;
-  max-width: 800px;
-  margin: 0 auto 4rem auto;
+.books-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
 }
 
 .book-card {
-  display: block;
-  width: auto;
-  margin: 2rem 0;
-  padding: 1.5rem;
+  width: 90%;
+  margin: 0;
+  padding: 2rem;
   border-left: 4px solid var(--button-bg);
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: border-color var(--transition-speed);
+  background-color: var(--info-bg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: default;
+  user-select: none;
 }
 
 .book-card:hover {
   border-color: var(--button-hover);
+  transform: translateY(-5px);
 }
 
-.book-card h3 {
-  font-family: 'Roboto Slab', serif;
-  font-size: 1.6rem;
-  color: var(--button-bg);
-  margin-bottom: 0.75rem;
-}
-
-.book-card p {
-  font-size: 1rem;
-  color: var(--primary-text);
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Séparateur discret entre chaque recommandation */
-.book-card + .book-card {
-  border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: 2rem;
-}
-
-/* Style responsive */
-@media (max-width: 768px) {
-  .books-container {
-    padding: 0 1rem;
-  }
-  .book-card {
-    padding: 1rem;
-    margin: 1.5rem 0;
-  }
+.page-footer {
+  background: #162B44;
+  color: var(--button-text);
+  padding: 1rem 0;
+  margin-top: 3rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .slogan {
-    font-size: 2rem;
-  }
-
-  .ressources-container {
+  .tools-list {
     flex-direction: column;
-    align-items: center;
+    padding: 0 1.5rem;
   }
-
-  .ressource-card {
-    width: 90%;
+  .tool-card {
+    max-width: 100%;
+    flex: 1 1 100%;
+    margin: 1rem 0;
+  }
+  .books-list {
+    padding: 0 1.5rem;
+  }
+  .book-card {
+    width: 100%;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
   }
 }
-

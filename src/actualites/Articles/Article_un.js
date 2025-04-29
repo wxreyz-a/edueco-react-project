@@ -3,13 +3,11 @@ import './Articles.css';
 
 function Investir2025() {
   return (
-    <article className="article">
-      <header className="article-header">
-        <h1>Investir en 2025 : Le Pari de Demain</h1>
-        <p className="subtitle">
-          Enquête sur les tendances, opportunités et défis pour les investisseurs à l'aube d'une nouvelle ère économique.
-        </p>
-      </header>
+    <article className="article-actualites">
+      <h1>Investir en 2025 : Le Pari de Demain</h1>
+      <p className="subtitle">
+        Enquête sur les tendances, opportunités et défis pour les investisseurs à l'aube d'une nouvelle ère économique.
+      </p>
 
       <section className="article-section">
         <h2>Introduction</h2>

@@ -1,128 +1,88 @@
-/* Enhanced mobile experience for articles */
+/* Newspaper style redesign for articles */
 
-.article {
-  font-family: 'Open Sans', Arial, sans-serif;
-  line-height: 1.6;
-  margin: 3rem auto;
+.article-actualites {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.4;
+  margin: 2rem auto;
   max-width: 900px;
-  padding: 2.5rem 3rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  color: #333333;
-  transition: box-shadow 0.3s ease;
+  padding: 1.5rem 2rem;
+  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+  box-shadow: none;
+  color: #000000;
+  column-count: 2;
+  column-gap: 3rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
-.article:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-.article-header {
-  border-bottom: 3px solid #007bff;
-  padding-bottom: 1rem;
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-
-.article-header h1 {
-  margin: 0;
-  font-size: 3rem;
-  color: #007bff;
-  font-weight: 700;
-  text-transform: none;
-  max-width: 100%;
-  word-break: break-word;
+.article-actualites:hover {
+  box-shadow: none;
 }
 
 .subtitle {
-  font-size: 1.5rem;
-  color: #555555;
-  font-style: normal;
-  margin-top: 0.5rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  color: #333;
+  font-style: italic;
+  margin-top: 0.3rem;
+  font-weight: 400;
   word-break: break-word;
 }
 
 .article-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  break-inside: avoid;
 }
 
 .article-section h2 {
-  font-size: 2.4rem;
-  color: #0056b3;
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  font-family: 'Roboto Slab', serif;
+  font-size: 2rem;
+  color: #000;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
   word-break: break-word;
 }
 
 .article-section p {
-  font-size: 1.15rem;
-  color: #444444;
-  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  color: #111;
+  margin-bottom: 1rem;
   text-align: justify;
   word-break: break-word;
+  hyphens: auto;
 }
 
 .article-section ul,
 .article-section ol {
-  margin-left: 2rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.15rem;
-  color: #444444;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #111;
 }
 
 .article-section li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .article-footer {
-  border-top: 2px solid #ddd;
-  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
   text-align: right;
-  color: #777777;
-  font-size: 1rem;
+  color: #555;
+  font-size: 0.9rem;
   font-style: italic;
+  font-family: 'Georgia', serif;
+  break-inside: avoid;
 }
 
-/* Mobile-first responsive improvements */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
-  .article {
+  .article-actualites {
+    column-count: 1;
     max-width: 90%;
-    padding: 2rem;
-  }
-
-  .article-header h1 {
-    font-size: 2.4rem;
-  }
-
-  .subtitle {
-    font-size: 1.3rem;
-  }
-
-  .article-section h2 {
-    font-size: 2rem;
-  }
-
-  .article-section p,
-  .article-section li {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .article {
-    max-width: 95%;
     padding: 1.5rem;
-    border-radius: 10px;
-  }
-
-  .article-header h1 {
-    font-size: 2rem;
   }
 
   .subtitle {
@@ -130,26 +90,19 @@
   }
 
   .article-section h2 {
-    font-size: 1.7rem;
-    text-align: center;
+    font-size: 1.8rem;
   }
 
   .article-section p,
   .article-section li {
     font-size: 1rem;
-    text-align: left;
   }
 }
 
-@media (max-width: 480px) {
-  .article {
-    max-width: 100%;
-    padding: 1.2rem;
-    margin: 1rem auto;
-  }
-
-  .article-header h1 {
-    font-size: 1.8rem;
+@media (max-width: 768px) {
+  .article-actualites {
+    max-width: 95%;
+    padding: 1rem;
   }
 
   .subtitle {
@@ -158,10 +111,33 @@
 
   .article-section h2 {
     font-size: 1.5rem;
+    text-align: left;
   }
 
   .article-section p,
   .article-section li {
     font-size: 0.95rem;
+    text-align: justify;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-actualites {
+    max-width: 100%;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .article-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .article-section p,
+  .article-section li {
+    font-size: 0.9rem;
   }
 }

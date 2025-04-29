@@ -3,13 +3,11 @@ import './Articles.css';
 
 function TarifsTrump() {
   return (
-    <article className="article">
-      <header className="article-header">
-        <h1>Actualité économique : Trump relance la guerre commerciale avec de nouveaux tarifs</h1>
-        <p className="subtitle">
-          Donald Trump impose des tarifs douaniers comme levier de négociation internationale.
-        </p>
-      </header>
+    <article className="article-actualites">
+      <h1>TRUMP RELANCE LA GUERRE</h1>
+      <p className="subtitle">
+        Donald Trump impose des tarifs douaniers comme levier de négociation internationale.
+      </p>
 
       <section className="article-section">
         <h2>Introduction</h2>
@@ -30,7 +28,7 @@ function TarifsTrump() {
           illicites transitant par ces pays.
         </p>
       </section>
-
+    
       <section className="article-section">
         <h2>Réactions internationales</h2>
         <ul>
@@ -39,7 +37,7 @@ function TarifsTrump() {
           <li><strong>Inde :</strong> Trump a affirmé que l'Inde devrait réduire ses propres taxes sur les produits américains sous peine de subir des représailles tarifaires dès le 2 avril.</li>
         </ul>
       </section>
-
+      
       <section className="article-section">
         <h2>Perspectives économiques</h2>
         <p>
