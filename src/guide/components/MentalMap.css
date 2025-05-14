@@ -1,0 +1,233 @@
+/* Import des variables et styles partagés */
+@import url('../../styles/variables.css');
+@import url('../../styles/General_consolidated.css');
+@import url('../../accueil/Home.css');
+
+.mental-map-container {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-6);
+  padding-top: 3rem;
+  margin: var(--space-8) auto;
+  max-width: var(--max-width);
+}
+
+.mental-map-header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.mental-map-header h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  color: var(--primary-900);
+  margin: var(--space-2) 0;
+}
+
+.mental-map-subtitle {
+  font-size: var(--font-lg);
+  color: var(--gray-600);
+  margin-bottom: var(--space-6);
+}
+
+.mental-map-navigation {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: 1.5rem;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.mental-map-step-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--primary-color);
+  background-color: var(--white);
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mental-map-step-button:hover {
+  background-color: var(--primary-light);
+}
+
+.mental-map-step-button.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.mental-map-step-content {
+  margin-bottom: var(--space-6);
+}
+
+.mental-map-step-content h2 {
+  font-family: var(--font-display);
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-4);
+  padding-top: 2rem;
+}
+
+.mental-map-step-content p {
+  font-size: var(--font-base);
+  color: var(--gray-700);
+  line-height: var(--line-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.mental-map-step-content ul,
+.mental-map-step-content ol {
+  margin-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.mental-map-step-content img {
+  display: block;
+  margin: var(--space-4) auto;
+  border-radius: var(--radius-md);
+  max-width: 100%;
+}
+
+.mental-map-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mental-map-footer button {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--font-base);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.mental-map-footer button[disabled] {
+  background-color: var(--gray-300);
+  color: var(--gray-600);
+  cursor: not-allowed;
+}
+
+.mental-map-footer button:not([disabled]) {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.mental-map-footer button:not([disabled]):hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .mental-map-container {
+    padding: var(--space-4);
+    margin: var(--space-4);
+  }
+
+  .mental-map-header h1 {
+    font-size: var(--font-xl);
+  }
+
+  .mental-map-subtitle {
+    font-size: var(--font-base);
+  }
+
+  .mental-map-navigation {
+    gap: var(--space-1);
+  }
+
+  .mental-map-step-button {
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--font-sm);
+  }
+
+  .mental-map-step-content h2 {
+    font-size: var(--font-lg);
+    padding-top: 4rem;
+  }
+
+  .mental-map-step-content p,
+  .mental-map-step-content ul,
+  .mental-map-step-content ol {
+    font-size: var(--font-sm);
+    margin-left: var(--space-4);
+  }
+
+  .mental-map-footer {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .mental-map-footer button {
+    width: 100%;
+    padding: var(--space-3);
+    font-size: var(--font-base);
+  }
+}
+
+/* Masquer la navigation des étapes sur mobile */
+@media (max-width: 600px) {
+  .mental-map-navigation {
+    display: none;
+  }
+}
+
+/* Additional improvements for very small devices */
+@media (max-width: 360px) {
+  .mental-map-container {
+    padding: var(--space-3);
+    margin: var(--space-3);
+  }
+
+  .mental-map-header h1 {
+    font-size: var(--font-md);
+  }
+  .mental-map-container {
+    padding-top: calc(var(--space-6) + 3rem); /* Add extra top padding to avoid header overlap */
+  }
+  .mental-map-subtitle {
+    font-size: var(--font-xs);
+  }
+
+  .mental-map-step-button {
+    width: 2.2rem; /* slightly larger for touch */
+    height: 2.2rem;
+    font-size: var(--font-sm);
+  }
+
+  .mental-map-step-content h2 {
+    font-size: var(--font-sm);
+  }
+
+  .mental-map-step-content p,
+  .mental-map-step-content ul,
+  .mental-map-step-content ol {
+    font-size: var(--font-xs);
+    margin-left: var(--space-2);
+  }
+
+  .mental-map-footer {
+    gap: var(--space-2);
+  }
+
+  .mental-map-footer button {
+    font-size: var(--font-sm);
+    padding: var(--space-2);
+  }
+}

@@ -1,8 +1,94 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import '../../styles/General_consolidated.css';
+import MentalMap from '../components/MentalMap';
+import '../components/MentalMap.css';
 
 const ConseilsFiscaliteArticle = () => {
+  const content = {
+    title: 'Conseils Fiscalité : Optimisez vos Impôts',
+    subtitle: 'Tirez le meilleur parti des dispositifs fiscaux',
+    sections: [
+      {
+        id: 'introduction',
+        title: 'Introduction',
+        content:
+          "Une bonne gestion fiscale peut considérablement alléger votre charge d'impôts. Cet article vous propose des conseils pratiques pour optimiser votre situation fiscale et vous guide à travers une carte mentale interactive des stratégies à adopter.",
+      },
+      {
+        id: 'declarations',
+        title: 'Déclarations',
+        content: 'Maîtrisez vos obligations déclaratives.',
+        listType: 'ul',
+        items: [
+          'Respectez les dates limites.',
+          'Utilisez des logiciels fiscaux.',
+          'Archivez vos documents.',
+        ],
+      },
+      {
+        id: 'deductions',
+        title: 'Déductions',
+        content: 'Réduisez votre base imposable.',
+        listType: 'ul',
+        items: [
+          'Frais professionnels.',
+          'Dons caritatifs.',
+          'Intérêts d’emprunt.',
+        ],
+      },
+      {
+        id: 'credits-impot',
+        title: "Crédits d'Impôt",
+        content: 'Récupérez une partie de vos dépenses.',
+        listType: 'ul',
+        items: [
+          'Travaux énergétiques.',
+          'Emploi à domicile.',
+          'Investissements PME.',
+        ],
+      },
+      {
+        id: 'planification',
+        title: 'Planification',
+        content: 'Optimisez sur le long terme.',
+        listType: 'ul',
+        items: [
+          'Anticipez vos investissements.',
+          'Planifiez vos dépenses.',
+          'Consultez un expert.',
+        ],
+      },
+      {
+        id: 'comparaison',
+        title: 'Comparaison',
+        content: 'Choisissez le meilleur dispositif.',
+        listType: 'ul',
+        items: [
+          'Comparez les régimes fiscaux.',
+          'Évaluez les avantages.',
+          'Analysez les contraintes.',
+        ],
+      },
+      {
+        id: 'reevaluation',
+        title: 'Réévaluation',
+        content: 'Ajustez votre stratégie.',
+        listType: 'ul',
+        items: [
+          'Suivez vos revenus.',
+          'Adaptez vos dépenses.',
+          'Révisez annuellement.',
+        ],
+      },
+      {
+        id: 'conclusion',
+        title: 'Conclusion',
+        content:
+          'En visualisant vos stratégies sous forme de carte mentale, vous pouvez optimiser vos finances et réduire vos impôts efficacement.',
+      },
+    ],
+  };
+
   return (
     <div className="article">
       <Helmet>
@@ -60,102 +146,7 @@ const ConseilsFiscaliteArticle = () => {
         </script>
       </Helmet>
 
-      <header className="article-header">
-        <h1>Conseils Fiscalité : Optimisez vos Impôts</h1>
-        <p className="article-subtitle">
-          Tirez le meilleur parti des dispositifs fiscaux
-        </p>
-      </header>
-
-      <article className="article-content">
-        <section className="introduction">
-          <h2>Introduction</h2>
-          <p>
-            Une bonne gestion fiscale peut considérablement alléger votre charge d'impôts. Cet article vous propose des conseils pratiques pour optimiser votre situation fiscale et vous guide à travers une <strong>carte mentale</strong> interactive des stratégies à adopter.
-          </p>
-        </section>
-
-        <section className="mindmap">
-          <h2>Carte Mentale des Conseils Fiscaux 🗺️</h2>
-          <div className="mindmap-container">
-            <div className="mindmap-grid">
-              <div className="mindmap-node">
-                <div className="node-content">
-                  <h4>Déclarations</h4>
-                  <p>Maîtrisez vos obligations déclaratives.</p>
-                  <ul>
-                    <li>Respectez les dates limites.</li>
-                    <li>Utilisez des logiciels fiscaux.</li>
-                    <li>Archivez vos documents.</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="mindmap-node">
-                <div className="node-content">
-                  <h4>Déductions</h4>
-                  <p>Réduisez votre base imposable.</p>
-                  <ul>
-                    <li>Frais professionnels.</li>
-                    <li>Dons caritatifs.</li>
-                    <li>Intérêts d’emprunt.</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="mindmap-node">
-                <div className="node-content">
-                  <h4>Crédits d'Impôt</h4>
-                  <p>Récupérez une partie de vos dépenses.</p>
-                  <ul>
-                    <li>Travaux énergétiques.</li>
-                    <li>Emploi à domicile.</li>
-                    <li>Investissements PME.</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="mindmap-node">
-                <div className="node-content">
-                  <h4>Planification</h4>
-                  <p>Optimisez sur le long terme.</p>
-                  <ul>
-                    <li>Anticipez vos investissements.</li>
-                    <li>Planifiez vos dépenses.</li>
-                    <li>Consultez un expert.</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="mindmap-node">
-                <div className="node-content">
-                  <h4>Comparaison</h4>
-                  <p>Choisissez le meilleur dispositif.</p>
-                  <ul>
-                    <li>Comparez les régimes fiscaux.</li>
-                    <li>Évaluez les avantages.</li>
-                    <li>Analysez les contraintes.</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="mindmap-node">
-                <div className="node-content">
-                  <h4>Réévaluation</h4>
-                  <p>Ajustez votre stratégie.</p>
-                  <ul>
-                    <li>Suivez vos revenus.</li>
-                    <li>Adaptez vos dépenses.</li>
-                    <li>Révisez annuellement.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="conclusion">
-          <h2>Conclusion</h2>
-          <p>
-            En visualisant vos stratégies sous forme de carte mentale, vous pouvez optimiser vos finances et réduire vos impôts efficacement.
-          </p>
-        </section>
-      </article>
+      <MentalMap title={content.title} subtitle={content.subtitle} steps={content.sections} />
     </div>
   );
 };

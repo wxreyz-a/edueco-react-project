@@ -98,10 +98,6 @@ const ChapterIndex = () => {
             </Link>
           </div>
         </section>
-
-        <footer className="index-footer">
-          <p>Plongez dans la compréhension de l'argent et son impact sur votre vie.</p>
-        </footer>
       </div>
     </div>
   );

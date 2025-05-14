@@ -1,14 +1,54 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import '../../styles/General_consolidated.css';
+import MentalMap from '../components/MentalMap';
+import '../components/MentalMap.css';
 
 const ConseilsRetraiteArticle = () => {
+  const content = {
+    title: 'Conseils Pratiques : Préparez votre Retraite',
+    subtitle: 'Un guide complet pour planifier, suivre et adapter votre préparation retraite',
+    sections: [
+      {
+        id: 'introduction',
+        title: 'Pourquoi anticiper votre retraite ?',
+        content:
+          "La préparation de la retraite est une démarche stratégique. Planifier vos besoins futurs et investir dès aujourd'hui vous garantira un niveau de vie confortable demain.",
+      },
+      {
+        id: 'actions-cles',
+        title: 'Étapes Clés pour Préparer une Retraite Réussie',
+        listType: 'ul',
+        items: [
+          'Démarrage précoce : Commencer à cotiser tôt permet de tirer parti des intérêts composés, même avec de petites sommes.',
+          'Évaluation de vos besoins : Utilisez des simulateurs en ligne pour estimer votre future pension et projetez vos dépenses futures.',
+          'Plan d’épargne dédié : Optez pour un produit tel que le PER ou une assurance vie en comparant les offres disponibles.',
+          'Consultation de professionnels : Un conseiller en gestion de patrimoine pourra vous aider à optimiser votre plan en fonction de votre situation personnelle.',
+        ],
+      },
+      {
+        id: 'demarches',
+        title: 'Démarches Concrètes et Suivi Régulier',
+        listType: 'ol',
+        items: [
+          'Établir un diagnostic financier : Réunissez et analysez l’ensemble de vos documents financiers.',
+          'Utiliser des simulateurs : Estimez le montant dont vous aurez besoin pour votre retraite.',
+          'Planifier des bilans réguliers : Revoyez votre plan chaque année ou après tout changement important.',
+          'Adopter la flexibilité : Soyez prêt à ajuster votre stratégie en fonction de vos évolutions personnelles.',
+        ],
+      },
+      {
+        id: 'conclusion',
+        title: 'En Résumé',
+        content:
+          "Suivre ces étapes vous permettra de préparer votre retraite de manière proactive et sereine. La régularité et l'ajustement constant de votre plan sont les clés d'une retraite confortable.",
+      },
+    ],
+  };
+
   return (
     <div className="article">
       <Helmet>
         <html lang="fr" />
-        
-        {/* Titre et Meta */}
         <title>Conseils Pratiques : Préparez votre Retraite - EduEco</title>
         <meta
           name="description"
@@ -20,8 +60,6 @@ const ConseilsRetraiteArticle = () => {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://edueco.fr/conseils-retraite" />
-
-        {/* Open Graph & Twitter */}
         <meta property="og:title" content="Conseils Pratiques : Préparez votre Retraite - EduEco" />
         <meta
           property="og:description"
@@ -35,8 +73,6 @@ const ConseilsRetraiteArticle = () => {
           name="twitter:description"
           content="Planifiez et épargnez pour votre retraite grâce à notre guide complet."
         />
-
-        {/* JSON‑LD Structured Data */}
         <script type="application/ld+json">
           {`
             {
@@ -67,65 +103,9 @@ const ConseilsRetraiteArticle = () => {
         </script>
       </Helmet>
 
-      <header className="article-header">
-        <h1>Conseils Pratiques : Préparez votre Retraite</h1>
-        <p className="article-subtitle">
-          Un guide complet pour planifier, suivre et adapter votre préparation retraite
-        </p>
-      </header>
-      <article className="article-content">
-        <section className="introduction">
-          <h2>Pourquoi anticiper votre retraite ?</h2>
-          <p>
-            La préparation de la retraite est une démarche stratégique. Planifier vos besoins futurs et investir dès aujourd'hui vous garantira un niveau de vie confortable demain.
-          </p>
-        </section>
-        <section className="actions-cles">
-          <h2>Étapes Clés pour Préparer une Retraite Réussie</h2>
-          <ul>
-            <li>
-              <strong>Démarrage précoce :</strong> Commencer à cotiser tôt permet de tirer parti des intérêts composés, même avec de petites sommes.
-            </li>
-            <li>
-              <strong>Évaluation de vos besoins :</strong> Utilisez des simulateurs en ligne pour estimer votre future pension et projetez vos dépenses futures.
-            </li>
-            <li>
-              <strong>Plan d’épargne dédié :</strong> Optez pour un produit tel que le PER ou une assurance vie en comparant les offres disponibles.
-            </li>
-            <li>
-              <strong>Consultation de professionnels :</strong> Un conseiller en gestion de patrimoine pourra vous aider à optimiser votre plan en fonction de votre situation personnelle.
-            </li>
-          </ul>
-        </section>
-        <section className="demarches">
-          <h2>Démarches Concrètes et Suivi Régulier</h2>
-          <ol>
-            <li>
-              <strong>Établir un diagnostic financier :</strong> Réunissez et analysez l’ensemble de vos documents financiers.
-            </li>
-            <li>
-              <strong>Utiliser des simulateurs :</strong> Estimez le montant dont vous aurez besoin pour votre retraite.
-            </li>
-            <li>
-              <strong>Planifier des bilans réguliers :</strong> Revoyez votre plan chaque année ou après tout changement important.
-            </li>
-            <li>
-              <strong>Adopter la flexibilité :</strong> Soyez prêt à ajuster votre stratégie en fonction de vos évolutions personnelles.
-            </li>
-          </ol>
-        </section>
-        <section className="conclusion">
-          <h2>En Résumé</h2>
-          <p>
-            Suivre ces étapes vous permettra de préparer votre retraite de manière proactive et sereine. La régularité et l'ajustement constant de votre plan sont les clés d'une retraite confortable.
-          </p>
-        </section>
-      </article>
+      <MentalMap title={content.title} subtitle={content.subtitle} steps={content.sections} />
     </div>
   );
 };
 
 export default ConseilsRetraiteArticle;
-
-
-

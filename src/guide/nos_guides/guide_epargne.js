@@ -1,19 +1,54 @@
 import React from 'react';
-import content from './content/guide_epargne_content.json';
 import { Helmet } from 'react-helmet';
-import { useLocation } from 'react-router-dom';
-import { getCanonicalUrl } from '../../utils/canonical';
-import '../../styles/General_consolidated.css';
+import MentalMap from '../components/MentalMap';
+import '../components/MentalMap.css';
+
+const content = {
+  title: "Conseils Pratiques : Boostez Votre Épargne",
+  subtitle: "Des étapes détaillées et des stratégies éprouvées pour automatiser vos économies et atteindre vos objectifs financiers avec sérénité.",
+  sections: [
+    {
+      id: "introduction",
+      title: "Pourquoi mettre l'accent sur l'épargne ?",
+      content: "L’épargne constitue le socle de votre sécurité financière et de votre liberté future. Ce guide vous accompagne pour démarrer efficacement, choisir les bons outils et ajuster vos dépenses afin de dégager une somme régulière à mettre de côté, même avec un budget serré.",
+    },
+    {
+      id: "actions-cles",
+      title: "Étapes Clés pour une Épargne Efficace",
+      listType: "ul",
+      items: [
+        "Automatisation des virements : Configurez des virements automatiques depuis votre compte courant vers un compte épargne dédié, pour épargner sans y penser.",
+        "Réduction des dépenses inutiles : Analysez vos abonnements, vos achats impulsifs et négociez vos contrats pour maximiser vos économies.",
+        "Fixation d’objectifs concrets : Définissez un montant mensuel à épargner associé à un projet précis, comme un voyage, un achat important ou un fonds d'urgence.",
+        "Utilisation d'outils de suivi : Optez pour des applications mobiles qui vous alertent en cas de dépassement de budget et vous aident à visualiser vos progrès."
+      ]
+    },
+    {
+      id: "demarches",
+      title: "Démarches Concrètes pour Automatiser et Suivre votre Épargne",
+      listType: "ol",
+      items: [
+        "Évaluation initiale : Analysez précisément vos revenus et dépenses avec un outil dédié ou un tableur personnalisé.",
+        "Mise en place de l’automatisation : Contactez votre banque ou utilisez votre espace client en ligne pour configurer des virements automatiques dès réception de votre salaire.",
+        "Suivi régulier : Vérifiez mensuellement que vos virements ont bien été effectués et ajustez-les si nécessaire.",
+        "Revoyez vos objectifs : Réévaluez périodiquement vos objectifs d’épargne en fonction de l’évolution de votre situation financière et de vos priorités."
+      ]
+    },
+    {
+      id: "conclusion",
+      title: "En Résumé",
+      content: "Adoptez ces conseils en commençant par automatiser vos virements et en réévaluant régulièrement vos dépenses. Cette discipline vous permettra de booster votre épargne, de gagner en sérénité et de concrétiser vos projets financiers."
+    }
+  ]
+};
 
 const GuideEpargneArticle = () => {
-  const location = useLocation();
-
   return (
     <>
       <Helmet>
         <html lang="fr" />
 
-        {/* Titre et Meta Description */}
+        {/* Balises de base et SEO */}
         <title>Guide Pratique pour Booster Votre Épargne – Conseils et Automatisation | EduEco</title>
         <meta
           name="description"
@@ -24,13 +59,13 @@ const GuideEpargneArticle = () => {
           content="épargne, automatisation, économies, conseils financiers, gestion budgétaire, guide épargne"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={getCanonicalUrl(location.pathname)} />
+        <link rel="canonical" href="https://edueco.fr/guide-epargne" />
 
         {/* Open Graph & Twitter Card */}
         <meta property="og:title" content="Guide Pratique pour Booster Votre Épargne" />
         <meta property="og:description" content="Découvrez des conseils pratiques pour automatiser vos économies et atteindre vos objectifs financiers." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={getCanonicalUrl(location.pathname)} />
+        <meta property="og:url" content="https://edueco.fr/guide-epargne" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Guide Pratique pour Booster Votre Épargne" />
         <meta name="twitter:description" content="Boostez votre épargne avec nos conseils pratiques et démarches pour automatiser vos économies." />
@@ -57,55 +92,14 @@ const GuideEpargneArticle = () => {
               },
               "datePublished": "2025-04-16",
               "dateModified": "2025-04-16",
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "${getCanonicalUrl(location.pathname)}"
-              }
+              "mainEntityOfPage": "https://edueco.fr/guide-epargne"
             }
           `}
         </script>
       </Helmet>
 
-      <div className="guide-article">
-        <header className="article-header">
-          <h1>{content.title}</h1>
-          <p className="article-subtitle">{content.subtitle}</p>
-        </header>
-        <article className="article-content">
-          {content.sections.map((section) => (
-            <section key={section.id} id={section.id} className={section.id}>
-              <h2>{section.title}</h2>
-              {section.content && <p>{section.content}</p>}
-              {section.id === 'introduction' && (
-                <img src="/images/epargne-securite.jpg" alt="Sécurité financière par l'épargne" style={{ maxWidth: '100%', marginTop: '1em', marginBottom: '1em' }} />
-              )}
-              {section.listType === 'ul' && (
-                <ul>
-                  {section.items.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              )}
-              {section.listType === 'ol' && (
-                <ol>
-                  {section.items.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ol>
-              )}
-              {section.id === 'actions-cles' && (
-                <p>
-                  <em>Exemple :</em> Automatiser un virement mensuel de 100€ vers un compte épargne dédié peut vous aider à constituer un fonds d'urgence en moins d'un an.
-                </p>
-              )}
-              {section.id === 'demarches' && (
-                <p>
-                  Pour plus de conseils, consultez notre <a href="/guide-budget" title="Guide Budget">Guide Budget</a> et explorez nos <a href="/outils-financiers" title="Outils Financiers">outils financiers</a>.
-                </p>
-              )}
-            </section>
-          ))}
-        </article>
+      <div className="article">
+        <MentalMap title={content.title} subtitle={content.subtitle} steps={content.sections} />
       </div>
     </>
   );

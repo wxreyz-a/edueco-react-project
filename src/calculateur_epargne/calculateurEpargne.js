@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './calculateurEpargne.css';
+import { calculateSavings } from '../utils/calculations';
 
 const EpargneCalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -8,25 +9,14 @@ const EpargneCalculator = () => {
   const [years, setYears] = useState('');
   const [result, setResult] = useState(null);
 
-  const calculateSavings = (e) => {
+  const calculateSavingsHandler = (e) => {
     e.preventDefault();
-    const P = parseFloat(principal);
-    const D = parseFloat(monthlyDeposit);
-    const r = parseFloat(annualRate) / 100;
-    const t = parseFloat(years);
-
-    if (isNaN(P) || isNaN(D) || isNaN(r) || isNaN(t)) {
-      setResult("Veuillez remplir correctement tous les champs.");
-      return;
+    const calculationResult = calculateSavings(principal, monthlyDeposit, annualRate, years);
+    if (calculationResult.error) {
+      setResult(calculationResult.error);
+    } else {
+      setResult(calculationResult.futureValue);
     }
-
-    const monthlyRate = r / 12;
-    const months = t * 12;
-    const futureValue =
-      P * Math.pow(1 + monthlyRate, months) +
-      D * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-
-    setResult(futureValue.toFixed(2));
   };
 
   return (
@@ -34,7 +24,7 @@ const EpargneCalculator = () => {
       <h2 className="calculator-title">Calculateur d'Épargne</h2>
 
       <div className="calculator-container">
-        <form className="calculator-form" onSubmit={calculateSavings}>
+        <form className="calculator-form" onSubmit={calculateSavingsHandler}>
           <div className="form-group">
             <label htmlFor="principal">Montant initial (€)</label>
             <input 

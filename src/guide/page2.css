@@ -13,11 +13,6 @@
   margin-top: 0;
 }
 
-/* Header */
-.page2-brand {
-  display: none;
-}
-
 .page2-header {
   margin-bottom: var(--space-8);
   text-align: center;

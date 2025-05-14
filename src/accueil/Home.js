@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '../styles/variables.css';
@@ -6,52 +6,8 @@ import './Home.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import {  faSearch, faGraduationCap, faBook } from "@fortawesome/free-solid-svg-icons";
-
-// Hook personnalisé pour la gestion du debounce
-function useDebounce(value, delay) {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-  useEffect(() => {
-    const timer = setTimeout(() => setDebouncedValue(value), delay);
-    return () => clearTimeout(timer);
-  }, [value, delay]);
-  return debouncedValue;
-}
-
-// Tableau d'articles statique (vérifiez qu'aucun article n'ait une URL vide)
-const articles = [
-  { id: 1, title: "Investir en 2025", url: "/investir-2025", content: "Stratégies pour investir intelligemment cette année." },
-  { id: 2, title: "Optimiser son budget", url: "/guide-budget", content: "Conseils pour maîtriser vos dépenses et épargner efficacement." },
-  { id: 3, title: "Réduire ses dettes", url: "", content: "Des solutions pour alléger vos dettes et reprendre le contrôle." },
-  { id: 4, title: "En apprendre sur la finance", url: "/apprendre", content: "Découvrez nos conseils pratiques pour investir en 2025" },
-  { id: 5, title: "Accueil", url: "/", content: "Page d'accueil du site." },
-  { id: 6, title: "À propos", url: "/about", content: "En savoir plus sur nous et notre mission." },
-  { id: 7, title: "Articles", url: "/article", content: "Découvrez nos articles informatifs." },
-  { id: 8, title: "Contact", url: "/contact", content: "Contactez-nous pour toute demande d'information." },
-  { id: 9, title: "Budget", url: "/budget", content: "Guide pour gérer efficacement votre budget." },
-  { id: 10, title: "Épargne", url: "/epargne", content: "Conseils pour optimiser votre épargne." },
-  { id: 11, title: "Investissement", url: "/investissement", content: "Stratégies et astuces d'investissement." },
-  { id: 12, title: "Crédit", url: "/credit", content: "Informations et conseils sur la gestion de crédit." },
-  { id: 13, title: "Assurance", url: "/assurance", content: "Tout savoir sur les assurances et la protection financière." },
-  { id: 14, title: "Fiscalité", url: "/fiscalite", content: "Astuces pour optimiser votre fiscalité." },
-  { id: 15, title: "Immobilier", url: "/immobilier", content: "Guide complet sur l'immobilier." },
-  { id: 16, title: "Retraite", url: "/retraite", content: "Préparez votre retraite sereinement." },
-  { id: 17, title: "Bourse", url: "/bourse", content: "Actualités et conseils pour investir en bourse." },
-  { id: 18, title: "Crypto", url: "/crypto", content: "Infos et stratégies pour la cryptomonnaie." },
-  { id: 19, title: "Guides", url: "/guides", content: "Accédez à nos guides pratiques." },
-  { id: 20, title: "Guide Budget", url: "/guide-budget", content: "Guide complet pour maîtriser votre budget." },
-  { id: 21, title: "Guide Épargne", url: "/guide-epargne", content: "Conseils pour optimiser votre épargne." },
-  { id: 22, title: "Guide Investissement", url: "/guide-investissement", content: "Stratégies pour investir intelligemment." },
-  { id: 23, title: "Conseils Fiscalité", url: "/conseils_fiscalite", content: "Astuces pour une fiscalité avantageuse." },
-  { id: 24, title: "Stratégies Investissement", url: "/strategies-investissement", content: "Stratégies d'investissement éprouvées." },
-  { id: 25, title: "Conseils Retraite", url: "/conseils-retraite", content: "Préparez votre retraite avec nos conseils." },
-  { id: 26, title: "Actualités", url: "/actualites", content: "Les dernières actualités financières." },
-  { id: 27, title: "Ressources", url: "/ressources", content: "Accédez à nos ressources et outils financiers." },
-  { id: 28, title: "Article Un", url: "/investir-2025", content: "Premier article de notre section actualités." },
-  { id: 29, title: "Article Deux", url: "/article_deux", content: "Deuxième article de notre section actualités." },
-  { id: 30, title: "Calculateur Épargne", url: "/calculateur-epargne", content: "Calculez vos économies en quelques clics." },
-  { id: 31, title: "Simulateur Investissement", url: "/simulateur-investissement", content: "Simulez vos investissements et anticipez vos gains." },
-  { id: 32, title: "Mentions Légales", url: "/mentions-legales", content: "Informations légales et conditions d'utilisation du site." }
-];
+import articles from '../data/articles.json';
+import useDebounce from '../utils/useDebounce';
 
 const Hero = ({ query, setQuery, debouncedQuery, filteredResults }) => (
   <section className="hero">
@@ -87,8 +43,11 @@ const Hero = ({ query, setQuery, debouncedQuery, filteredResults }) => (
           <span>Rechercher</span>
         </button>
       </form>
-      {debouncedQuery && (
-        <div className="live-search-results">
+      {debouncedQuery !== undefined && (
+        <div className={
+          'live-search-results ' +
+          (query.length > 0 ? 'visible' : '')
+        }>
           {filteredResults.length > 0 ? (
             <ul>
               {filteredResults.map(article => (
@@ -156,13 +115,6 @@ const ArticlesSection = () => (
           Lire la suite
         </Link>
       </article>
-      <article className="article-card">
-        <h3>Réduire ses dettes</h3>
-        <p>Des solutions concrètes pour alléger vos dettes et reprendre le contrôle.</p>
-        <Link to="/reduire-ses-dettes" className="read-more" aria-label="Lire la suite Réduire ses dettes">
-          Lire la suite
-        </Link>
-      </article>
     </div>
   </section>
 );
@@ -212,7 +164,7 @@ const TestimonialsSection = () => (
   </section>
 );
 
-const FeedbackSection = ({ handleFeedbackSubmit, isSubmitting }) => (
+const FeedbackSection = ({ handleFeedbackSubmit, isSubmitting, feedbackMessage }) => (
   <section className="feedback-section">
     <h2 className="section-title">Vos retours</h2>
     <p className="section-subtitle">
@@ -230,12 +182,22 @@ const FeedbackSection = ({ handleFeedbackSubmit, isSubmitting }) => (
         {isSubmitting ? 'Envoi...' : 'Envoyer'}
       </button>
     </form>
+    {feedbackMessage && (
+      <div
+        className={`feedback-message ${feedbackMessage.type === 'success' ? 'success' : 'error'}`}
+        role="alert"
+        aria-live="assertive"
+      >
+        {feedbackMessage.text}
+      </div>
+    )}
   </section>
 );
 
 const Home = () => {
   const [query, setQuery] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedbackMessage, setFeedbackMessage] = useState(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const debouncedQuery = useDebounce(query, 300);
 
@@ -251,23 +213,25 @@ const Home = () => {
   const handleFeedbackSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setFeedbackMessage(null);
     const message = e.target.elements.feedback.value;
+    const apiUrl = process.env.REACT_APP_FEEDBACK_API_URL || 'https://backend-feedback-8sen.onrender.com/api/feedback';
     try {
-      const response = await fetch('https://backend-feedback-8sen.onrender.com/api/feedback', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ feedback: message })
       });
       const data = await response.json();
       if (data.success) {
-        alert("Merci pour votre retour !");
+        setFeedbackMessage({ type: 'success', text: "Merci pour votre retour !" });
         e.target.reset();
       } else {
-        alert("Une erreur est survenue : " + data.error);
+        setFeedbackMessage({ type: 'error', text: "Une erreur est survenue : " + data.error });
       }
     } catch (error) {
       console.error("Erreur lors de l'envoi :", error);
-      alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+      setFeedbackMessage({ type: 'error', text: "Une erreur est survenue lors de l'envoi. Veuillez réessayer." });
     } finally {
       setIsSubmitting(false);
     }
@@ -349,7 +313,7 @@ const Home = () => {
         {/* Section Témoignages */}
         <TestimonialsSection />
         {/* Section Feedback */}
-        <FeedbackSection handleFeedbackSubmit={handleFeedbackSubmit} isSubmitting={isSubmitting} />
+        <FeedbackSection handleFeedbackSubmit={handleFeedbackSubmit} isSubmitting={isSubmitting} feedbackMessage={feedbackMessage} />
       </main>
 
       <footer>

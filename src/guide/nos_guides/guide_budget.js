@@ -1,8 +1,61 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import '../../styles/General_consolidated.css';
+import MentalMap from '../components/MentalMap';
+import '../components/MentalMap.css';
 
 const GuideBudgetArticle = () => {
+  const content = {
+    title: 'Conseils Pratiques : Optimisez Votre Budget',
+    subtitle: 'Un guide complet et approfondi pour maîtriser votre budget personnel et atteindre vos objectifs financiers',
+    sections: [
+      {
+        id: 'introduction',
+        title: 'Pourquoi établir un budget ?',
+        content:
+          'Établir un budget est essentiel pour avoir une vision claire de vos finances. Ce guide vous aide à comprendre vos revenus, maîtriser vos dépenses et planifier efficacement vos objectifs financiers.',
+        example:
+          'Si vous constatez que vos dépenses en loisirs dépassent votre budget, vous pouvez ajuster vos priorités pour économiser davantage.',
+      },
+      {
+        id: 'actions-cles',
+        title: 'Étapes Clés pour Construire et Optimiser votre Budget',
+        listType: 'ul',
+        items: [
+          'Recensement complet des revenus : Incluez toutes vos sources de revenus, salaires, primes, revenus passifs et autres.',
+          'Identification précise des dépenses : Classez vos dépenses en catégories fixes, variables et occasionnelles pour mieux les contrôler.',
+          "Fixation d'objectifs financiers clairs : Définissez des objectifs SMART (Spécifiques, Mesurables, Atteignables, Réalistes, Temporels) pour votre épargne et vos investissements.",
+          "Utilisation d'outils adaptés : Exploitez des applications et logiciels de gestion budgétaire pour suivre vos finances en temps réel et ajuster votre budget.",
+        ],
+        links: [
+          { href: '/guide-epargne', title: 'Guide Épargne' },
+          { href: '/calculateur-epargne', title: 'Calculateur d\'épargne' },
+        ],
+      },
+      {
+        id: 'demarches',
+        title: 'Démarches Concrètes et Suivi Régulier',
+        listType: 'ol',
+        items: [
+          'Suivi quotidien : Notez vos dépenses et comparez-les à votre budget prévu pour éviter les dépassements.',
+          'Analyse hebdomadaire : Faites le point sur vos dépenses par catégorie pour identifier les économies possibles.',
+          "Révision mensuelle : Ajustez votre budget en fonction des écarts et de l'évolution de vos objectifs.",
+        ],
+      },
+      {
+        id: 'conclusion',
+        title: 'En Résumé',
+        content:
+          'Une gestion rigoureuse et régulière de votre budget vous permettra d\'améliorer votre santé financière et de réaliser vos projets avec sérénité.',
+        listType: 'ul',
+        items: [
+          'Établissez un budget réaliste et adapté à votre situation.',
+          'Surveillez régulièrement vos dépenses pour éviter les surprises.',
+          'Réajustez votre budget en fonction de vos objectifs et de votre évolution financière.',
+        ],
+      },
+    ],
+  };
+
   return (
     <>
       <Helmet>
@@ -64,69 +117,7 @@ const GuideBudgetArticle = () => {
       </Helmet>
 
       <div className="article">
-        <header className="article-header">
-          <h1>Conseils Pratiques : Optimisez Votre Budget</h1>
-          <p className="article-subtitle">
-            Un guide complet et approfondi pour maîtriser votre budget personnel et atteindre vos objectifs financiers
-          </p>
-        </header>
-        <article className="article-content">
-          <section className="introduction">
-            <h2>Pourquoi établir un budget ?</h2>
-            <p>
-              Établir un budget est essentiel pour avoir une vision claire de vos finances. Ce guide vous aide à comprendre vos revenus, maîtriser vos dépenses et planifier efficacement vos objectifs financiers.
-            </p>
-            <img src="/images/gestion-budget.jpg" alt="Gestion de budget personnel" style={{ maxWidth: '100%', marginTop: '1em', marginBottom: '1em' }} />
-            <p>
-              <em>Exemple :</em> Si vous constatez que vos dépenses en loisirs dépassent votre budget, vous pouvez ajuster vos priorités pour économiser davantage.
-            </p>
-          </section>
-          <section className="actions-cles">
-            <h2>Étapes Clés pour Construire et Optimiser votre Budget</h2>
-            <ul>
-              <li>
-                <strong>Recensement complet des revenus :</strong> Incluez toutes vos sources de revenus, salaires, primes, revenus passifs et autres.
-              </li>
-              <li>
-                <strong>Identification précise des dépenses :</strong> Classez vos dépenses en catégories fixes, variables et occasionnelles pour mieux les contrôler.
-              </li>
-              <li>
-                <strong>Fixation d'objectifs financiers clairs :</strong> Définissez des objectifs SMART (Spécifiques, Mesurables, Atteignables, Réalistes, Temporels) pour votre épargne et vos investissements.
-              </li>
-              <li>
-                <strong>Utilisation d'outils adaptés :</strong> Exploitez des applications et logiciels de gestion budgétaire pour suivre vos finances en temps réel et ajuster votre budget.
-              </li>
-            </ul>
-            <p>
-              Pour approfondir, consultez notre <a href="/guide-epargne" title="Guide Épargne">Guide Épargne</a> et découvrez nos <a href="/calculateur-epargne" title="Calculateur d'épargne">outils de calcul d'épargne</a>.
-            </p>
-          </section>
-          <section className="demarches">
-            <h2>Démarches Concrètes et Suivi Régulier</h2>
-            <ol>
-              <li>
-                <strong>Suivi quotidien :</strong> Notez vos dépenses et comparez-les à votre budget prévu pour éviter les dépassements.
-              </li>
-              <li>
-                <strong>Analyse hebdomadaire :</strong> Faites le point sur vos dépenses par catégorie pour identifier les économies possibles.
-              </li>
-              <li>
-                <strong>Révision mensuelle :</strong> Ajustez votre budget en fonction des écarts et de l'évolution de vos objectifs.
-              </li>
-            </ol>
-          </section>
-          <section className="conclusion">
-            <h2>En Résumé</h2>
-            <p>
-              Une gestion rigoureuse et régulière de votre budget vous permettra d'améliorer votre santé financière et de réaliser vos projets avec sérénité.
-            </p>
-            <ul>
-              <li>Établissez un budget réaliste et adapté à votre situation.</li>
-              <li>Surveillez régulièrement vos dépenses pour éviter les surprises.</li>
-              <li>Réajustez votre budget en fonction de vos objectifs et de votre évolution financière.</li>
-            </ul>
-          </section>
-        </article>
+        <MentalMap title={content.title} subtitle={content.subtitle} steps={content.sections} />
       </div>
     </>
   );

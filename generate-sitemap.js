@@ -3,23 +3,25 @@ const path = require('path');
 
 const baseUrl = 'https://edueco.fr/';
 
-const routes = [
-  '/', '/contact', '/livre',
-  '/parties-chapitre-un', '/chapitre-un-partie-une', '/chapitre-un-partie-deux',
-  '/chapitre-un-partie-trois', '/chapitre-un-partie-quatre', '/parties-chapitre-deux',
-  '/chapitre-deux-partie-une', '/chapitre-deux-partie-deux', '/chapitre-deux-partie-trois',
-  '/chapitre-deux-partie-quatre', '/parties-chapitre-trois', '/chapitre-trois-partie-une',
-  '/chapitre-trois-partie-deux', '/chapitre-trois-partie-trois', '/chapitre-trois-partie-quatre',
-  '/parties-chapitre-quatre', '/chapitre-quatre-partie-une', '/chapitre-quatre-partie-deux',
-  '/chapitre-quatre-partie-trois', '/chapitre-quatre-partie-quatre', '/apprendre',
-  '/faire-un-budget', '/epargne', '/investissement', '/credit',
-  '/assurance', '/fiscalite', '/immobilier', '/retraite', '/bourse', '/crypto', '/guides',
-  '/guide-budget', '/guide-epargne', '/guide-investissement', '/conseils-fiscalite',
-  '/strategies-investissement', '/conseils-retraite', '/actualites', '/ressources',
-  '/investir-2025', '/trump-tarifs', '/calculateur-epargne', '/simulateur-investissement', '/mentions-legales',
-];
+// Read src/App.js to extract routes dynamically
+const appJsPath = path.join(__dirname, 'src', 'App.js');
+const appJsContent = fs.readFileSync(appJsPath, 'utf-8');
 
-// Assurez-vous que le répertoire public existe
+// Regex to match route paths in <Route path="..."
+const routePathRegex = /<Route\s+path=['"]([^'"]+)['"]/g;
+
+const routes = [];
+let match;
+while ((match = routePathRegex.exec(appJsContent)) !== null) {
+  routes.push(match[1]);
+}
+
+// Ensure root path is included
+if (!routes.includes('/')) {
+  routes.unshift('/');
+}
+
+// Ensure the public directory exists
 const publicDir = path.join(__dirname, 'public');
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir, { recursive: true });

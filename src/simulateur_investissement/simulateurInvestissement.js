@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../calculateur_epargne/calculateurEpargne.css';
+import { calculateInvestment } from '../utils/calculations';
 
 const InvestmentSimulator = () => {
   const [initialInvestment, setInitialInvestment] = useState('');
@@ -7,30 +9,14 @@ const InvestmentSimulator = () => {
   const [years, setYears] = useState('');
   const [result, setResult] = useState(null);
 
-  const calculateInvestment = (e) => {
+  const calculateInvestmentHandler = (e) => {
     e.preventDefault();
-
-    const P = parseFloat(initialInvestment);
-    const C = parseFloat(monthlyContribution);
-    const r = parseFloat(annualGrowthRate) / 100;
-    const t = parseFloat(years);
-    
-    if (isNaN(P) || isNaN(C) || isNaN(r) || isNaN(t)) {
-      setResult("Veuillez remplir correctement tous les champs.");
-      return;
+    const calculationResult = calculateInvestment(initialInvestment, monthlyContribution, annualGrowthRate, years);
+    if (calculationResult.error) {
+      setResult(calculationResult.error);
+    } else {
+      setResult(calculationResult);
     }
-    
-    const monthlyRate = r / 12;
-    const months = t * 12;
-    
-    const futureValue =
-      P * Math.pow(1 + monthlyRate, months) +
-      C * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-
-    const totalInvested = P + C * months;
-    const profit = futureValue - totalInvested;
-    
-    setResult({ futureValue, totalInvested, profit });
   };
 
   return (
@@ -38,7 +24,7 @@ const InvestmentSimulator = () => {
       <h2 className="calculator-title">Simulateur d’Investissement</h2>
 
       <div className="simulator-container">
-        <form className="simulator-form" onSubmit={calculateInvestment}>
+        <form className="simulator-form" onSubmit={calculateInvestmentHandler}>
           <div className="form-group">
             <label htmlFor="initialInvestment">Investissement Initial (€)</label>
             <input 
