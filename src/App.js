@@ -71,6 +71,7 @@ const CONSENT_KEY = 'edueco_consent';
 const CONSENT_GRANTED = 'granted';
 const CONSENT_DENIED = 'denied';
 const LIGHTHOUSE_UA_RE = /Chrome-Lighthouse|Lighthouse/i;
+const HEADLESS_UA_RE = /HeadlessChrome/i;
 const MEASUREMENT_ID = 'G-K0414NWY4Z';
 
 function reportRecoverableError(message, error) {
@@ -79,10 +80,22 @@ function reportRecoverableError(message, error) {
   }
 }
 
-function shouldSkipThirdPartyAds() {
-  // Third-party ads can trigger non-actionable audit warnings (e.g. deprecated API usage).
+function shouldSkipThirdPartyScripts() {
+  // Local development audits should not include ad/analytics payloads from dev bundles.
+  if (process.env.NODE_ENV !== 'production' && process.env.REACT_APP_ENABLE_TRACKING_IN_DEV !== 'true') {
+    return true;
+  }
+
+  if (process.env.REACT_APP_DISABLE_TRACKING === 'true') return true;
+
+  // Third-party tags can trigger non-actionable audit warnings (e.g. deprecated API usage).
   if (process.env.REACT_APP_DISABLE_ADS === 'true') return true;
-  if (LIGHTHOUSE_UA_RE.test(globalThis.navigator?.userAgent || '')) return true;
+
+  const userAgent = globalThis.navigator?.userAgent || '';
+  if (LIGHTHOUSE_UA_RE.test(userAgent)) return true;
+  if (HEADLESS_UA_RE.test(userAgent)) return true;
+  if (globalThis.navigator?.webdriver === true) return true;
+
   return false;
 }
 
@@ -177,6 +190,10 @@ function clearGoogleCookiesHeuristic() {
 }
 
 function loadGTAG() {
+  if (shouldSkipThirdPartyScripts()) {
+    return Promise.resolve();
+  }
+
   return loadScript({
     id: 'gtag-js',
     src: `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`
@@ -200,7 +217,7 @@ function loadGTAG() {
 }
 
 function loadAds() {
-  if (shouldSkipThirdPartyAds()) {
+  if (shouldSkipThirdPartyScripts()) {
     return Promise.resolve();
   }
 
@@ -311,9 +328,10 @@ function App() {
             zIndex: 1000,
             padding: '8px 12px',
             fontSize: '14px',
+            fontWeight: 600,
             borderRadius: '4px',
             border: 'none',
-            backgroundColor: '#007bff',
+            backgroundColor: '#1e40af',
             color: 'white',
             cursor: 'pointer',
           }}

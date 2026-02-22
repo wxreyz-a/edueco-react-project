@@ -40,4 +40,15 @@ npm test
 npm run build
 ```
 
+## Audit Lighthouse en mode production local
+
+N'executez pas Lighthouse sur `npm start` (bundle dev non minifie, cache dev, websocket HMR).
+
+```bash
+npm run build
+npm run serve:prod
+```
+
+Puis lancez Lighthouse sur `http://localhost:4173`.
+
 La commande de build genere automatiquement `public/sitemap.xml` avant la compilation.

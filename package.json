@@ -23,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "node generate-sitemap.js && react-scripts build",
+    "serve:prod": "node scripts/serve-build.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate-sitemap": "node generate-sitemap.js"
