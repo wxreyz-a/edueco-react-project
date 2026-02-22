@@ -4,7 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
-Object.defineProperty(window, 'scrollTo', {
+Object.defineProperty(globalThis, 'scrollTo', {
   writable: true,
   value: jest.fn(),
 });

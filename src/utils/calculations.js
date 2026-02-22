@@ -1,8 +1,8 @@
 export function calculateSavings(principal, monthlyDeposit, annualRate, years) {
-  const P = parseFloat(principal);
-  const D = parseFloat(monthlyDeposit);
-  const r = parseFloat(annualRate) / 100;
-  const t = parseFloat(years);
+  const P = Number.parseFloat(principal);
+  const D = Number.parseFloat(monthlyDeposit);
+  const r = Number.parseFloat(annualRate) / 100;
+  const t = Number.parseFloat(years);
 
   if (Number.isNaN(P) || Number.isNaN(D) || Number.isNaN(r) || Number.isNaN(t)) {
     return { error: "Veuillez remplir correctement tous les champs." };
@@ -23,10 +23,10 @@ export function calculateSavings(principal, monthlyDeposit, annualRate, years) {
 }
 
 export function calculateInvestment(initialInvestment, monthlyContribution, annualGrowthRate, years) {
-  const P = parseFloat(initialInvestment);
-  const C = parseFloat(monthlyContribution);
-  const r = parseFloat(annualGrowthRate) / 100;
-  const t = parseFloat(years);
+  const P = Number.parseFloat(initialInvestment);
+  const C = Number.parseFloat(monthlyContribution);
+  const r = Number.parseFloat(annualGrowthRate) / 100;
+  const t = Number.parseFloat(years);
 
   if (Number.isNaN(P) || Number.isNaN(C) || Number.isNaN(r) || Number.isNaN(t)) {
     return { error: "Veuillez remplir correctement tous les champs." };
