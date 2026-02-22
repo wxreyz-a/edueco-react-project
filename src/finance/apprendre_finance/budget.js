@@ -73,7 +73,7 @@ const BudgetTrainingArticle = () => {
       <article className="article-content">
         
         <section className="introduction">
-          <h2>Qu'est-ce que c'est ?</h2>
+          <h2>C'est quoi ?</h2>
           <p>
             Un budget est un outil de gestion financière qui permet de planifier 
             et de suivre ses revenus et ses dépenses sur une période donnée.
@@ -92,7 +92,7 @@ const BudgetTrainingArticle = () => {
         </section>
 
         <section className="importance-budget">
-          <h2>Pourquoi Faire un Budget ?</h2>
+          <h2>Un Budget ? Pourquoi faire ?</h2>
           <p>
             Contrairement à ce que l'on croit, avoir un budget ne signifie 
             pas se priver, mais <strong>reprendre le contrôle de son argent</strong>. 
@@ -215,5 +215,4 @@ const BudgetTrainingArticle = () => {
 };
 
 export default BudgetTrainingArticle;
-
 

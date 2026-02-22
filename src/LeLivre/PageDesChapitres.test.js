@@ -21,12 +21,12 @@ describe('ChapterIndex Component', () => {
     expect(screen.getByRole('link', { name: /Chapitre 4 : La Psychologie de l'Argent/i })).toHaveAttribute('href', '/parties-chapitre-quatre');
   });
 
-  test('renders footer text', () => {
+  test('renders chapter descriptions', () => {
     render(
       <BrowserRouter>
         <ChapterIndex />
       </BrowserRouter>
     );
-    expect(screen.getByText(/Plongez dans la compréhension de l'argent et son impact sur votre vie./i)).toBeInTheDocument();
+    expect(screen.getByText(/Découvrez comment l'argent a évolué, du troc aux premières monnaies./i)).toBeInTheDocument();
   });
 });

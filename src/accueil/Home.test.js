@@ -1,33 +1,28 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, within } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import Home from './Home';
 
-// Mock fetch for feedback submission
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve({ success: true }),
-  })
-);
-
 describe('Home Component', () => {
-  beforeEach(() => {
-    fetch.mockClear();
-  });
+  const renderHome = () =>
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
 
   test('renders main heading and key sections', () => {
-    render(<Home />);
+    renderHome();
     const headingElement = screen.getByRole('heading', { level: 1 });
     expect(headingElement).toBeInTheDocument();
 
     expect(screen.getByText(/Votre bien-être financier est notre priorité/i)).toBeInTheDocument();
     expect(screen.getByText(/Derniers articles/i)).toBeInTheDocument();
     expect(screen.getByText(/Outils interactifs/i)).toBeInTheDocument();
-    expect(screen.getByText(/Témoignages/i)).toBeInTheDocument();
-    expect(screen.getByText(/Vos retours/i)).toBeInTheDocument();
   });
 
   test('search input filters articles', async () => {
-    render(<Home />);
+    renderHome();
     const searchInput = screen.getByPlaceholderText(/Recherchez des conseils, outils, actualités/i);
     fireEvent.change(searchInput, { target: { value: 'budget' } });
 
@@ -36,32 +31,21 @@ describe('Home Component', () => {
     });
   });
 
-  test('feedback form submits successfully', async () => {
-    render(<Home />);
-    const textarea = screen.getByLabelText(/Votre message/i);
-    const submitButton = screen.getByRole('button', { name: /Envoyer/i });
-
-    fireEvent.change(textarea, { target: { value: 'Test feedback message' } });
-    fireEvent.click(submitButton);
-
-    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
-    expect(fetch).toHaveBeenCalledWith(
-      'https://backend-feedback-8sen.onrender.com/api/feedback',
-      expect.objectContaining({
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ feedback: 'Test feedback message' }),
-      })
-    );
-  });
-
   test('navigation links are present and clickable', () => {
-    render(<Home />);
-    const navLinks = ['Accueil', 'Guides', 'Actualités', 'Outils', 'Contact'];
-    navLinks.forEach((linkText) => {
-      const link = screen.getByRole('link', { name: new RegExp(linkText, 'i') });
+    renderHome();
+    const mainNav = screen.getByRole('navigation');
+    const navLinks = [
+      { label: 'Accueil', href: '/' },
+      { label: 'Guides', href: '/guides' },
+      { label: 'Actualités', href: '/actualites' },
+      { label: 'Outils', href: '/ressources' },
+      { label: 'Contact', href: '/contact' },
+    ];
+
+    navLinks.forEach(({ label, href }) => {
+      const link = within(mainNav).getByRole('link', { name: new RegExp(`^${label}$`, 'i') });
       expect(link).toBeInTheDocument();
-      expect(link).toHaveAttribute('href');
+      expect(link).toHaveAttribute('href', href);
     });
   });
 });

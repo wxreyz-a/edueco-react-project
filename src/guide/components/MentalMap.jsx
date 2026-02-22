@@ -39,6 +39,7 @@ const MentalMap = ({ title, subtitle, steps }) => {
       <section className="mental-map-step-content">
         <h2>{currentStep.title}</h2>
         {currentStep.content && <p>{currentStep.content}</p>}
+        {currentStep.example && <p>{currentStep.example}</p>}
         {currentStep.listType === 'ul' && (
           <ul>
             {currentStep.items.map((item, idx) => (
@@ -55,6 +56,22 @@ const MentalMap = ({ title, subtitle, steps }) => {
         )}
         {currentStep.image && (
           <img src={currentStep.image.src} alt={currentStep.image.alt} style={{ maxWidth: '100%', marginTop: '1em', marginBottom: '1em' }} />
+        )}
+        {Array.isArray(currentStep.subsections) &&
+          currentStep.subsections.map((subsection, idx) => (
+            <article key={`${subsection.title}-${idx}`}>
+              <h3>{subsection.title}</h3>
+              {subsection.content && <p>{subsection.content}</p>}
+            </article>
+          ))}
+        {Array.isArray(currentStep.links) && currentStep.links.length > 0 && (
+          <ul>
+            {currentStep.links.map((link, idx) => (
+              <li key={`${link.href}-${idx}`}>
+                <a href={link.href}>{link.title}</a>
+              </li>
+            ))}
+          </ul>
         )}
       </section>
       <div className="mental-map-footer">

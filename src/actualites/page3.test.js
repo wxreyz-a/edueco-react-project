@@ -10,8 +10,8 @@ describe('Actualites Page3 Component', () => {
         <Actualites />
       </BrowserRouter>
     );
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Restez informés/i);
-    expect(screen.getByText(/EduEco/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Actualités/i);
+    expect(screen.getByText(/À la une/i)).toBeInTheDocument();
   });
 
   test('renders articles with images, titles, descriptions and links', () => {
@@ -26,8 +26,8 @@ describe('Actualites Page3 Component', () => {
     expect(screen.getByRole('heading', { name: /Investir en 2025/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Lire l'article Investir en 2025/i })).toHaveAttribute('href', '/investir-2025');
 
-    expect(screen.getByRole('heading', { name: /Tarifs Douaniers : Une Clé de bras de la part de Donald Trump/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Lire l'article Optimiser son budget/i })).toHaveAttribute('href', '/trump-tarifs');
+    expect(screen.getByRole('heading', { name: /Trump, les tarifs, et mon amie la Chine/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Lire l'article Trump, les tarifs, et mon amie la Chine/i })).toHaveAttribute('href', '/trump-tarifs');
   });
 
   test('renders footer copyright', () => {

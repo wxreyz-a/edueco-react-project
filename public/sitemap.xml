@@ -2,295 +2,289 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://edueco.fr//</loc>
+    <loc>https://edueco.fr/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr/*</loc>
+    <loc>https://edueco.fr/contact</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//contact</loc>
+    <loc>https://edueco.fr/mentions-legales</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//mentions-legales</loc>
+    <loc>https://edueco.fr/ressources</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//ressources</loc>
+    <loc>https://edueco.fr/actualites</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//actualites</loc>
+    <loc>https://edueco.fr/investir-2025</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//investir-2025</loc>
+    <loc>https://edueco.fr/trump-tarifs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//trump-tarifs</loc>
+    <loc>https://edueco.fr/calculateur-epargne</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//calculateur-epargne</loc>
+    <loc>https://edueco.fr/simulateur-investissement</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//simulateur-investissement</loc>
+    <loc>https://edueco.fr/livre</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//livre</loc>
+    <loc>https://edueco.fr/parties-chapitre-un</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//parties-chapitre-un</loc>
+    <loc>https://edueco.fr/chapitre-un-partie-une</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-un-partie-une</loc>
+    <loc>https://edueco.fr/chapitre-un-partie-deux</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-un-partie-deux</loc>
+    <loc>https://edueco.fr/chapitre-un-partie-trois</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-un-partie-trois</loc>
+    <loc>https://edueco.fr/chapitre-un-partie-quatre</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-un-partie-quatre</loc>
+    <loc>https://edueco.fr/parties-chapitre-deux</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//parties-chapitre-deux</loc>
+    <loc>https://edueco.fr/chapitre-deux-partie-une</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-deux-partie-une</loc>
+    <loc>https://edueco.fr/chapitre-deux-partie-deux</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-deux-partie-deux</loc>
+    <loc>https://edueco.fr/chapitre-deux-partie-trois</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-deux-partie-trois</loc>
+    <loc>https://edueco.fr/chapitre-deux-partie-quatre</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-deux-partie-quatre</loc>
+    <loc>https://edueco.fr/parties-chapitre-trois</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//parties-chapitre-trois</loc>
+    <loc>https://edueco.fr/chapitre-trois-partie-une</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-trois-partie-une</loc>
+    <loc>https://edueco.fr/chapitre-trois-partie-deux</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-trois-partie-deux</loc>
+    <loc>https://edueco.fr/chapitre-trois-partie-trois</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-trois-partie-trois</loc>
+    <loc>https://edueco.fr/chapitre-trois-partie-quatre</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-trois-partie-quatre</loc>
+    <loc>https://edueco.fr/parties-chapitre-quatre</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//parties-chapitre-quatre</loc>
+    <loc>https://edueco.fr/chapitre-quatre-partie-une</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-quatre-partie-une</loc>
+    <loc>https://edueco.fr/chapitre-quatre-partie-deux</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-quatre-partie-deux</loc>
+    <loc>https://edueco.fr/chapitre-quatre-partie-trois</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-quatre-partie-trois</loc>
+    <loc>https://edueco.fr/chapitre-quatre-partie-quatre</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//chapitre-quatre-partie-quatre</loc>
+    <loc>https://edueco.fr/apprendre</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//apprendre</loc>
+    <loc>https://edueco.fr/faire-un-budget</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//faire-un-budget</loc>
+    <loc>https://edueco.fr/epargne</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//epargne</loc>
+    <loc>https://edueco.fr/investissement</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//investissement</loc>
+    <loc>https://edueco.fr/credit</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//credit</loc>
+    <loc>https://edueco.fr/assurance</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//assurance</loc>
+    <loc>https://edueco.fr/fiscalite</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//fiscalite</loc>
+    <loc>https://edueco.fr/immobilier</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//immobilier</loc>
+    <loc>https://edueco.fr/retraite</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//retraite</loc>
+    <loc>https://edueco.fr/bourse</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//bourse</loc>
+    <loc>https://edueco.fr/crypto</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//crypto</loc>
+    <loc>https://edueco.fr/guides</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//guides</loc>
+    <loc>https://edueco.fr/guide-budget</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//guide-budget</loc>
+    <loc>https://edueco.fr/guide-epargne</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//guide-epargne</loc>
+    <loc>https://edueco.fr/guide-investissement</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//guide-investissement</loc>
+    <loc>https://edueco.fr/conseils-fiscalite</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//conseils-fiscalite</loc>
+    <loc>https://edueco.fr/strategies-investissement</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://edueco.fr//strategies-investissement</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://edueco.fr//conseils-retraite</loc>
+    <loc>https://edueco.fr/conseils-retraite</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

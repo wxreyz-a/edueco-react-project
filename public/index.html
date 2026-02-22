@@ -1,89 +1,41 @@
-<!DOCTYPE html> <!-- Déclaration du type de document HTML5 -->
-<html lang="fr"> <!-- Déclaration de la langue principale du document : français -->
+<!doctype html>
+<html lang="fr">
   <head>
-    <!-- Removed Google Tag Manager and Google Ads scripts to avoid duplicate loading -->
-    <!-- Début de la section d'en-tête contenant les métadonnées et ressources du document -->
-    <meta charset="UTF-8" /> <!-- Définit l'encodage des caractères en UTF-8 pour supporter de nombreux symboles -->
-    <!-- Configuration responsive pour un affichage optimal sur mobile et tablette -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Polices Google modernes chargées de façon optimisée -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono&display=swap" onload="this.rel='stylesheet'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet" />
-    </noscript>
-    
-    <!-- Balises SEO de base -->
-    <meta name="description" content="EduEco – Apprenez à gérer votre argent grâce à des conseils, outils interactifs et actualités financières de qualité." /> <!-- Description pour les moteurs de recherche et l'affichage en extraits -->
-    <meta name="author" content="EduEco" /> <!-- Indique l'auteur du contenu -->
-    <meta name="publisher" content="EduEco" /> <!-- Indique l'éditeur du site -->
-    <meta name="keywords" content="finances, argent, gestion financière, conseils, actualités, économie" /> <!-- Mots-clés associés au contenu pour le SEO -->
-    <meta name="robots" content="index, follow" /> <!-- Instructions aux robots d'indexation : indexer la page et suivre les liens -->
-    <meta name="googlebot" content="index, follow" /> <!-- Instructions spécifiques pour le robot de Google -->
-    <meta name="referrer" content="no-referrer-when-downgrade" /> <!-- Contrôle la transmission du référent pour la confidentialité -->
-    <meta name="format-detection" content="telephone=no" /> <!-- Empêche la détection automatique des numéros de téléphone sur mobile -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>EduEco - Gérer son argent intelligemment</title> <!-- Titre de la page affiché dans l'onglet du navigateur et dans les résultats de recherche -->
+    <title>EduEco - Gerez votre argent intelligemment</title>
+    <meta
+      name="description"
+      content="EduEco propose des conseils, outils et actualites pour mieux gerer vos finances personnelles."
+    />
+    <meta name="author" content="EduEco" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ffffff" />
 
-    <!-- Favicon et configuration pour les Progressive Web Apps (PWA) -->
-    <link rel="icon" href="/favicon.ico" /> <!-- Lien vers l'icône du site (favicon) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> <!-- Icône pour les appareils Apple (iOS) -->
-    <link rel="manifest" href="/manifest.json" /> <!-- Fichier de manifeste pour configurer l'apparence et le comportement de la PWA -->
-    <meta name="theme-color" content="#ffffff" /> <!-- Définit la couleur du thème pour les navigateurs mobiles -->
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="EduEco - Gerez votre argent intelligemment" />
+    <meta
+      property="og:description"
+      content="Conseils pratiques, outils interactifs et actualites pour optimiser votre gestion financiere."
+    />
+    <meta property="og:url" content="https://edueco.fr/" />
 
-    <!-- Balises Open Graph pour optimiser le partage sur les réseaux sociaux (Facebook, etc.) -->
-    <meta property="og:title" content="EduEco - Gérer son argent intelligemment" /> <!-- Titre utilisé lors du partage sur les réseaux sociaux -->
-    <meta property="og:description" content="Découvrez des conseils pratiques, des outils interactifs et des actualités pour optimiser votre gestion financière." /> <!-- Description pour les réseaux sociaux -->
-    <!-- Image utilisée pour l'aperçu lors du partage -->
-    <meta property="og:url" content="https://edueco.fr/" /> <!-- URL canonique de la page partagée -->
-    <meta property="og:type" content="website" /> <!-- Type de contenu pour Open Graph -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="EduEco - Gerez votre argent intelligemment" />
+    <meta
+      name="twitter:description"
+      content="Conseils, outils et actualites pour une gestion financiere plus efficace."
+    />
 
-    <!-- Balises Twitter pour améliorer le partage sur Twitter -->
-    <meta name="twitter:card" content="summary_large_image" /> <!-- Format de la carte Twitter avec une grande image -->
-    <meta name="twitter:title" content="EduEco - Gérer son argent intelligemment" /> <!-- Titre pour Twitter -->
-    <meta name="twitter:description" content="Des conseils, outils et actualités pour une gestion financière optimale." /> <!-- Description pour Twitter -->
-    <!-- Image affichée sur Twitter -->
-
-    <!-- Balise canonique pour éviter le contenu dupliqué -->
-    <link rel="canonical" href="https://edueco.fr/" /> <!-- Indique l'URL préférée à indexer par les moteurs de recherche -->
-
-    <!-- Liens alternatifs pour indiquer les versions linguistiques du site -->
-    <link rel="alternate" hreflang="fr" href="https://edueco.fr/" /> <!-- Version en français -->
-
-    <!-- Données structurées (JSON-LD) pour aider les moteurs de recherche à comprendre l'organisation -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "EduEco",
-      "url": "https://edueco.fr/", 
-      "description": "Des conseils et outils pour gérer efficacement votre argent." 
-    }
-    </script>
-
-    <!-- Données structurées (JSON-LD) pour le site Web, favorisant les extraits enrichis -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite", 
-      "url": "https://edueco.fr/", 
-      "name": "EduEco",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://edueco.fr/search?q={search_term_string}", 
-        "query-input": "required name=search_term_string" 
-      }
-    }
-    </script>
-
-    <!-- Chargement différé de la feuille de style principale -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="%PUBLIC_URL%/index.css" /></noscript>
-  </head> <!-- Fin de la section d'en-tête -->
-  <body> <!-- Début du corps du document, contenu visible par l'utilisateur -->
-    <noscript>Vous devez activer JavaScript pour utiliser cette application.</noscript> <!-- Message affiché si JavaScript est désactivé -->
-    <div id="root"></div> <!-- Conteneur principal dans lequel l'application React sera injectée -->
-  </body> <!-- Fin du corps du document -->
-</html> <!-- Fin du document HTML -->
+    <link rel="canonical" href="https://edueco.fr/" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  </head>
+  <body>
+    <noscript>Vous devez activer JavaScript pour utiliser cette application.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

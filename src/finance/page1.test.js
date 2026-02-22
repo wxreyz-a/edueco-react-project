@@ -11,9 +11,9 @@ describe('Finance Page1 Component', () => {
       </BrowserRouter>
     );
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Parcours d'apprentissage : Introduction à la Finance/i);
-    expect(screen.getByText(/Tous les modules/i)).toBeInTheDocument();
-    expect(screen.getByText(/Budget/i)).toBeInTheDocument();
-    expect(screen.getByText(/Épargne/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Tous/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Budget/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: /Épargne/i })).toBeInTheDocument();
   });
 
   test('filters modules by category when category button clicked', () => {

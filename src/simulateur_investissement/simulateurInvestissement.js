@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../calculateur_epargne/calculateurEpargne.css';
+import './simulateurInvestissement.css';
 import { calculateInvestment } from '../utils/calculations';
 
 const InvestmentSimulator = () => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ConsentManager.css';
 
 const detailedConsentText = (
@@ -20,48 +20,27 @@ const detailedConsentText = (
   </>
 );
 
-const ConsentManager = ({ onConsentGiven, onConsentWithdrawn, visible, onClose, isManagementMode = false }) => {
-  const [consent, setConsent] = useState(false);
+const ConsentManager = ({
+  onConsentGiven,
+  onConsentDeclined,
+  onConsentWithdrawn,
+  visible,
+  onClose,
+  consent = false,
+}) => {
   const [showDetails, setShowDetails] = useState(false);
 
-  useEffect(() => {
-    if (isManagementMode) {
-      // Skip calling onConsentGiven/onConsentWithdrawn on mount in management mode
-      return;
-    }
-    const storedConsent = localStorage.getItem('userConsent');
-    if (storedConsent === 'granted') {
-      setConsent(true);
-      onConsentGiven();
-    } else if (storedConsent === 'denied') {
-      setConsent(false);
-      if (onConsentWithdrawn) {
-        onConsentWithdrawn();
-      }
-    } else {
-      setConsent(false); // default to false to show initial prompt
-    }
-  }, [onConsentGiven, onConsentWithdrawn, isManagementMode]);
-
   const handleAccept = () => {
-    localStorage.setItem('userConsent', 'granted');
-    setConsent(true);
     onConsentGiven();
     if (onClose) onClose();
   };
 
   const handleDecline = () => {
-    localStorage.setItem('userConsent', 'denied');
-    setConsent(false);
-    if (onConsentWithdrawn) {
-      onConsentWithdrawn();
-    }
+    if (onConsentDeclined) onConsentDeclined();
     if (onClose) onClose();
   };
 
   const handleWithdraw = () => {
-    localStorage.removeItem('userConsent');
-    setConsent(false);
     if (onConsentWithdrawn) {
       onConsentWithdrawn();
     }
