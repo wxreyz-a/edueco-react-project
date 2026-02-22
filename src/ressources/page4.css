@@ -54,7 +54,6 @@
 
 .page-footer {
   background: #162B44;
-  color: var(--button-text);
   padding: 1rem 0;
   margin-top: 3rem;
   border-top: 2px solid rgba(255, 255, 255, 0.2);
@@ -68,7 +67,6 @@
   margin-top: 3rem;
   padding: 0 1rem;
   background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
-  border-radius: var(--border-radius);
   box-shadow: 0 8px 20px rgba(0, 83, 156, 0.15);
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -84,9 +82,7 @@
 
 .recommandation {
   background-color: #ffffff;
-  border-left: 6px solid var(--button-bg);
   box-shadow: 0 12px 24px rgba(0, 83, 156, 0.2);
-  border-radius: calc(var(--border-radius) * 1.2);
   padding: 2rem 2.25rem;
   display: flex;
   flex-direction: column;
@@ -97,7 +93,6 @@
 }
 
 .recommandation:hover {
-  border-color: var(--primary);
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 83, 156, 0.35);
 }
@@ -133,10 +128,5 @@
   }
   .books-list {
     padding: 0 1.5rem;
-  }
-  .book-card {
-    width: 100%;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
   }
 }

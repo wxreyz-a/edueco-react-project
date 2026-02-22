@@ -6,7 +6,6 @@
   margin-top: 1rem;
   padding: 2rem;
   background-color: #fff;
-  border-radius: var(--border-radius);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   font-family: 'Montserrat', sans-serif;
 }
@@ -46,7 +45,6 @@
   display: block;
   margin-bottom: 0.75rem;
   font-weight: 600;
-  color: var(--text-color);
   font-size: 0.95rem;
 }
 
@@ -63,7 +61,6 @@
 
 .calculator-form input:focus,
 .simulator-form input:focus {
-  border-color: var(--secondary-color-calculate);
   box-shadow: 0 0 0 3px rgba(0,83,156,0.1);
 }
 
@@ -107,20 +104,13 @@
   width: 100%;
   padding: 2rem;
   background: var(--section-bg);
-  border-radius: var(--border-radius);
   text-align: center;
   animation: slideUp 0.4s ease-out;
-}
-
-.result-values {
-  display: grid;
-  gap: 1.25rem;
 }
 
 .result p {
   margin: 0;
   font-size: 1.1rem;
-  color: var(--text-color);
 }
 
 .result strong {
@@ -145,10 +135,8 @@
 
 .epargne-info {
   background-color: var(--section-bg);
-  border-radius: var(--border-radius);
   padding: 1.5rem;
   font-size: 1rem;
-  color: var(--text-color);
   line-height: 1.6;
   animation: slideUp 0.4s ease-out;
 }

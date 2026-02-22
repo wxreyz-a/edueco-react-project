@@ -7,7 +7,6 @@ html, body {
   width: 100%;
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--text-primary);
   background: linear-gradient(135deg, #f0f4f8, #ffffff);
 }
 
@@ -67,7 +66,6 @@ html, body {
 .slogan {
   font-size: var(--font-xs);
   font-weight: 500;
-  color: var(--gray-600);
   display: none;
   width: 33%;
   text-align: center;
@@ -196,10 +194,8 @@ html, body {
 }
 
 .intro-text {
-  font-family: var(--font-heading);
   font-weight: 700;
   font-size: var(--font-2xl);
-  color: var(--primary-900);
   margin-bottom: var(--space-4);
   margin-top: var(--space-4);
   line-height: 1.2;
@@ -485,7 +481,6 @@ html, body {
 }
 
 .button-description {
-  font-size: var(--font-md);
   color: var(--gray-600);
   line-height: var(--line-normal);
 }
@@ -528,29 +523,13 @@ html, body {
   margin: 0 auto var(--space-10);
 }
 
-.articles-container,
-.tools-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
 .articles-container {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: var(--space-6);
-}
-
-.tools-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
+  max-width: var(--max-width);
   margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 var(--space-4);
 }
 
 .tools-grid {
@@ -842,11 +821,6 @@ address {
   .boutonsdaccueil {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .articles-container,
-  .tools-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
   @media (min-width: 768px) {
@@ -881,7 +855,6 @@ address {
       font-weight: 700;
       font-family: sans-serif;
       flex-grow: 0;
-      color:var(--primary-text)
     }
     
     .nav-toggle-container {
@@ -942,10 +915,6 @@ address {
       padding-top: var(--space-2);
     }
     
-    .tools-container {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
   }
 @media (max-width: 1016px) {
   .slogan {
@@ -971,18 +940,8 @@ address {
     grid-template-columns: repeat(4, 1fr);
   }
   
-  .articles-container,
-  .tools-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .search-container {
     width: 80%;
-  }
-
-  .tools-container {
-    grid-template-columns: repeat(2, minmax(0, 400px));
-    justify-content: center;
   }
 }
 

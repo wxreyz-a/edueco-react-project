@@ -19,10 +19,8 @@
 }
 
 .mental-map-header h1 {
-  font-family: var(--font-heading);
   font-size: var(--font-2xl);
   font-weight: 800;
-  color: var(--primary-900);
   margin: var(--space-2) 0;
 }
 
@@ -196,9 +194,6 @@
     padding-top: calc(var(--space-6) + 3rem); /* Add extra top padding to avoid header overlap */
   }
 
-  .mental-map-header h1 {
-    font-size: var(--font-md);
-  }
   .mental-map-subtitle {
     font-size: var(--font-xs);
   }
