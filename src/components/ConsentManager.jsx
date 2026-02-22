@@ -101,11 +101,4 @@ ConsentManager.propTypes = {
   consent: PropTypes.bool,
 };
 
-ConsentManager.defaultProps = {
-  onConsentDeclined: undefined,
-  onConsentWithdrawn: undefined,
-  onClose: undefined,
-  consent: false,
-};
-
 export default ConsentManager;

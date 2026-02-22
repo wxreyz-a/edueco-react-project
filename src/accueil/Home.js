@@ -10,7 +10,7 @@ import { faSearch, faGraduationCap, faBook } from "@fortawesome/free-solid-svg-i
 import articles from '../data/articles.json';
 import useDebounce from '../utils/useDebounce';
 
-const Hero = ({ query, setQuery, debouncedQuery, filteredResults }) => (
+const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
   <section className="hero">
     <div className="hero-content">
       <p className="intro-text">Votre bien-être financier est notre priorité</p>
@@ -109,10 +109,6 @@ Hero.propTypes = {
       url: PropTypes.string.isRequired,
     })
   ).isRequired,
-};
-
-Hero.defaultProps = {
-  debouncedQuery: '',
 };
 
 const ArticlesSection = () => (

@@ -27,7 +27,7 @@ const stepShape = PropTypes.shape({
   ),
 });
 
-const MentalMap = ({ title, subtitle, steps }) => {
+const MentalMap = ({ title, subtitle = '', steps }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const safeSteps = Array.isArray(steps) ? steps : [];
 
@@ -63,7 +63,7 @@ const MentalMap = ({ title, subtitle, steps }) => {
             key={step.id || step.title}
             className={`mental-map-step-button ${index === boundedStepIndex ? 'active' : ''}`}
             onClick={() => setCurrentStepIndex(index)}
-            aria-label={`Aller a l'etape ${index + 1}: ${step.title}`}
+            aria-label={`Aller à l'étape ${index + 1}: ${step.title}`}
           >
             {index + 1}
           </button>
@@ -119,10 +119,10 @@ const MentalMap = ({ title, subtitle, steps }) => {
       </section>
 
       <div className="mental-map-footer">
-        <button onClick={goToPrev} disabled={boundedStepIndex === 0} aria-label="Etape precedente">
-          Precedent
+        <button onClick={goToPrev} disabled={boundedStepIndex === 0} aria-label="Étape précédente">
+          Précédent
         </button>
-        <button onClick={goToNext} disabled={boundedStepIndex === safeSteps.length - 1} aria-label="Etape suivante">
+        <button onClick={goToNext} disabled={boundedStepIndex === safeSteps.length - 1} aria-label="Étape suivante">
           Suivant
         </button>
       </div>
@@ -134,10 +134,6 @@ MentalMap.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   steps: PropTypes.arrayOf(stepShape).isRequired,
-};
-
-MentalMap.defaultProps = {
-  subtitle: '',
 };
 
 export default MentalMap;
