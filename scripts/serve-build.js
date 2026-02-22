@@ -1,6 +1,6 @@
-const fs = require('fs');
-const http = require('http');
-const path = require('path');
+const fs = require('node:fs');
+const http = require('node:http');
+const path = require('node:path');
 
 const buildDir = path.resolve(__dirname, '..', 'build');
 const port = Number(process.env.PORT) || 4173;
@@ -122,7 +122,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.on('error', (error) => {
-  if (error && error.code === 'EADDRINUSE') {
+  if (error?.code === 'EADDRINUSE') {
     console.error(`Port ${port} is already in use. Set another port with PORT=<port>.`);
   } else {
     console.error('Failed to start local build server:', error);
