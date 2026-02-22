@@ -68,7 +68,7 @@ const ChapterFourPartThree = () => {
         </p>
 
         <blockquote className="book-quote">
-          "Ne dites pas que vous n’avez pas le temps. Vous avez exactement le même nombre d’heures par jour que Warren Buffett ou Elon Musk."  
+          "Ne dites pas que vous n’avez pas le temps. Vous avez exactement le même nombre d’heures par jour que Warren Buffett ou Elon Musk."{' '}
           <span> - Inconnu</span>
         </blockquote>
 
@@ -91,5 +91,7 @@ const ChapterFourPartThree = () => {
 };
 
 export default ChapterFourPartThree;
+
+
 
 

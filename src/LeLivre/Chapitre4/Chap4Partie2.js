@@ -34,7 +34,7 @@ const ChapterFourPartTwo = () => {
         </p>
 
         <blockquote className="book-quote">
-          "L'investisseur intelligent est un réaliste qui vend aux optimistes et achète aux pessimistes."  
+          "L'investisseur intelligent est un réaliste qui vend aux optimistes et achète aux pessimistes."{' '}
           <span> - Benjamin Graham</span>
         </blockquote>
 
@@ -62,6 +62,8 @@ const ChapterFourPartTwo = () => {
 };
 
 export default ChapterFourPartTwo;
+
+
 
 
 

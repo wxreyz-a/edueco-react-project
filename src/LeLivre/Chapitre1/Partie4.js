@@ -43,8 +43,8 @@ const ChapterOnePartFour = () => {
           </p>
 
           <blockquote className="book-quote">
-            "Les banques ne sont pas seulement des institutions financières, elles sont des moteurs de la croissance économique."  
-            <span> - Auteur inconnu</span>
+            "Les banques ne sont pas seulement des institutions financières, elles sont des moteurs de la croissance économique."{' '}
+          <span> - Auteur inconnu</span>
           </blockquote>
 
           <h2 className="book-subtitle">L'essor des banques commerciales et leur influence au Moyen Âge</h2>
@@ -104,4 +104,6 @@ const ChapterOnePartFour = () => {
 };
 
 export default ChapterOnePartFour;
+
+
 

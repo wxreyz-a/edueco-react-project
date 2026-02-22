@@ -76,7 +76,7 @@ const EpargneCalculator = () => {
           <div className="result-container">
             {result !== null && (
               <div className="result">
-                {isNaN(result)
+                {Number.isNaN(Number(result))
                   ? <p>{result}</p>
                   : <p>Valeur future : <strong>{Number(result).toLocaleString('fr-FR')} €</strong></p>
                 }

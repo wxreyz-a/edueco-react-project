@@ -35,7 +35,7 @@ const ChapterFourPartOne = () => {
         </p>
 
         <blockquote className="book-quote">
-          "L'argent est un excellent serviteur, mais un terrible maître."  
+          "L'argent est un excellent serviteur, mais un terrible maître."{' '}
           <span> - Francis Bacon</span>
         </blockquote>
 
@@ -76,5 +76,7 @@ const ChapterFourPartOne = () => {
 };
 
 export default ChapterFourPartOne;
+
+
 
 

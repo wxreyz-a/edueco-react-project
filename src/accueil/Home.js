@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
 import '../styles/variables.css';
 import './Home.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -95,6 +96,24 @@ const Hero = ({ query, setQuery, debouncedQuery, filteredResults }) => (
     </div>
   </section>
 );
+
+Hero.propTypes = {
+  query: PropTypes.string.isRequired,
+  setQuery: PropTypes.func.isRequired,
+  debouncedQuery: PropTypes.string,
+  filteredResults: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      title: PropTypes.string,
+      content: PropTypes.string,
+      url: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+Hero.defaultProps = {
+  debouncedQuery: '',
+};
 
 const ArticlesSection = () => (
   <section className="articles-section">

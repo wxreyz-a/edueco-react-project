@@ -792,9 +792,6 @@ address {
     padding-right: var(--space-4);
     margin-left: 0;
     margin-right: 0;
-  }
-
-  .tools-grid {
     flex-direction: column;
     gap: var(--space-6);
   }
@@ -864,6 +861,7 @@ address {
 
     .intro-text {
       margin-top: var(--space-2);
+      font-size: var(--font-3xl);
     }
     
     .brand-container {
@@ -927,10 +925,6 @@ address {
       font-weight: 600;
     }
     
-    .intro-text {
-      font-size: var(--font-3xl);
-    }
-    
     .search-container {
       width: 90%;
       margin-top: var(--space-8);
@@ -952,9 +946,6 @@ address {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .header-top {
-      padding-left: 0;
-    }
   }
 @media (max-width: 1016px) {
   .slogan {
@@ -1005,9 +996,3 @@ address {
     width: 60%;
   }
 }
-
-/* Z-index global hierarchy */
-.main-nav { z-index: 900; }
-.search-container { z-index: 800; }
-.live-search-results { z-index: 850; }
-.boutons-container { z-index: 700; }

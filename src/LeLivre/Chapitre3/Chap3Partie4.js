@@ -49,7 +49,7 @@ const ChapterThreePartFour = () => {
         
         <blockquote className="book-quote">
           "Le meilleur moment pour investir était hier. Le deuxième meilleur moment, 
-          c'est aujourd'hui."  
+          c'est aujourd'hui."{' '}
           <span> - Proverbe financier</span>
         </blockquote>
 
@@ -80,3 +80,5 @@ const ChapterThreePartFour = () => {
 };
 
 export default ChapterThreePartFour;
+
+

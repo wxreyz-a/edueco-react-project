@@ -44,8 +44,8 @@ const ChapterTwoPartFour = () => {
           </p>
 
           <blockquote className="book-quote">
-            "Dans un monde globalisé, l'économie mondiale façonne notre avenir, pour le meilleur et pour le pire."  
-            <span>- Thomas Friedman</span>
+            "Dans un monde globalisé, l'économie mondiale façonne notre avenir, pour le meilleur et pour le pire."{' '}
+          <span>- Thomas Friedman</span>
           </blockquote>
 
           <h2 className="book-subtitle">Le citoyen lambda dans l'économie mondialisée</h2>
@@ -90,4 +90,6 @@ const ChapterTwoPartFour = () => {
 };
 
 export default ChapterTwoPartFour;
+
+
 

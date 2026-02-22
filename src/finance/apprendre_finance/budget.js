@@ -86,7 +86,7 @@ const BudgetTrainingArticle = () => {
           <p>
             Dans cet article, nous allons explorer <strong>comment se façonne un
               budget, pourquoi il est impératif d'en avoir un, et quelles sont les 
-              erreurs à éviter.</strong> 
+              erreurs à éviter.</strong>{' '}
             Découvrez des méthodes éprouvées et des anecdotes pour vous motiver.
           </p>
         </section>
@@ -156,7 +156,7 @@ const BudgetTrainingArticle = () => {
             Apple TV, Spotify… Avez-vous vraiment besoin de tout ça ? Non ? Poubelle...</li>
             <li>🍽️ <strong>Cuisinez malin :</strong> Acheter un café chaque 
             matin = 60€/mois. Une cafetière maison ? Rentabilisée en deux semaines.</li>
-            <li>💳 <strong>Utilisez les cashback et codes promos :</strong> 
+            <li>💳 <strong>Utilisez les cashback et codes promos :</strong>{' '}
             Avant tout achat, vérifiez s'il y a une réduction 
             (Honey, Dealabs, iGraal).</li>
             <li>📦 <strong>Revendez ce que vous n’utilisez plus :</strong> Vêtements, 
@@ -215,4 +215,5 @@ const BudgetTrainingArticle = () => {
 };
 
 export default BudgetTrainingArticle;
+
 

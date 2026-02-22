@@ -23,7 +23,7 @@ const ChapterThreePartOne = () => {
           Autrefois, investir signifiait avant tout placer ses ressources dans l'espoir d'une récolte meilleure ou d'un commerce fructueux. Au fil des époques, l’acte d'investir s’est institutionnalisé et professionnalisé, passant par la création de marchés structurés et la naissance de la bourse. Ces évolutions ont permis la diffusion d’un savoir-faire financier et la démocratisation progressive des techniques d’investissement, faisant de cette discipline un pilier central de la prospérité économique.
         </p>
         <blockquote className="book-quote">
-          "L'investissement consiste à parier sur le futur avec des informations imparfaites, mais une stratégie réfléchie."  
+          "L'investissement consiste à parier sur le futur avec des informations imparfaites, mais une stratégie réfléchie."{' '}
           <span> - Warren Buffett</span>
         </blockquote>
         <h2 className="book-subtitle">Pourquoi investir aujourd'hui ?</h2>
@@ -39,3 +39,5 @@ const ChapterThreePartOne = () => {
 };
 
 export default ChapterThreePartOne;
+
+

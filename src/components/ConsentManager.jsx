@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './ConsentManager.css';
 
 const detailedConsentText = (
@@ -89,6 +90,22 @@ const ConsentManager = ({
       <button className="btn-close" onClick={onClose}>Fermer</button>
     </div>
   );
+};
+
+ConsentManager.propTypes = {
+  onConsentGiven: PropTypes.func.isRequired,
+  onConsentDeclined: PropTypes.func,
+  onConsentWithdrawn: PropTypes.func,
+  visible: PropTypes.bool.isRequired,
+  onClose: PropTypes.func,
+  consent: PropTypes.bool,
+};
+
+ConsentManager.defaultProps = {
+  onConsentDeclined: undefined,
+  onConsentWithdrawn: undefined,
+  onClose: undefined,
+  consent: false,
 };
 
 export default ConsentManager;

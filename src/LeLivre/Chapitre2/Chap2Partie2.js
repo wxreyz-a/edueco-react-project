@@ -73,7 +73,7 @@ const ChapterTwoPartTwo = () => {
         </p>
 
         <blockquote className="book-quote">
-          "L'argent est l'instrument du capitalisme."  
+          "L'argent est l'instrument du capitalisme."{' '}
           <span>- Karl Marx</span>
         </blockquote>
 
@@ -117,3 +117,5 @@ const ChapterTwoPartTwo = () => {
 };
 
 export default ChapterTwoPartTwo;
+
+

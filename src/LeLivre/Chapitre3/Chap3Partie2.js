@@ -26,7 +26,7 @@ const ChapterThreePartTwo = () => {
           Cette pluralité d’outils permet une gestion fine du risque. Par exemple, en période de volatilité accrue, les investisseurs peuvent se tourner vers des obligations ou des fonds équilibrés pour atténuer les chocs, tandis que durant des phases de croissance, l’investissement en actions peut offrir des rendements supérieurs. La clé réside dans la compréhension des mécanismes sous-jacents et l'adaptation constante de sa stratégie en fonction des conditions du marché.
         </p>
         <blockquote className="book-quote">
-          "L'investisseur intelligent est un réaliste qui vend aux optimistes et achète aux pessimistes."  
+          "L'investisseur intelligent est un réaliste qui vend aux optimistes et achète aux pessimistes."{' '}
           <span> - Benjamin Graham</span>
         </blockquote>
 
@@ -43,5 +43,7 @@ const ChapterThreePartTwo = () => {
 };
 
 export default ChapterThreePartTwo;
+
+
 
 

@@ -149,6 +149,8 @@
     border-radius: var(--border-radius);
     transition: all var(--transition-speed) ease;
     background: var(--info-bg);
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
   }
 
   .chapter-item h2 {
@@ -184,12 +186,6 @@
     border-radius: 0;
     background: var(--section-bg);
     box-shadow: none;
-  }
-
-  /* Animation d'apparition */
-  .chapter-item {
-    animation: slideIn 0.5s ease-out forwards;
-    opacity: 0;
   }
 
   @keyframes slideIn {

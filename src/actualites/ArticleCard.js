@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Articles/Articles.css';
 
 const ArticleCard = ({ article }) => {
@@ -12,6 +13,14 @@ const ArticleCard = ({ article }) => {
       </Link>
     </article>
   );
+};
+
+ArticleCard.propTypes = {
+  article: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ArticleCard;

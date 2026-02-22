@@ -37,7 +37,7 @@ const ChapterOnePartTwo = () => {
         </p>
 
         <blockquote className="book-quote">
-          "Le troc n'était qu'une étape dans la longue histoire de la monnaie, un pont fragile entre le troglodyte et le commerçant."  
+          "Le troc n'était qu'une étape dans la longue histoire de la monnaie, un pont fragile entre le troglodyte et le commerçant."{' '}
           <span> - Auteur inconnu</span>
         </blockquote>
 
@@ -98,4 +98,6 @@ const ChapterOnePartTwo = () => {
 };
 
 export default ChapterOnePartTwo;
+
+
 

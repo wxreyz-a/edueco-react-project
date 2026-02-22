@@ -51,7 +51,7 @@ const ChapterTwoPartThree = () => {
         </p>
 
         <blockquote className="book-quote">
-          "Les grandes puissances économiques ne sont pas seulement des nations riches, ce sont aussi des forces qui façonnent la vie de milliards de personnes."  
+          "Les grandes puissances économiques ne sont pas seulement des nations riches, ce sont aussi des forces qui façonnent la vie de milliards de personnes."{' '}
           <span>- John Maynard Keynes</span>
         </blockquote>
 
@@ -86,4 +86,6 @@ const ChapterTwoPartThree = () => {
 };
 
 export default ChapterTwoPartThree;
+
+
 

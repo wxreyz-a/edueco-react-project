@@ -27,7 +27,7 @@ const ChapterTwoPartOne = () => {
         </p>
 
         <blockquote className="book-quote">
-          "Le capitalisme n'est pas un simple système économique, c'est une philosophie de vie."  
+          "Le capitalisme n'est pas un simple système économique, c'est une philosophie de vie."{' '}
           <span>- Milton Friedman</span>
         </blockquote>
 
@@ -82,3 +82,5 @@ const ChapterTwoPartOne = () => {
 };
 
 export default ChapterTwoPartOne;
+
+

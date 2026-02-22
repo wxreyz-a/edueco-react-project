@@ -41,7 +41,7 @@ const ChapterOnePartThree = () => {
         </p>
 
         <blockquote className="book-quote">
-          "La monnaie n'est rien d'autre que la reconnaissance d'une valeur collective."  
+          "La monnaie n'est rien d'autre que la reconnaissance d'une valeur collective."{' '}
           <span> - Yuval Noah Harari</span>
         </blockquote>
 
@@ -98,5 +98,7 @@ const ChapterOnePartThree = () => {
 };
 
 export default ChapterOnePartThree;
+
+
 
 

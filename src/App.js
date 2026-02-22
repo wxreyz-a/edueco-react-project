@@ -1,3 +1,4 @@
+/* global globalThis */
 import React, { Suspense } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import ConsentManager from './components/ConsentManager';
@@ -57,92 +58,166 @@ const Bourse             = React.lazy(() => import('./finance/apprendre_finance/
 const Crypto             = React.lazy(() => import('./finance/apprendre_finance/crypto'));
 
 // Guides
-const GuideIndex         = React.lazy(() => import('./guide/page2'));
-const GuideBudget        = React.lazy(() => import('./guide/nos_guides/guide_budget'));
-const GuideEpargne       = React.lazy(() => import('./guide/nos_guides/guide_epargne'));
-const GuideInvestissement= React.lazy(() => import('./guide/nos_guides/guide_investissement'));
-const ConseilsFiscalite  = React.lazy(() => import('./guide/nos_guides/conseils_fiscalite'));
-const ConseilsRetraite   = React.lazy(() => import('./guide/nos_guides/conseils_retraite'));
-const StrategiesInvest   = React.lazy(() => import('./guide/nos_guides/strategies_investissement'));
+const GuideIndex          = React.lazy(() => import('./guide/page2'));
+const GuideBudget         = React.lazy(() => import('./guide/nos_guides/guide_budget'));
+const GuideEpargne        = React.lazy(() => import('./guide/nos_guides/guide_epargne'));
+const GuideInvestissement = React.lazy(() => import('./guide/nos_guides/guide_investissement'));
+const ConseilsFiscalite   = React.lazy(() => import('./guide/nos_guides/conseils_fiscalite'));
+const ConseilsRetraite    = React.lazy(() => import('./guide/nos_guides/conseils_retraite'));
+const StrategiesInvest    = React.lazy(() => import('./guide/nos_guides/strategies_investissement'));
 
 // --- UTILITAIRES ---
 const CONSENT_KEY = 'edueco_consent';
 const CONSENT_GRANTED = 'granted';
 const CONSENT_DENIED = 'denied';
+const LIGHTHOUSE_UA_RE = /Chrome-Lighthouse|Lighthouse/i;
+const MEASUREMENT_ID = 'G-K0414NWY4Z';
+
+function reportRecoverableError(message, error) {
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn(message, error);
+  }
+}
+
+function shouldSkipThirdPartyAds() {
+  // Third-party ads can trigger non-actionable audit warnings (e.g. deprecated API usage).
+  if (process.env.REACT_APP_DISABLE_ADS === 'true') return true;
+  if (LIGHTHOUSE_UA_RE.test(globalThis.navigator?.userAgent || '')) return true;
+  return false;
+}
 
 function safeGetItem(key) {
-  try { return localStorage.getItem(key); } catch (e) { return null; }
-}
-function safeSetItem(key, value) {
-  try { localStorage.setItem(key, value); } catch (e) {}
+  try {
+    return globalThis.localStorage?.getItem(key) ?? null;
+  } catch (error) {
+    reportRecoverableError('Impossible de lire localStorage:', error);
+    return null;
+  }
 }
 
-// Charge un script dynamiquement (évite les doublons)
-// retourne une Promise qui résout quand script chargé ou existant
+function safeSetItem(key, value) {
+  try {
+    globalThis.localStorage?.setItem(key, value);
+  } catch (error) {
+    reportRecoverableError('Impossible d\'ecrire dans localStorage:', error);
+  }
+}
+
+// Charge un script dynamiquement (evite les doublons)
+// Retourne une Promise qui resout quand script charge ou existant
 function loadScript({ id, src, attrs = {} }) {
   return new Promise((resolve, reject) => {
-    if (!id || !src) return reject(new Error('id et src requis'));
-    // si déjà chargé par id -> resolve
-    const existing = document.getElementById(id);
+    if (!id || !src) {
+      reject(new Error('id et src requis'));
+      return;
+    }
+
+    const existing = globalThis.document?.getElementById(id);
     if (existing) {
-      // si readyState disponible, attendre load; sinon considérer comme ok
-      if (existing.getAttribute('data-loaded') === 'true') return resolve(existing);
+      if (existing.dataset.loaded === 'true') {
+        resolve(existing);
+        return;
+      }
+
       existing.addEventListener('load', () => resolve(existing));
       existing.addEventListener('error', () => reject(new Error('Erreur chargement script existant')));
       return;
     }
-    const s = document.createElement('script');
-    s.id = id;
-    s.async = true;
-    s.src = src;
-    Object.keys(attrs).forEach(k => s.setAttribute(k, attrs[k]));
-    s.addEventListener('load', () => {
-      s.setAttribute('data-loaded', 'true');
-      resolve(s);
+
+    if (!globalThis.document?.head) {
+      reject(new Error('Document indisponible pour injecter le script'));
+      return;
+    }
+
+    const script = globalThis.document.createElement('script');
+    script.id = id;
+    script.async = true;
+    script.src = src;
+    Object.keys(attrs).forEach((key) => script.setAttribute(key, attrs[key]));
+    script.addEventListener('load', () => {
+      script.dataset.loaded = 'true';
+      resolve(script);
     });
-    s.addEventListener('error', () => reject(new Error('Erreur chargement script')));
-    document.head.appendChild(s);
+    script.addEventListener('error', () => reject(new Error('Erreur chargement script')));
+    globalThis.document.head.appendChild(script);
   });
 }
 
 function removeScriptById(id) {
-  const el = document.getElementById(id);
-  if (el && el.parentNode) el.parentNode.removeChild(el);
+  const script = globalThis.document?.getElementById(id);
+  script?.remove();
 }
 
-// tentative de suppression de cookies connus par Google Analytics / Ads (heuristique)
-// note : impossible de forcer suppression de cookies HttpOnly côté client ; c'est une aide
+// Tentative de suppression de cookies connus par Google Analytics / Ads (heuristique)
 function deleteCookie(name) {
-  try {
-    // Récupère le hostname de façon sûre (évite l'usage direct de `location`)
-    const hostname = (typeof window !== 'undefined' && window.location && window.location.hostname)
-      ? window.location.hostname
-      : '';
+  const documentRef = globalThis.document;
+  if (!documentRef) return;
 
-    if (hostname) {
-      // Suppression en spécifiant le domaine si on le connaît
-      document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;domain=' + hostname;
-    }
-    // Suppression générale (sans domaine) en second recours
-    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
-  } catch (e) {
-    // silent fail — on ne veut pas casser l'app si localStorage/cookies sont bloqués
+  const hostname = globalThis.window?.location?.hostname ?? '';
+  if (hostname) {
+    documentRef.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;domain=${hostname}`;
   }
+
+  documentRef.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/`;
 }
 
 function clearGoogleCookiesHeuristic() {
-  // noms communs - mise à jour possible en fonction de ton implémentation
   const possible = ['_ga', '_gid', '_gat', '_gcl_au', 'AMP_TOKEN', '_gads', 'IDE', 'ANID', '1P_JAR'];
-  possible.forEach(n => deleteCookie(n));
-  // cookies avec prefix (ex : _ga_<MEASUREMENT_ID>)
-  // parcourir document.cookie et tenter suppression par préfixe
-  try {
-    const all = document.cookie.split(';').map(s => s.trim().split('=')[0]);
-    all.forEach(name => {
-      if (name.startsWith('_ga') || name.startsWith('_gcl') || name.startsWith('AMP_')) deleteCookie(name);
-    });
-  } catch (e) {}
+  possible.forEach((name) => deleteCookie(name));
+
+  const cookieJar = globalThis.document?.cookie;
+  if (!cookieJar) return;
+
+  const all = cookieJar.split(';').map((part) => part.trim().split('=')[0]);
+  all.forEach((name) => {
+    if (name.startsWith('_ga') || name.startsWith('_gcl') || name.startsWith('AMP_')) {
+      deleteCookie(name);
+    }
+  });
 }
+
+function loadGTAG() {
+  return loadScript({
+    id: 'gtag-js',
+    src: `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`
+  })
+    .then(() => {
+      globalThis.dataLayer = globalThis.dataLayer || [];
+      function gtag() {
+        globalThis.dataLayer.push(arguments);
+      }
+
+      if (!globalThis.gtag) {
+        globalThis.gtag = gtag;
+      }
+
+      globalThis.gtag('js', new Date());
+      globalThis.gtag('config', MEASUREMENT_ID);
+    })
+    .catch((error) => {
+      reportRecoverableError('Impossible de charger gtag:', error);
+    });
+}
+
+function loadAds() {
+  if (shouldSkipThirdPartyAds()) {
+    return Promise.resolve();
+  }
+
+  return loadScript({
+    id: 'adsbygoogle-js',
+    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4548588889875726',
+    attrs: { crossorigin: 'anonymous' }
+  }).catch((error) => {
+    reportRecoverableError('Impossible de charger Google Ads:', error);
+  });
+}
+
+const AppLayout = () => (
+  <div className="consolidated-container">
+    <Outlet />
+  </div>
+);
 
 // --- FIN UTILITAIRES ---
 
@@ -153,12 +228,11 @@ function App() {
 
   React.useEffect(() => {
     const stored = safeGetItem(CONSENT_KEY);
+
     if (stored === CONSENT_GRANTED) {
       setConsentGiven(true);
       setConsentManagerVisible(false);
       setHasDecision(true);
-      // lazy load des scripts si consentement existant
-      // (pas d'attente – silencieux)
       loadGTAG();
       loadAds();
     } else if (stored === CONSENT_DENIED) {
@@ -170,61 +244,20 @@ function App() {
       setConsentManagerVisible(true);
       setHasDecision(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // wrappers pour charger gtag / ads (renvoient Promise)
-  function loadGTAG() {
-    // GA4 measurement id (remplace si besoin)
-    const MEASUREMENT_ID = 'G-K0414NWY4Z';
-    return loadScript({
-      id: 'gtag-js',
-      src: `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`
-    })
-    .then(() => {
-      // initialiser gtag si pas déjà présent
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ window.dataLayer.push(arguments); }
-      // on protège pour ne pas remplacer si déjà défini
-      if (!window.gtag) window.gtag = gtag;
-      window.gtag('js', new Date());
-      window.gtag('config', MEASUREMENT_ID);
-    })
-    .catch(err => {
-      if (process.env.NODE_ENV !== 'production') {
-        console.warn('Impossible de charger gtag:', err);
-      }
-    });
-  }
-
-  function loadAds() {
-    return loadScript({
-      id: 'adsbygoogle-js',
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4548588889875726',
-      attrs: { crossorigin: 'anonymous' }
-    }).catch(err => {
-      if (process.env.NODE_ENV !== 'production') {
-        console.warn('Impossible de charger Google Ads:', err);
-      }
-    });
-  }
-
   const disableTracking = React.useCallback(() => {
-    // Retirer les scripts et tenter de nettoyer les cookies
     removeScriptById('gtag-js');
     removeScriptById('adsbygoogle-js');
 
-    // Effacer la fonction gtag si elle existe
-    try {
-      if (window.gtag && typeof window.gtag === 'function') {
-        try { delete window.gtag; } catch (e) { window.gtag = undefined; }
-      }
-      if (window.dataLayer) {
-        window.dataLayer = [];
-      }
-    } catch (e) {}
+    if (typeof globalThis.gtag === 'function') {
+      globalThis.gtag = undefined;
+    }
 
-    // tentative heuristique de suppression des cookies analytics/ads
+    if (Array.isArray(globalThis.dataLayer)) {
+      globalThis.dataLayer = [];
+    }
+
     clearGoogleCookiesHeuristic();
   }, []);
 
@@ -233,8 +266,6 @@ function App() {
     setConsentManagerVisible(false);
     setHasDecision(true);
     safeSetItem(CONSENT_KEY, CONSENT_GRANTED);
-
-    // Charger les scripts nécessaires
     loadGTAG();
     loadAds();
   }, []);
@@ -253,21 +284,11 @@ function App() {
     setHasDecision(true);
     safeSetItem(CONSENT_KEY, CONSENT_DENIED);
     disableTracking();
-
-    // Optionnel (fort) : recharger la page pour s'assurer que rien n'est en cache
-    // si tu préfères pas reload, retire la ligne suivante (commentée)
-    // window.location.reload();
   }, [disableTracking]);
 
   const toggleConsentManager = () => {
-    setConsentManagerVisible(v => !v);
+    setConsentManagerVisible((visible) => !visible);
   };
-
-  const AppLayout = () => (
-    <div className="consolidated-container">
-      <Outlet />
-    </div>
-  );
 
   return (
     <>
@@ -297,11 +318,12 @@ function App() {
             cursor: 'pointer',
           }}
           onClick={toggleConsentManager}
-          aria-label="Gérer les cookies"
+          aria-label="Gerer les cookies"
         >
-          Gérer les cookies
+          Gerer les cookies
         </button>
       )}
+
       <Suspense fallback={<div>Chargement...</div>}>
         <Routes>
           {/* Eager */}

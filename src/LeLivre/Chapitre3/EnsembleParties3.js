@@ -85,8 +85,8 @@ const ChapterThree = () => {
         </p>
 
         <div className="chapter-sections">
-          {sections.map((section, index) => (
-            <Link key={index} to={section.path} className="chapter-link">
+          {sections.map((section) => (
+            <Link key={section.path} to={section.path} className="chapter-link">
               <div className="chapter-card">
                 <h2>{section.title}</h2>
               </div>
@@ -99,3 +99,4 @@ const ChapterThree = () => {
 };
 
 export default ChapterThree;
+

@@ -55,6 +55,8 @@
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  position: relative; /* Evite des conflits de z-index */
+  z-index: 10;
 }
 
 /* Assure que toute la carte est cliquable */
@@ -65,17 +67,7 @@
   max-width: 500px;
 }
 
-/* Évite tout chevauchement indésirable */
-.chapter-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-  position: relative; /* Évite des conflits de z-index */
-  z-index: 10;
-}
-
-/* Rendre toute la carte réactive */
+/* Rendre toute la carte reactive */
 .chapter-card {
   background: #faf8f2;
   padding: 15px 20px;
@@ -88,15 +80,15 @@
   width: 100%;
 }
 
-/* Assure que le texte ne bloque pas l’interaction */
+/* Assure que le texte ne bloque pas l'interaction */
 .chapter-card h2 {
   font-size: 1.4rem;
   color: #3e3d3d;
   margin: 0;
-  pointer-events: none; /* Empêche le texte de bloquer le clic */
+  pointer-events: none; /* Emp�che le texte de bloquer le clic */
 }
 
-/* Effet au survol amélioré */
+/* Effet au survol ameliore */
 .chapter-card:hover {
   transform: scale(1.02);
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
@@ -106,48 +98,48 @@
 /* Optimisation pour les mobiles avec @media */
 /* --------------------------------------- */
 
-/* Mobile: écran jusqu'à 600px */
+/* Mobile: ecran jusqu'a 600px */
 @media (max-width: 600px) {
   .chapter-book {
-    padding: 20px 15px; /* Réduit l'espacement */
+    padding: 20px 15px; /* Reduit l'espacement */
     width: 100%;
   }
 
   .chapter-title {
-    font-size: 1.6rem; /* Réduit la taille du titre */
+    font-size: 1.6rem; /* Reduit la taille du titre */
     margin-bottom: 10px;
   }
 
   .chapter-intro {
-    font-size: 1rem; /* Réduit la taille de l'introduction */
+    font-size: 1rem; /* Reduit la taille de l'introduction */
     margin-bottom: 20px;
   }
 
   .chapter-card {
-    padding: 10px 15px; /* Réduit le padding des cartes */
+    padding: 10px 15px; /* Reduit le padding des cartes */
   }
 
   .chapter-card h2 {
-    font-size: 1.2rem; /* Réduit la taille du titre des cartes */
+    font-size: 1.2rem; /* Reduit la taille du titre des cartes */
   }
 
   .chapter-sections {
-    gap: 10px; /* Réduit l'espace entre les cartes */
+    gap: 10px; /* Reduit l'espace entre les cartes */
   }
 }
 
-/* Mobile plus grand ou tablettes: écran de 601px à 768px */
+/* Mobile plus grand ou tablettes: ecran de 601px a 768px */
 @media (max-width: 768px) {
   .chapter-book {
-    padding: 30px 25px; /* Légère réduction du padding */
+    padding: 30px 25px; /* Legere reduction du padding */
   }
 
   .chapter-title {
-    font-size: 1.8rem; /* Légère réduction de la taille du titre */
+    font-size: 1.8rem; /* Legere reduction de la taille du titre */
   }
 
   .chapter-intro {
-    font-size: 1.1rem; /* Légère réduction de la taille de l'introduction */
+    font-size: 1.1rem; /* Legere reduction de la taille de l'introduction */
   }
 
   .chapter-card {

@@ -26,7 +26,7 @@ const ChapterThreePartThree = () => {
           Toutefois, cette décentralisation s'accompagne de défis notables, notamment en termes de régulation et de gouvernance. La volatilité extrême, les cyberattaques et l'absence d'une autorité de régulation centralisée posent des questions légitimes sur la durabilité de ces systèmes. Néanmoins, les partisans de la révolution blockchain y voient une opportunité de construire un système financier plus équitable et résilient.
         </p>
         <blockquote className="book-quote">
-          "Nous assistons à la naissance d’un nouveau système financier basé sur la confiance décentralisée."  
+          "Nous assistons à la naissance d’un nouveau système financier basé sur la confiance décentralisée."{' '}
           <span> - Vitalik Buterin</span>
         </blockquote>
 
@@ -43,4 +43,6 @@ const ChapterThreePartThree = () => {
 };
 
 export default ChapterThreePartThree;
+
+
 
