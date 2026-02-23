@@ -47,13 +47,12 @@ jobs:
       run: |
         echo "Organization: $SONAR_ORGANIZATION"
         echo "Project Key: $SONAR_PROJECT_KEY"
-        if [ -z "$SONAR_TOKEN" ]; then
-          echo "SONAR_TOKEN is not configured."
-          exit 1
-        fi
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - name: Sonar token missing
+      if: ${{ secrets.SONAR_TOKEN == '' }}
+      run: |
+        echo "SONAR_TOKEN is not configured. Skipping SonarCloud scan."
     - name: SonarQube Scan
+      if: ${{ secrets.SONAR_TOKEN != '' }}
       uses: SonarSource/sonarqube-scan-action@v5
       with:
         args: >
@@ -63,6 +62,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: SonarQube Quality Gate
+      if: ${{ secrets.SONAR_TOKEN != '' }}
       uses: SonarSource/sonarqube-quality-gate-action@v1.2.0
       timeout-minutes: 5
       env:
