@@ -81,13 +81,37 @@ function stripHtml(html = '') {
 }
 
 function decodeHtmlEntities(text = '') {
-  if (!globalThis.document?.createElement) {
-    return text;
+  if (typeof text !== 'string' || text.length === 0) {
+    return '';
   }
 
-  const textarea = globalThis.document.createElement('textarea');
-  textarea.innerHTML = text;
-  return textarea.value;
+  const namedEntities = {
+    amp: '&',
+    lt: '<',
+    gt: '>',
+    quot: '"',
+    apos: "'",
+    nbsp: ' ',
+  };
+
+  return text
+    .replaceAll(/&#x([0-9a-fA-F]+);/g, (match, hexValue) => {
+      const codePoint = Number.parseInt(hexValue, 16);
+      if (!Number.isInteger(codePoint) || codePoint < 0 || codePoint > 0x10FFFF) {
+        return match;
+      }
+      return String.fromCodePoint(codePoint);
+    })
+    .replaceAll(/&#([0-9]+);/g, (match, decimalValue) => {
+      const codePoint = Number.parseInt(decimalValue, 10);
+      if (!Number.isInteger(codePoint) || codePoint < 0 || codePoint > 0x10FFFF) {
+        return match;
+      }
+      return String.fromCodePoint(codePoint);
+    })
+    .replaceAll(/&([a-zA-Z]+);/g, (match, entityName) => (
+      namedEntities[entityName] ?? match
+    ));
 }
 
 function normalizeWordPressPost(post) {

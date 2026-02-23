@@ -1,7 +1,6 @@
 /* global globalThis */
 import React, { Suspense } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import ConsentManager from './components/ConsentManager';
 import NotFound from './components/NotFound';
 
@@ -229,36 +228,21 @@ function loadAds() {
   });
 }
 
-function sanitizeRedirectTarget(path) {
-  if (typeof path !== 'string') return '/';
-
-  const normalized = path.trim();
-  if (!normalized.startsWith('/') || normalized.startsWith('//')) {
-    return '/';
-  }
-
-  return normalized;
-}
-
 const AppLayout = () => (
   <div className="consolidated-container">
     <Outlet />
   </div>
 );
 
-function ExternalRedirect({ to }) {
+function ExternalRedirect() {
   React.useEffect(() => {
     if (globalThis.window?.location) {
-      globalThis.window.location.replace(sanitizeRedirectTarget(to));
+      globalThis.window.location.replace(WORDPRESS_BLOG_PATH);
     }
-  }, [to]);
+  }, []);
 
   return <div>Redirection...</div>;
 }
-
-ExternalRedirect.propTypes = {
-  to: PropTypes.string.isRequired,
-};
 
 // --- FIN UTILITAIRES ---
 
@@ -376,14 +360,14 @@ function App() {
             <Route path="/ressources" element={<PageRessources />} />
 
             {/* Chroniques (WordPress) */}
-            <Route path="/chroniques" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
-            <Route path="/chroniques/*" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+            <Route path="/chroniques" element={<ExternalRedirect />} />
+            <Route path="/chroniques/*" element={<ExternalRedirect />} />
 
             {/* Compatibilite : anciens liens */}
-            <Route path="/actualites" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
-            <Route path="/actualites/*" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
-            <Route path="/investir-2025" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
-            <Route path="/trump-tarifs" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+            <Route path="/actualites" element={<ExternalRedirect />} />
+            <Route path="/actualites/*" element={<ExternalRedirect />} />
+            <Route path="/investir-2025" element={<ExternalRedirect />} />
+            <Route path="/trump-tarifs" element={<ExternalRedirect />} />
             
 
             {/* Lazy - Outils */}

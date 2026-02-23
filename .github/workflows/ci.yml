@@ -62,6 +62,16 @@ jobs:
           -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY || format('{0}_{1}', github.repository_owner, github.event.repository.name) }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Print quality gate conditions
+      if: ${{ env.SONAR_TOKEN != '' }}
+      run: |
+        PROJECT_KEY="${{ vars.SONAR_PROJECT_KEY || format('{0}_{1}', github.repository_owner, github.event.repository.name) }}"
+        BRANCH_NAME="${GITHUB_REF_NAME}"
+        RESPONSE=$(curl -sS -u "${SONAR_TOKEN}:" "https://sonarcloud.io/api/qualitygates/project_status?projectKey=${PROJECT_KEY}&branch=${BRANCH_NAME}")
+        echo "$RESPONSE"
+        if command -v jq >/dev/null 2>&1; then
+          echo "$RESPONSE" | jq -r '.projectStatus.conditions[] | select(.status == "ERROR") | "FAILED: \(.metricKey) actual=\(.actualValue) threshold=\(.errorThreshold)"'
+        fi
     - name: SonarQube Quality Gate
       if: ${{ env.SONAR_TOKEN != '' }}
       uses: SonarSource/sonarqube-quality-gate-action@v1.2.0
