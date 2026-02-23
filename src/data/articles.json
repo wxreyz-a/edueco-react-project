@@ -1,5 +1,5 @@
 [
-  { "id": 1, "title": "Chroniques", "url": "/chroniques", "content": "Tous les nouveaux articles publies chaque semaine (finance et autres sujets)." },
+  { "id": 1, "title": "Chroniques", "url": "/blog/", "content": "Tous les nouveaux articles publies chaque semaine (finance et autres sujets)." },
   { "id": 2, "title": "Optimiser son budget", "url": "/guide-budget", "content": "Conseils pour maîtriser vos dépenses et épargner efficacement." },
   { "id": 4, "title": "En apprendre sur la finance", "url": "/apprendre", "content": "Découvrez nos conseils pratiques pour investir en 2025." },
   { "id": 5, "title": "Accueil", "url": "/", "content": "Page d'accueil du site." },

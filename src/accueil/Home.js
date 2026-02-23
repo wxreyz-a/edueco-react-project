@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+/* global globalThis */
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -9,6 +10,47 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faSearch, faGraduationCap, faBook } from "@fortawesome/free-solid-svg-icons";
 import articles from '../data/articles.json';
 import useDebounce from '../utils/useDebounce';
+
+const WORDPRESS_LATEST_POSTS_API = process.env.REACT_APP_BLOG_API_URL
+  || '/blog/wp-json/wp/v2/posts?per_page=2&orderby=date&order=desc&_fields=id,link,title,excerpt,date';
+
+const FALLBACK_LATEST_POSTS = [
+  {
+    id: 'fallback-1',
+    title: 'Finance, business et societe',
+    excerpt: "Chaque semaine, de nouvelles analyses sur l'education financiere et les sujets qui comptent pour la vie quotidienne.",
+    link: '/blog/',
+  },
+  {
+    id: 'fallback-2',
+    title: 'Ouvert a tous les sujets',
+    excerpt: "Tu n'es plus limite a l'actualite financiere: cette section regroupe aussi tes autres centres d'interet.",
+    link: '/blog/',
+  },
+];
+
+function stripHtml(html = '') {
+  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function decodeHtmlEntities(text = '') {
+  if (!globalThis.document?.createElement) {
+    return text;
+  }
+
+  const textarea = globalThis.document.createElement('textarea');
+  textarea.innerHTML = text;
+  return textarea.value;
+}
+
+function normalizeWordPressPost(post) {
+  return {
+    id: post?.id,
+    title: decodeHtmlEntities(post?.title?.rendered || 'Chronique'),
+    excerpt: decodeHtmlEntities(stripHtml(post?.excerpt?.rendered || '')),
+    link: post?.link || '/blog/',
+  };
+}
 
 const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
   <section className="hero">
@@ -52,10 +94,19 @@ const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
             <ul>
               {filteredResults.map(article => (
                 <li key={article.id}>
-                  <Link to={article.url}>
-                    <strong>{article.title}</strong>
-                    <span>{article.content}</span>
-                  </Link>
+                  {article.url.startsWith('/blog/')
+                    ? (
+                      <a href={article.url}>
+                        <strong>{article.title}</strong>
+                        <span>{article.content}</span>
+                      </a>
+                    )
+                    : (
+                      <Link to={article.url}>
+                        <strong>{article.title}</strong>
+                        <span>{article.content}</span>
+                      </Link>
+                    )}
                 </li>
               ))}
             </ul>
@@ -80,12 +131,12 @@ const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
             Accédez à des stratégies éprouvées pour maîtriser vos dépenses et investissements.
           </div>
         </Link>
-        <Link to="/chroniques" className="button" aria-label="Chroniques">
+        <a href="/blog/" className="button" aria-label="Chroniques">
           <div className="button-title">Chroniques</div>
           <div className="button-description">
             Articles, analyses et idées (finance et au-delà).
           </div>
-        </Link>
+        </a>
         <Link to="/ressources" className="button" aria-label="Les ressources utiles">
           <div className="button-title">Les ressources utiles</div>
           <div className="button-description">
@@ -111,27 +162,26 @@ Hero.propTypes = {
   ).isRequired,
 };
 
-const ArticlesSection = () => (
+const ArticlesSection = ({ posts }) => {
+  const displayedPosts = posts.length > 0 ? posts : FALLBACK_LATEST_POSTS;
+
+  return (
   <section className="articles-section">
     <h2 className="section-title">Dernieres chroniques</h2>
     <div className="articles-container">
-      <article className="article-card">
-        <h3>Finance, business et societe</h3>
-        <p>Chaque semaine, de nouvelles analyses sur l'education financiere et les sujets qui comptent pour la vie quotidienne.</p>
-        <Link to="/chroniques" className="read-more" aria-label="Voir les chroniques">
-          Lire la suite
-        </Link>
-      </article>
-      <article className="article-card">
-        <h3>Ouvert a tous les sujets</h3>
-        <p>Tu n'es plus limite a l'actualite financiere: cette section regroupe aussi tes autres centres d'interet.</p>
-        <Link to="/chroniques" className="read-more" aria-label="Acceder au blog WordPress">
-          Lire la suite
-        </Link>
-      </article>
+      {displayedPosts.map((post) => (
+        <article className="article-card" key={post.id}>
+          <h3>{post.title}</h3>
+          <p>{post.excerpt}</p>
+          <a href={post.link} className="read-more" aria-label={`Lire la chronique ${post.title}`}>
+            Lire la suite
+          </a>
+        </article>
+      ))}
     </div>
   </section>
-);
+  );
+};
 
 const ToolsSection = () => (
   <section id="outils" className="tools-section">
@@ -161,6 +211,7 @@ const ToolsSection = () => (
 const Home = () => {
   const [query, setQuery] = useState('');
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [latestPosts, setLatestPosts] = useState([]);
   const debouncedQuery = useDebounce(query, 300);
 
   const filteredResults = useMemo(() => {
@@ -171,6 +222,53 @@ const Home = () => {
       (article.content || '').toLowerCase().includes(term)
     );
   }, [debouncedQuery]);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'test') {
+      return undefined;
+    }
+
+    if (typeof globalThis.fetch !== 'function') {
+      return undefined;
+    }
+
+    const controller = new AbortController();
+
+    async function fetchLatestPosts() {
+      try {
+        const response = await globalThis.fetch(WORDPRESS_LATEST_POSTS_API, {
+          signal: controller.signal,
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (!Array.isArray(data)) {
+          return;
+        }
+
+        const normalized = data
+          .map(normalizeWordPressPost)
+          .filter((post) => post.link)
+          .slice(0, 2);
+
+        if (normalized.length > 0) {
+          setLatestPosts(normalized);
+        }
+      } catch (error) {
+        if (error?.name !== 'AbortError' && process.env.NODE_ENV !== 'production') {
+          console.warn('Impossible de recuperer les dernieres chroniques WordPress:', error);
+        }
+      }
+    }
+
+    fetchLatestPosts();
+
+    return () => controller.abort();
+  }, []);
 
   return (
     <div className="home-page">
@@ -202,7 +300,7 @@ const Home = () => {
           <ul>
             <li><Link to="/" onClick={() => setIsNavOpen(false)}>Accueil</Link></li>
             <li><Link to="/guides" onClick={() => setIsNavOpen(false)}>Guides</Link></li>
-            <li><Link to="/chroniques" onClick={() => setIsNavOpen(false)}>Chroniques</Link></li>
+            <li><a href="/blog/" onClick={() => setIsNavOpen(false)}>Chroniques</a></li>
             <li><Link to="/ressources" onClick={() => setIsNavOpen(false)}>Outils</Link></li>
             <li><Link to="/contact" onClick={() => setIsNavOpen(false)}>Contact</Link></li>
           </ul>
@@ -211,7 +309,7 @@ const Home = () => {
 
       <main className="container">
         <Hero query={query} setQuery={setQuery} debouncedQuery={debouncedQuery} filteredResults={filteredResults} />
-        <ArticlesSection />
+        <ArticlesSection posts={latestPosts} />
         <ToolsSection />
       </main>
 
@@ -221,7 +319,7 @@ const Home = () => {
             <Link to="/mentions-legales">Mentions légales</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/guides">Tous nos guides</Link>
-            <Link to="/chroniques">Chroniques</Link>
+            <a href="/blog/">Chroniques</a>
           </div>
 
           <div className="social-links">

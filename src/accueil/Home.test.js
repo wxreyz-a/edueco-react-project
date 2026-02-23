@@ -37,7 +37,7 @@ describe('Home Component', () => {
     const navLinks = [
       { label: 'Accueil', href: '/' },
       { label: 'Guides', href: '/guides' },
-      { label: 'Chroniques', href: '/chroniques' },
+      { label: 'Chroniques', href: '/blog/' },
       { label: 'Outils', href: '/ressources' },
       { label: 'Contact', href: '/contact' },
     ];

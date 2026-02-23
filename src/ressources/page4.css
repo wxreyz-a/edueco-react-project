@@ -61,59 +61,6 @@
   font-size: 0.9rem;
 }
 
-/* Recommandations section styles */
-
-.books-section {
-  margin-top: 3rem;
-  padding: 0 1rem;
-  background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
-  box-shadow: 0 8px 20px rgba(0, 83, 156, 0.15);
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.books-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  justify-items: stretch;
-  padding: 0 1rem;
-}
-
-.recommandation {
-  background-color: #ffffff;
-  box-shadow: 0 12px 24px rgba(0, 83, 156, 0.2);
-  padding: 2rem 2.25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: default;
-  user-select: none;
-}
-
-.recommandation:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 83, 156, 0.35);
-}
-
-.recommandation h3 {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: calc(var(--font-xl) * 1.1);
-  color: var(--primary-dark);
-  margin-bottom: 1rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.recommandation p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--gray-900);
-  margin: 0;
-  flex-grow: 1;
-}
-
 /* Responsive */
 
 @media (max-width: 768px) {
@@ -125,8 +72,5 @@
     max-width: 100%;
     flex: 1 1 100%;
     margin: 1rem 0;
-  }
-  .books-list {
-    padding: 0 1.5rem;
   }
 }

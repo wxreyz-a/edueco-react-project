@@ -237,7 +237,7 @@ const AppLayout = () => (
 function ExternalRedirect({ to }) {
   React.useEffect(() => {
     if (globalThis.window?.location) {
-      globalThis.window.location.href = to;
+      globalThis.window.location.replace(to);
     }
   }, [to]);
 
@@ -360,7 +360,6 @@ function App() {
             <Route path="/ressources" element={<PageRessources />} />
 
             {/* Chroniques (WordPress) */}
-            <Route path="/blog/*" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
             <Route path="/chroniques" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
             <Route path="/chroniques/*" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
 
