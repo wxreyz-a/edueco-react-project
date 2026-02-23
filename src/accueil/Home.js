@@ -102,7 +102,7 @@ function decodeHtmlEntities(text = '') {
       }
       return String.fromCodePoint(codePoint);
     })
-    .replaceAll(/&#([0-9]+);/g, (match, decimalValue) => {
+    .replaceAll(/&#(\d+);/g, (match, decimalValue) => {
       const codePoint = Number.parseInt(decimalValue, 10);
       if (!Number.isInteger(codePoint) || codePoint < 0 || codePoint > 0x10FFFF) {
         return match;
