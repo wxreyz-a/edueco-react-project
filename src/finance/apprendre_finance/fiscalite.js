@@ -155,7 +155,7 @@ const FiscaliteTrainingArticle = () => {
                 <strong>Comparateurs de Dispositifs Fiscaux</strong> - Comparez les avantages et conditions pour choisir la solution la mieux adaptée à votre profil.
               </li>
               <li>
-                <a href="/conseils_fiscalite">Conseils sur la Fiscalité</a> - Retrouvez une carte mentale récapitulative des points clés à maîtriser.
+                <a href="/apprendre">Parcours finance</a> - Retrouvez l'ensemble des modules pour approfondir votre stratégie fiscale.
               </li>
             </ul>
           </section>

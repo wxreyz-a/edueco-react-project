@@ -75,8 +75,8 @@ const BudgetTrainingArticle = () => {
         <section className="introduction">
           <h2>C'est quoi ?</h2>
           <p>
-            Un budget est un outil de gestion financière qui permet de planifier 
-            et de suivre ses revenus et ses dépenses sur une période donnée.
+            Un budget se définit simplement comme étant un outil de gestion financière.
+            Il permet de planifier et de suivre ses revenus et ses dépenses sur une période donnée.
             Il aide à mieux contrôler ses finances, à éviter le surendettement 
             et à atteindre des objectifs, qu’ils soient personnels, professionnels ou 
             liés à un projet spécifique. En équilibrant les entrées et les sorties 

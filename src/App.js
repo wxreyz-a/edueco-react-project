@@ -54,15 +54,6 @@ const Retraite           = React.lazy(() => import('./finance/apprendre_finance/
 const Bourse             = React.lazy(() => import('./finance/apprendre_finance/bourse'));
 const Crypto             = React.lazy(() => import('./finance/apprendre_finance/crypto'));
 
-// Guides
-const GuideIndex          = React.lazy(() => import('./guide/page2'));
-const GuideBudget         = React.lazy(() => import('./guide/nos_guides/guide_budget'));
-const GuideEpargne        = React.lazy(() => import('./guide/nos_guides/guide_epargne'));
-const GuideInvestissement = React.lazy(() => import('./guide/nos_guides/guide_investissement'));
-const ConseilsFiscalite   = React.lazy(() => import('./guide/nos_guides/conseils_fiscalite'));
-const ConseilsRetraite    = React.lazy(() => import('./guide/nos_guides/conseils_retraite'));
-const StrategiesInvest    = React.lazy(() => import('./guide/nos_guides/strategies_investissement'));
-
 // --- UTILITAIRES ---
 const CONSENT_KEY = 'edueco_consent';
 const CONSENT_GRANTED = 'granted';
@@ -397,7 +388,7 @@ function App() {
             <Route path="/chapitre-quatre-partie-trois" element={<Chap4Partie3 />} />
             <Route path="/chapitre-quatre-partie-quatre" element={<Chap4Partie4 />} />
 
-            {/* Lazy - Finance & Guides */}
+            {/* Lazy - Finance */}
             <Route path="/apprendre" element={<FinanceIndex />} />
             <Route path="/faire-un-budget" element={<Budget />} />
             <Route path="/epargne" element={<Epargne />} />
@@ -409,13 +400,7 @@ function App() {
             <Route path="/retraite" element={<Retraite />} />
             <Route path="/bourse" element={<Bourse />} />
             <Route path="/crypto" element={<Crypto />} />
-            <Route path="/guides" element={<GuideIndex />} />
-            <Route path="/guide-budget" element={<GuideBudget />} />
-            <Route path="/guide-epargne" element={<GuideEpargne />} />
-            <Route path="/guide-investissement" element={<GuideInvestissement />} />
-            <Route path="/conseils-fiscalite" element={<ConseilsFiscalite />} />
-            <Route path="/strategies-investissement" element={<StrategiesInvest />} />
-            <Route path="/conseils-retraite" element={<ConseilsRetraite />} />
+
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -152,7 +152,7 @@ const CreditTrainingArticle = () => {
                 <strong>Simulateur de Crédit</strong> - Calculez vos capacités d’emprunt et planifiez vos remboursements avec précision.
               </li>
               <li>
-                <a href="/guide-budget">Ressource de Gestion Budgétaire</a> - Apprenez à équilibrer vos revenus et dépenses pour une santé financière solide.
+                <a href="/faire-un-budget">Module Budget</a> - Apprenez à équilibrer vos revenus et dépenses pour une santé financière solide.
               </li>
             </ul>
           </section>

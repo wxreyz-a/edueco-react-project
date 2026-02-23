@@ -126,7 +126,7 @@ function normalizeWordPressPost(post) {
 const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
   <section className="hero">
     <div className="hero-content">
-      <p className="intro-text">Votre bien-être financier est notre priorité</p>
+      <p className="intro-text">Votre bien-être financier, pensez-y</p>
       <p className="hero-explanation">
         Bienvenue sur EduEco, votre plateforme dédiée à l'éducation financière. Découvrez des conseils, des outils et des stratégies pour gérer vos finances et investir intelligemment.
       </p>
@@ -196,10 +196,10 @@ const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
             Découvrez nos conseils pratiques pour optimiser votre gestion financière.
           </div>
         </Link>
-        <Link to="/guides" className="button" aria-label="Guides et conseils">
-          <div className="button-title">Guides et conseils</div>
+        <Link to="/livre" className="button" aria-label="L'histoire de vos finances">
+          <div className="button-title">L'histoire de vos finances</div>
           <div className="button-description">
-            Accédez à des stratégies éprouvées pour maîtriser vos dépenses et investissements.
+            Découvrez l'histoire des sociétés humaines et des échanges.
           </div>
         </Link>
         <a href="/blog/" className="button" aria-label="Chroniques">
@@ -211,7 +211,7 @@ const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
         <Link to="/ressources" className="button" aria-label="Les ressources utiles">
           <div className="button-title">Les ressources utiles</div>
           <div className="button-description">
-            Trouvez des outils, guides et références pour mieux gérer votre argent.
+            Trouvez des outils et références pour mieux gérer votre argent.
           </div>
         </Link>
       </div>
@@ -356,12 +356,12 @@ const Home = () => {
     <div className="home-page">
       <Helmet>
         <title>EduEco - Apprendre, Investir et Gérer vos Finances</title>
-        <meta name="description" content="EduEco est votre plateforme d'éducation financière. Découvrez nos guides, articles et outils pour investir, épargner et gérer efficacement votre budget." />
+        <meta name="description" content="EduEco est votre plateforme d'éducation financière. Découvrez nos articles, outils et parcours finance pour investir, épargner et gérer efficacement votre budget." />
         <meta name="keywords" content="éducation financière, investir, budget, épargne, finance, conseils financiers, outils financiers" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://edueco.fr/" />
         <meta property="og:title" content="EduEco - Apprendre, Investir et Gérer vos Finances" />
-        <meta property="og:description" content="Découvrez nos guides, articles et outils pour optimiser votre éducation financière et prendre les bonnes décisions en matière d'investissement et de budget." />
+        <meta property="og:description" content="Découvrez nos articles, outils et parcours finance pour optimiser votre éducation financière et prendre les bonnes décisions en matière d'investissement et de budget." />
         <meta property="og:url" content="https://edueco.fr/" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -381,7 +381,7 @@ const Home = () => {
         <nav className={`main-nav ${isNavOpen ? 'open' : ''}`}>
           <ul>
             <li><Link to="/" onClick={() => setIsNavOpen(false)}>Accueil</Link></li>
-            <li><Link to="/guides" onClick={() => setIsNavOpen(false)}>Guides</Link></li>
+            <li><Link to="/apprendre" onClick={() => setIsNavOpen(false)}>Apprendre</Link></li>
             <li><a href="/blog/" onClick={() => setIsNavOpen(false)}>Chroniques</a></li>
             <li><Link to="/ressources" onClick={() => setIsNavOpen(false)}>Outils</Link></li>
             <li><Link to="/contact" onClick={() => setIsNavOpen(false)}>Contact</Link></li>
@@ -400,7 +400,7 @@ const Home = () => {
           <div className="footer-links">
             <Link to="/mentions-legales">Mentions légales</Link>
             <Link to="/contact">Contact</Link>
-            <Link to="/guides">Tous nos guides</Link>
+            <Link to="/apprendre">Parcours finance</Link>
             <a href="/blog/">Chroniques</a>
           </div>
 
@@ -425,3 +425,4 @@ const Home = () => {
 };
 
 export default Home;
+

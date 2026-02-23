@@ -112,7 +112,7 @@ const RetraiteTrainingArticle = () => {
             </p>
             <h3>Investissement Diversifié</h3>
             <p>
-              Diversifiez vos placements pour minimiser les risques et maximiser vos rendements. Associez des investissements traditionnels avec des produits innovants, tels que les fonds de pension ou l’assurance-vie. Pour en savoir plus, consultez notre <a href="/conseils_retraite">section d’investissement pour la retraite</a>.
+              Diversifiez vos placements pour minimiser les risques et maximiser vos rendements. Associez des investissements traditionnels avec des produits innovants, tels que les fonds de pension ou l’assurance-vie. Pour en savoir plus, consultez notre <a href="/apprendre">parcours finance</a>.
             </p>
             <h3>Utilisation des Outils Fiscaux</h3>
             <p>

@@ -9,6 +9,7 @@ test('renders home content', () => {
       <App />
     </MemoryRouter>
   );
-  const headline = screen.getByText(/Votre bien-être financier est notre priorité/i);
+  const headline = screen.getByText(/Votre bien/i);
   expect(headline).toBeInTheDocument();
 });
+

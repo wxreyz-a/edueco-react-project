@@ -68,7 +68,7 @@ const ChapterIndex = () => {
         <section className="chapter-list">
           <div className="chapter-item">
             <Link to="/parties-chapitre-un" className="chapter-link">
-              <h2>Chapitre 1 : Une brève histoire de l'argent</h2>
+              <h2>Chapitre 1 : Une brève histoire de l'échange</h2>
               <p>Découvrez comment l'argent a évolué, du troc aux premières monnaies.</p>
             </Link>
           </div>
@@ -91,7 +91,7 @@ const ChapterIndex = () => {
 
           <div className="chapter-item">
             <Link to="/parties-chapitre-quatre" className="chapter-link">
-              <h2>Chapitre 4 : La Psychologie de l'Argent</h2>
+              <h2>Chapitre 4 : Psychologie</h2>
               <p>
                 Explorez comment nos émotions et nos biais cognitifs influencent nos décisions financières.
               </p>

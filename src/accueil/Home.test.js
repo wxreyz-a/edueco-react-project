@@ -16,7 +16,7 @@ describe('Home Component', () => {
     const headingElement = screen.getByRole('heading', { level: 1 });
     expect(headingElement).toBeInTheDocument();
 
-    expect(screen.getByText(/Votre bien-être financier est notre priorité/i)).toBeInTheDocument();
+    expect(screen.getByText(/Votre bien/i)).toBeInTheDocument();
     expect(screen.getByText(/Dernieres chroniques/i)).toBeInTheDocument();
     expect(screen.getByText(/Outils interactifs/i)).toBeInTheDocument();
   });
@@ -36,7 +36,7 @@ describe('Home Component', () => {
     const mainNav = screen.getByRole('navigation');
     const navLinks = [
       { label: 'Accueil', href: '/' },
-      { label: 'Guides', href: '/guides' },
+      { label: 'Apprendre', href: '/apprendre' },
       { label: 'Chroniques', href: '/blog/' },
       { label: 'Outils', href: '/ressources' },
       { label: 'Contact', href: '/contact' },
@@ -49,4 +49,5 @@ describe('Home Component', () => {
     });
   });
 });
+
 
