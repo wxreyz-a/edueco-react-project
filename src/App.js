@@ -1,6 +1,7 @@
 /* global globalThis */
 import React, { Suspense } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import ConsentManager from './components/ConsentManager';
 import NotFound from './components/NotFound';
 
@@ -228,6 +229,17 @@ function loadAds() {
   });
 }
 
+function sanitizeRedirectTarget(path) {
+  if (typeof path !== 'string') return '/';
+
+  const normalized = path.trim();
+  if (!normalized.startsWith('/') || normalized.startsWith('//')) {
+    return '/';
+  }
+
+  return normalized;
+}
+
 const AppLayout = () => (
   <div className="consolidated-container">
     <Outlet />
@@ -237,12 +249,16 @@ const AppLayout = () => (
 function ExternalRedirect({ to }) {
   React.useEffect(() => {
     if (globalThis.window?.location) {
-      globalThis.window.location.replace(to);
+      globalThis.window.location.replace(sanitizeRedirectTarget(to));
     }
   }, [to]);
 
   return <div>Redirection...</div>;
 }
+
+ExternalRedirect.propTypes = {
+  to: PropTypes.string.isRequired,
+};
 
 // --- FIN UTILITAIRES ---
 

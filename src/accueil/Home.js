@@ -30,7 +30,7 @@ const FALLBACK_LATEST_POSTS = [
 ];
 
 function stripHtml(html = '') {
-  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  return html.replaceAll(/<[^>]*>/g, ' ').replaceAll(/\s+/g, ' ').trim();
 }
 
 function decodeHtmlEntities(text = '') {
@@ -181,6 +181,17 @@ const ArticlesSection = ({ posts }) => {
     </div>
   </section>
   );
+};
+
+ArticlesSection.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      title: PropTypes.string,
+      excerpt: PropTypes.string,
+      link: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 const ToolsSection = () => (
