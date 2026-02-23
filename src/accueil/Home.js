@@ -30,7 +30,56 @@ const FALLBACK_LATEST_POSTS = [
 ];
 
 function stripHtml(html = '') {
-  return html.replaceAll(/<[^>]*>/g, ' ').replaceAll(/\s+/g, ' ').trim();
+  if (typeof html !== 'string' || html.length === 0) {
+    return '';
+  }
+
+  let output = '';
+  let inTag = false;
+  let pendingSpace = false;
+
+  for (let i = 0; i < html.length; i += 1) {
+    const char = html[i];
+
+    if (char === '<') {
+      inTag = true;
+      pendingSpace = output.length > 0;
+      continue;
+    }
+
+    if (char === '>') {
+      inTag = false;
+      pendingSpace = output.length > 0;
+      continue;
+    }
+
+    if (inTag) {
+      continue;
+    }
+
+    const isWhitespace = (
+      char === ' '
+      || char === '\n'
+      || char === '\r'
+      || char === '\t'
+      || char === '\f'
+      || char === '\v'
+    );
+
+    if (isWhitespace) {
+      pendingSpace = output.length > 0;
+      continue;
+    }
+
+    if (pendingSpace) {
+      output += ' ';
+      pendingSpace = false;
+    }
+
+    output += char;
+  }
+
+  return output.trim();
 }
 
 function decodeHtmlEntities(text = '') {
