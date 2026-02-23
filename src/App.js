@@ -12,10 +12,7 @@ import PageRessources  from './ressources/page4';
 import ScrollToTop     from './ScrollToTop';
 
 // Lazy-load (asynchrone)
-// Actualites
-const NewsListing        = React.lazy(() => import('./actualites/page3'));
-const ArticleUn          = React.lazy(() => import('./actualites/Articles/Article_un'));
-const ArticleDeux        = React.lazy(() => import('./actualites/Articles/Article_deux'));
+// Chroniques (WordPress)
 
 // Outils
 const CalculateurEpargne = React.lazy(() => import('./calculateur_epargne/calculateurEpargne'));
@@ -73,6 +70,7 @@ const CONSENT_DENIED = 'denied';
 const LIGHTHOUSE_UA_RE = /Chrome-Lighthouse|Lighthouse/i;
 const HEADLESS_UA_RE = /HeadlessChrome/i;
 const MEASUREMENT_ID = 'G-K0414NWY4Z';
+const WORDPRESS_BLOG_PATH = '/blog/';
 
 function reportRecoverableError(message, error) {
   if (process.env.NODE_ENV !== 'production') {
@@ -236,6 +234,16 @@ const AppLayout = () => (
   </div>
 );
 
+function ExternalRedirect({ to }) {
+  React.useEffect(() => {
+    if (globalThis.window?.location) {
+      globalThis.window.location.href = to;
+    }
+  }, [to]);
+
+  return <div>Redirection...</div>;
+}
+
 // --- FIN UTILITAIRES ---
 
 function App() {
@@ -351,10 +359,17 @@ function App() {
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/ressources" element={<PageRessources />} />
 
-            {/* Lazy - Actualites */}
-            <Route path="/actualites" element={<NewsListing />} />
-            <Route path="/investir-2025" element={<ArticleUn />} />
-            <Route path="/trump-tarifs" element={<ArticleDeux />} />
+            {/* Chroniques (WordPress) */}
+            <Route path="/blog/*" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+            <Route path="/chroniques" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+            <Route path="/chroniques/*" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+
+            {/* Compatibilite : anciens liens */}
+            <Route path="/actualites" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+            <Route path="/actualites/*" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+            <Route path="/investir-2025" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+            <Route path="/trump-tarifs" element={<ExternalRedirect to={WORDPRESS_BLOG_PATH} />} />
+            
 
             {/* Lazy - Outils */}
             <Route path="/calculateur-epargne" element={<CalculateurEpargne />} />

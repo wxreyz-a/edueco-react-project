@@ -2,6 +2,16 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const baseUrl = 'https://edueco.fr/';
+const redirectOnlyRoutes = new Set([
+  '/blog/*',
+  '/chroniques',
+  '/chroniques/*',
+  '/actualites',
+  '/actualites/*',
+  '/investir-2025',
+  '/trump-tarifs',
+]);
+const extraUrls = ['/blog/'];
 
 // Read src/App.js to extract routes dynamically
 const appJsPath = path.join(__dirname, 'src', 'App.js');
@@ -15,11 +25,14 @@ let match;
 while ((match = routePathRegex.exec(appJsContent)) !== null) {
   const route = match[1];
   if (route === '*') continue;
+  if (route.includes('*')) continue;
+  if (redirectOnlyRoutes.has(route)) continue;
   routes.add(route);
 }
 
 // Ensure root path is included
 routes.add('/');
+extraUrls.forEach((route) => routes.add(route));
 
 // Ensure the public directory exists
 const publicDir = path.join(__dirname, 'public');

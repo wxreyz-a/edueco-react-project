@@ -1,5 +1,5 @@
 [
-  { "id": 1, "title": "Investir en 2025", "url": "/investir-2025", "content": "Stratégies pour investir intelligemment cette année." },
+  { "id": 1, "title": "Chroniques", "url": "/chroniques", "content": "Tous les nouveaux articles publies chaque semaine (finance et autres sujets)." },
   { "id": 2, "title": "Optimiser son budget", "url": "/guide-budget", "content": "Conseils pour maîtriser vos dépenses et épargner efficacement." },
   { "id": 4, "title": "En apprendre sur la finance", "url": "/apprendre", "content": "Découvrez nos conseils pratiques pour investir en 2025." },
   { "id": 5, "title": "Accueil", "url": "/", "content": "Page d'accueil du site." },
@@ -21,10 +21,7 @@
   { "id": 23, "title": "Conseils Fiscalité", "url": "/conseils-fiscalite", "content": "Astuces pour une fiscalité avantageuse." },
   { "id": 24, "title": "Stratégies Investissement", "url": "/strategies-investissement", "content": "Stratégies d'investissement éprouvées." },
   { "id": 25, "title": "Conseils Retraite", "url": "/conseils-retraite", "content": "Préparez votre retraite avec nos conseils." },
-  { "id": 26, "title": "Actualités", "url": "/actualites", "content": "Les dernières actualités financières." },
   { "id": 27, "title": "Ressources", "url": "/ressources", "content": "Accédez à nos ressources et outils financiers." },
-  { "id": 28, "title": "Article Un", "url": "/investir-2025", "content": "Premier article de notre section actualités." },
-  { "id": 29, "title": "Article Deux", "url": "/trump-tarifs", "content": "Deuxième article de notre section actualités." },
   { "id": 30, "title": "Calculateur Épargne", "url": "/calculateur-epargne", "content": "Calculez vos économies en quelques clics." },
   { "id": 31, "title": "Simulateur Investissement", "url": "/simulateur-investissement", "content": "Simulez vos investissements et anticipez vos gains." },
   { "id": 32, "title": "Mentions Légales", "url": "/mentions-legales", "content": "Informations légales et conditions d'utilisation du site." }

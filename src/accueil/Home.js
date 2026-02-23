@@ -35,7 +35,7 @@ const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
           name="q"
           type="text"
           className="search-input"
-          placeholder="Recherchez des conseils, outils, actualités..."
+          placeholder="Recherchez des conseils, outils, chroniques..."
           aria-label="Recherche"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -80,10 +80,10 @@ const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
             Accédez à des stratégies éprouvées pour maîtriser vos dépenses et investissements.
           </div>
         </Link>
-        <Link to="/actualites" className="button" aria-label="L'actualité">
-          <div className="button-title">L'actualité</div>
+        <Link to="/chroniques" className="button" aria-label="Chroniques">
+          <div className="button-title">Chroniques</div>
           <div className="button-description">
-            Restez informé des dernières tendances et analyses financières.
+            Articles, analyses et idées (finance et au-delà).
           </div>
         </Link>
         <Link to="/ressources" className="button" aria-label="Les ressources utiles">
@@ -113,21 +113,19 @@ Hero.propTypes = {
 
 const ArticlesSection = () => (
   <section className="articles-section">
-    <h2 className="section-title">Derniers articles</h2>
+    <h2 className="section-title">Dernieres chroniques</h2>
     <div className="articles-container">
       <article className="article-card">
-        <h3>Investir en 2025</h3>
-        <p>En 2025, l’investissement mise sur IA, énergies renouvelables, santé et immobilier,
-          portés par le numérique et l’économie circulaire.
-          L’incertitude géopolitique et la volatilité exigent agilité et diversification.</p>
-        <Link to="/investir-2025" className="read-more" aria-label="Lire la suite Investir en 2025">
+        <h3>Finance, business et societe</h3>
+        <p>Chaque semaine, de nouvelles analyses sur l'education financiere et les sujets qui comptent pour la vie quotidienne.</p>
+        <Link to="/chroniques" className="read-more" aria-label="Voir les chroniques">
           Lire la suite
         </Link>
       </article>
       <article className="article-card">
-        <h3>Trump et les Tarifs</h3>
-        <p>Trump relance la guerre commerciale avec des tarifs de 25 % sur Mexique, Canada, UE et Inde, pour protéger l’industrie US. Les pays visés ripostent, accentuant la volatilité des marchés.</p>
-        <Link to="/trump-tarifs" className="read-more" aria-label="Lire la suite Trump et les Tarifs">
+        <h3>Ouvert a tous les sujets</h3>
+        <p>Tu n'es plus limite a l'actualite financiere: cette section regroupe aussi tes autres centres d'interet.</p>
+        <Link to="/chroniques" className="read-more" aria-label="Acceder au blog WordPress">
           Lire la suite
         </Link>
       </article>
@@ -204,7 +202,7 @@ const Home = () => {
           <ul>
             <li><Link to="/" onClick={() => setIsNavOpen(false)}>Accueil</Link></li>
             <li><Link to="/guides" onClick={() => setIsNavOpen(false)}>Guides</Link></li>
-            <li><Link to="/actualites" onClick={() => setIsNavOpen(false)}>Actualités</Link></li>
+            <li><Link to="/chroniques" onClick={() => setIsNavOpen(false)}>Chroniques</Link></li>
             <li><Link to="/ressources" onClick={() => setIsNavOpen(false)}>Outils</Link></li>
             <li><Link to="/contact" onClick={() => setIsNavOpen(false)}>Contact</Link></li>
           </ul>
@@ -223,7 +221,7 @@ const Home = () => {
             <Link to="/mentions-legales">Mentions légales</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/guides">Tous nos guides</Link>
-            <Link to="/actualites">Actualités</Link>
+            <Link to="/chroniques">Chroniques</Link>
           </div>
 
           <div className="social-links">

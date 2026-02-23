@@ -17,13 +17,13 @@ describe('Home Component', () => {
     expect(headingElement).toBeInTheDocument();
 
     expect(screen.getByText(/Votre bien-être financier est notre priorité/i)).toBeInTheDocument();
-    expect(screen.getByText(/Derniers articles/i)).toBeInTheDocument();
+    expect(screen.getByText(/Dernieres chroniques/i)).toBeInTheDocument();
     expect(screen.getByText(/Outils interactifs/i)).toBeInTheDocument();
   });
 
   test('search input filters articles', async () => {
     renderHome();
-    const searchInput = screen.getByPlaceholderText(/Recherchez des conseils, outils, actualités/i);
+    const searchInput = screen.getByPlaceholderText(/Recherchez des conseils, outils, chroniques/i);
     fireEvent.change(searchInput, { target: { value: 'budget' } });
 
     await waitFor(() => {
@@ -37,7 +37,7 @@ describe('Home Component', () => {
     const navLinks = [
       { label: 'Accueil', href: '/' },
       { label: 'Guides', href: '/guides' },
-      { label: 'Actualités', href: '/actualites' },
+      { label: 'Chroniques', href: '/chroniques' },
       { label: 'Outils', href: '/ressources' },
       { label: 'Contact', href: '/contact' },
     ];

@@ -406,14 +406,14 @@ html, body {
 
 .cta-button-pay {
   background-color: var(--secondary-color);
-  color: var(--gray-900);
+  color: #fff;
   box-shadow: var(--shadow-md);
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .cta-button-pay:hover {
   background-color: var(--secondary-dark);
-  color: var(--gray-900);
+  color: #fff;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md), 0 0 0 1px var(--gray-300);
 }
