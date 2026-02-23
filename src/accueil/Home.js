@@ -38,9 +38,7 @@ function stripHtml(html = '') {
   let inTag = false;
   let pendingSpace = false;
 
-  for (let i = 0; i < html.length; i += 1) {
-    const char = html[i];
-
+  for (const char of html) {
     if (char === '<') {
       inTag = true;
       pendingSpace = output.length > 0;
