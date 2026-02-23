@@ -39,8 +39,26 @@ jobs:
     - run: npx react-scripts test --watch=false --coverage --runInBand
       env:
         CI: true
+    - name: Resolve Sonar identifiers
+      run: |
+        echo "SONAR_ORGANIZATION=${{ vars.SONAR_ORGANIZATION || github.repository_owner }}" >> "$GITHUB_ENV"
+        echo "SONAR_PROJECT_KEY=${{ vars.SONAR_PROJECT_KEY || format('{0}_{1}', github.repository_owner, github.event.repository.name) }}" >> "$GITHUB_ENV"
+    - name: Verify Sonar inputs
+      run: |
+        echo "Organization: $SONAR_ORGANIZATION"
+        echo "Project Key: $SONAR_PROJECT_KEY"
+        if [ -z "$SONAR_TOKEN" ]; then
+          echo "SONAR_TOKEN is not configured."
+          exit 1
+        fi
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5
+      with:
+        args: >
+          -Dsonar.organization=${{ vars.SONAR_ORGANIZATION || github.repository_owner }}
+          -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY || format('{0}_{1}', github.repository_owner, github.event.repository.name) }}
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
