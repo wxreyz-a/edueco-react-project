@@ -115,9 +115,22 @@ function decodeHtmlEntities(text = '') {
 }
 
 function sanitizeWordPressExcerpt(excerpt = '') {
-  return excerpt
-    .replace(/\s*\[(?:…|\.\.\.|&hellip;)\]\s*$/iu, '')
-    .trim();
+  if (typeof excerpt !== 'string') {
+    return '';
+  }
+
+  let output = excerpt.trim();
+  const ellipsisChar = String.fromCodePoint(0x2026);
+  const removableSuffixes = [`[${ellipsisChar}]`, '[...]', '[&hellip;]'];
+
+  for (const suffix of removableSuffixes) {
+    if (output.endsWith(suffix)) {
+      output = output.slice(0, output.length - suffix.length).trim();
+      break;
+    }
+  }
+
+  return output;
 }
 
 function truncateText(text = '', maxChars = LATEST_POST_EXCERPT_MAX_CHARS) {
@@ -125,16 +138,18 @@ function truncateText(text = '', maxChars = LATEST_POST_EXCERPT_MAX_CHARS) {
     return '';
   }
 
+  const safeMax = Number.isInteger(maxChars) && maxChars > 3 ? maxChars : 4;
+  const effectiveLimit = safeMax - 3;
   const normalized = text.trim().replace(/\s+/g, ' ');
-  if (normalized.length <= maxChars) {
+  if (normalized.length <= safeMax) {
     return normalized;
   }
 
-  const slice = normalized.slice(0, maxChars + 1);
+  const slice = normalized.slice(0, effectiveLimit + 1);
   const lastSpace = slice.lastIndexOf(' ');
-  const cutoff = lastSpace > Math.floor(maxChars * 0.6) ? lastSpace : maxChars;
+  const cutoff = lastSpace > Math.floor(effectiveLimit * 0.6) ? lastSpace : effectiveLimit;
 
-  return `${slice.slice(0, cutoff).trim()}…`;
+  return `${slice.slice(0, cutoff).trim()}...`;
 }
 
 function normalizeWordPressPost(post) {
