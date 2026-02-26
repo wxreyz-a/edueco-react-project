@@ -1,30 +1,88 @@
-/* LegalMentions.css */
+@import '../styles/variables.css';
+
 .legal-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
+  max-width: 920px;
+  margin: clamp(2rem, 4vw, 4rem) auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  font-family: var(--font-sans);
+  color: var(--gray-800);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  background:
+    radial-gradient(circle at top right, rgba(var(--primary-color-rgb), 0.11), transparent 48%),
+    linear-gradient(160deg, #fff 0%, #f8fbff 100%);
+}
+
+.legal-container h1 {
+  margin: 0 0 var(--space-8);
+  text-align: center;
+  color: var(--gray-900);
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  line-height: var(--line-tight);
+  letter-spacing: -0.02em;
+}
+
+.legal-container section {
+  position: relative;
+  margin: 0 0 var(--space-5);
+  padding: var(--space-5) var(--space-5) var(--space-4) var(--space-6);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.legal-container section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+}
+
+.legal-container section:last-child {
+  margin-bottom: 0;
+}
+
+.legal-container h2 {
+  margin: 0 0 var(--space-3);
+  color: var(--primary-color);
+  font-family: var(--font-display);
+  font-size: var(--font-lg);
+  line-height: var(--line-snug);
+}
+
+.legal-container p {
+  margin: 0 0 var(--space-2);
+  line-height: var(--line-relaxed);
+  color: var(--gray-700);
+}
+
+.legal-container p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-container strong {
+  color: var(--gray-900);
+}
+
+@media (max-width: 640px) {
+  .legal-container {
+    margin: var(--space-4);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
   }
-  
+
   .legal-container h1 {
-    text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: var(--space-6);
   }
-  
+
   .legal-container section {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ddd;
+    padding: var(--space-4) var(--space-4) var(--space-3) var(--space-5);
   }
-  
-  .legal-container h2 {
-    color: #007BFF;
-    margin-bottom: 10px;
-  }
-  
-  .legal-container p {
-    line-height: 1.6;
-    margin: 8px 0;
-  }
-  
+}

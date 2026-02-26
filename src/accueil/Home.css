@@ -725,8 +725,8 @@ html, body {
   background-color: var(--primary-color);
 }
 
-/* Footer général */
-footer {
+/* Footer accueil uniquement */
+.home-page footer {
   position: relative;
   background-color: var(--gray-900);
   color: var(--white);
@@ -735,7 +735,7 @@ footer {
   border: none;
 }
 
-footer::before {
+.home-page footer::before {
   content: '';
   position: absolute;
   top: 0;
@@ -745,7 +745,7 @@ footer::before {
   background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
-address {
+.home-page address {
   font-style: normal;
   text-align: center;
   color: var(--gray-500);

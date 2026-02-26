@@ -31,7 +31,7 @@ const RessourcesUtiles = () => {
         </section>
       </main>
 
-      <footer className="page-footer">
+      <footer className="site-footer page-footer">
         <address>
           <p>© 2025 EduEco. Tous droits réservés.</p>
         </address>

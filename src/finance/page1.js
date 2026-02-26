@@ -144,7 +144,7 @@ const Finance = () => {
         </section>
       </main>
 
-      <footer className="page1-footer page1-container">
+      <footer className="site-footer page1-footer">
         <address>
           <p>&copy; 2025 EduEco. Tous droits réservés.</p>
         </address>

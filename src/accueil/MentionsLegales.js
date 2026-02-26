@@ -26,7 +26,6 @@ const LegalMentions = () => {
           <h2>Identité de l'éditeur</h2>
           <p><strong>Nom :</strong> Hocini </p>
           <p><strong>Prénom :</strong> Aris</p>
-          <p><strong>Adresse :</strong> 17 rue des Etudiants</p>
           <p><strong>Statut juridique :</strong> Individuel </p>
         </section>
 
