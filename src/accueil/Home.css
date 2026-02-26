@@ -629,6 +629,18 @@ html, body {
   flex-grow: 1;
 }
 
+.article-excerpt {
+  width: 100%;
+  height: calc(4 * 1em * var(--line-normal));
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 0;
+}
+
 .read-more,
 .tool-link {
   display: inline-flex;
@@ -728,7 +740,7 @@ html, body {
 /* Footer accueil uniquement */
 .home-page footer {
   position: relative;
-  background-color: var(--gray-900);
+  background-color: #162b44;
   color: var(--white);
   padding: var(--space-12) 0 var(--space-8);
   margin: 0;

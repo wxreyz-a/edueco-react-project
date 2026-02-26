@@ -29,6 +29,8 @@ const FALLBACK_LATEST_POSTS = [
   },
 ];
 
+const LATEST_POST_EXCERPT_MAX_CHARS = 220;
+
 function stripHtml(html = '') {
   if (typeof html !== 'string' || html.length === 0) {
     return '';
@@ -85,14 +87,15 @@ function decodeHtmlEntities(text = '') {
     return '';
   }
 
-  const namedEntities = {
-    amp: '&',
-    lt: '<',
-    gt: '>',
-    quot: '"',
-    apos: "'",
-    nbsp: ' ',
-  };
+  if (!text.includes('&')) {
+    return text;
+  }
+
+  if (typeof document !== 'undefined' && typeof document.createElement === 'function') {
+    const decoder = document.createElement('textarea');
+    decoder.innerHTML = text;
+    return decoder.value;
+  }
 
   return text
     .replaceAll(/&#x([0-9a-fA-F]+);/g, (match, hexValue) => {
@@ -108,17 +111,39 @@ function decodeHtmlEntities(text = '') {
         return match;
       }
       return String.fromCodePoint(codePoint);
-    })
-    .replaceAll(/&([a-zA-Z]+);/g, (match, entityName) => (
-      namedEntities[entityName] ?? match
-    ));
+    });
+}
+
+function sanitizeWordPressExcerpt(excerpt = '') {
+  return excerpt
+    .replace(/\s*\[(?:…|\.\.\.|&hellip;)\]\s*$/iu, '')
+    .trim();
+}
+
+function truncateText(text = '', maxChars = LATEST_POST_EXCERPT_MAX_CHARS) {
+  if (typeof text !== 'string') {
+    return '';
+  }
+
+  const normalized = text.trim().replace(/\s+/g, ' ');
+  if (normalized.length <= maxChars) {
+    return normalized;
+  }
+
+  const slice = normalized.slice(0, maxChars + 1);
+  const lastSpace = slice.lastIndexOf(' ');
+  const cutoff = lastSpace > Math.floor(maxChars * 0.6) ? lastSpace : maxChars;
+
+  return `${slice.slice(0, cutoff).trim()}…`;
 }
 
 function normalizeWordPressPost(post) {
   return {
     id: post?.id,
     title: decodeHtmlEntities(post?.title?.rendered || 'Chronique'),
-    excerpt: decodeHtmlEntities(stripHtml(post?.excerpt?.rendered || '')),
+    excerpt: sanitizeWordPressExcerpt(
+      decodeHtmlEntities(stripHtml(post?.excerpt?.rendered || ''))
+    ),
     link: post?.link || '/blog/',
   };
 }
@@ -243,7 +268,7 @@ const ArticlesSection = ({ posts }) => {
       {displayedPosts.map((post) => (
         <article className="article-card" key={post.id}>
           <h3>{post.title}</h3>
-          <p>{post.excerpt}</p>
+          <p className="article-excerpt">{truncateText(post.excerpt)}</p>
           <a href={post.link} className="read-more" aria-label={`Lire la chronique ${post.title}`}>
             Lire la suite
           </a>
