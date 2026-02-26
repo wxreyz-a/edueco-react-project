@@ -140,7 +140,7 @@ function truncateText(text = '', maxChars = LATEST_POST_EXCERPT_MAX_CHARS) {
 
   const safeMax = Number.isInteger(maxChars) && maxChars > 3 ? maxChars : 4;
   const effectiveLimit = safeMax - 3;
-  const normalized = text.trim().replace(/\s+/g, ' ');
+  const normalized = text.trim().replaceAll(/\s+/g, ' ');
   if (normalized.length <= safeMax) {
     return normalized;
   }
