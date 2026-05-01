@@ -1,8 +1,10 @@
 /* global globalThis */
 import React, { Suspense } from 'react';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import ConsentManager from './components/ConsentManager';
 import NotFound from './components/NotFound';
+import { getCanonicalUrl } from './utils/canonical';
 
 // Imports statiques (eager)
 import Home            from './accueil/Home';
@@ -62,6 +64,77 @@ const LIGHTHOUSE_UA_RE = /Chrome-Lighthouse|Lighthouse/i;
 const HEADLESS_UA_RE = /HeadlessChrome/i;
 const MEASUREMENT_ID = 'G-K0414NWY4Z';
 const WORDPRESS_BLOG_PATH = '/blog/';
+const INDEXABLE_ROUTES = new Set([
+  '/',
+  '/contact',
+  '/mentions-legales',
+  '/ressources',
+  '/calculateur-epargne',
+  '/simulateur-investissement',
+  '/livre',
+  '/parties-chapitre-un',
+  '/chapitre-un-partie-une',
+  '/chapitre-un-partie-deux',
+  '/chapitre-un-partie-trois',
+  '/chapitre-un-partie-quatre',
+  '/parties-chapitre-deux',
+  '/chapitre-deux-partie-une',
+  '/chapitre-deux-partie-deux',
+  '/chapitre-deux-partie-trois',
+  '/chapitre-deux-partie-quatre',
+  '/parties-chapitre-trois',
+  '/chapitre-trois-partie-une',
+  '/chapitre-trois-partie-deux',
+  '/chapitre-trois-partie-trois',
+  '/chapitre-trois-partie-quatre',
+  '/parties-chapitre-quatre',
+  '/chapitre-quatre-partie-une',
+  '/chapitre-quatre-partie-deux',
+  '/chapitre-quatre-partie-trois',
+  '/chapitre-quatre-partie-quatre',
+  '/apprendre',
+  '/faire-un-budget',
+  '/epargne',
+  '/investissement',
+  '/credit',
+  '/assurance',
+  '/fiscalite',
+  '/immobilier',
+  '/retraite',
+  '/bourse',
+  '/crypto',
+]);
+
+function normalizePathname(pathname) {
+  if (!pathname) return '/';
+  if (pathname === '/') return '/';
+  return pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+}
+
+function buildFallbackTitle(pathname) {
+  if (pathname === '/') return 'EduEco - Gerez votre argent intelligemment';
+  const readable = pathname
+    .replace(/^\//, '')
+    .replace(/-/g, ' ')
+    .trim();
+  if (!readable) return 'EduEco';
+  return `${readable.charAt(0).toUpperCase()}${readable.slice(1)} | EduEco`;
+}
+
+function RouteSeoDefaults() {
+  const location = useLocation();
+  const normalizedPath = normalizePathname(location.pathname);
+  const isIndexable = INDEXABLE_ROUTES.has(normalizedPath);
+  const canonicalUrl = isIndexable ? getCanonicalUrl(normalizedPath) : null;
+
+  return (
+    <Helmet>
+      <title>{buildFallbackTitle(normalizedPath)}</title>
+      <meta name="robots" content={isIndexable ? 'index, follow' : 'noindex, follow'} />
+      {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
+    </Helmet>
+  );
+}
 
 function reportRecoverableError(message, error) {
   if (process.env.NODE_ENV !== 'production') {
@@ -309,6 +382,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <RouteSeoDefaults />
       <ConsentManager
         visible={consentManagerVisible}
         onConsentGiven={handleConsentGiven}

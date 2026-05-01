@@ -5,7 +5,7 @@ const ChapterOnePartTwo = () => {
   return (
     <div className="book-page-container">
       <div className="book-page">
-        <h1 className="book-title">Chapitre 1 : Une brève histoire de l'argent</h1>
+        <h1 className="book-title">Chapitre 1 : Une brève histoire de l'échange</h1>
         <h2 className="book-title">Partie 2 : Les premières formes d'échange</h2>
 
         <h2 className="book-subtitle">Le troc : Les premiers échanges humains</h2>

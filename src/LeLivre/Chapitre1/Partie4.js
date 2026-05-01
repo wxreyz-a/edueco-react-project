@@ -10,7 +10,7 @@ const ChapterOnePartFour = () => {
       </Helmet>
       <div className="book-page-container">
         <div className="book-page">
-          <h1 className="book-title">Chapitre 1 : Une brève histoire de l'argent</h1>
+          <h1 className="book-title">Chapitre 1 : Une brève histoire de l'échange</h1>
           <h2 className="book-title">Partie 4 : Les banques et leur rôle</h2>
 
           <h2 className="book-subtitle">Les premières formes de banques dans l'Antiquité</h2>

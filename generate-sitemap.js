@@ -11,7 +11,7 @@ const redirectOnlyRoutes = new Set([
   '/investir-2025',
   '/trump-tarifs',
 ]);
-const extraUrls = ['/blog/'];
+const extraUrls = ['https://www.edueco.fr/blog/'];
 
 // Read src/App.js to extract routes dynamically
 const appJsPath = path.join(__dirname, 'src', 'App.js');

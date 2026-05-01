@@ -22,8 +22,8 @@ const ImmobilierTrainingArticle = () => {
           content="Découvrez comment investir dans l'immobilier pour bâtir un patrimoine solide et durable grâce à nos stratégies clés et conseils pratiques."
         />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://edueco.fr/immobilier-investissement" />
-        <link rel="canonical" href="https://edueco.fr/immobilier-investissement" />
+        <meta property="og:url" content="https://edueco.fr/immobilier" />
+        <link rel="canonical" href="https://edueco.fr/immobilier" />
         <script type="application/ld+json">
           {`
             {

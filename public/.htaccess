@@ -1,3 +1,28 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Legacy URLs discovered by Google Search Console.
+  RewriteRule ^page3/?$ https://www.edueco.fr/blog/ [R=301,L,NE]
+  RewriteRule ^page3/.*$ https://www.edueco.fr/blog/ [R=301,L,NE]
+  RewriteRule ^guide-budget/?$ https://edueco.fr/faire-un-budget [R=301,L,NE]
+  RewriteRule ^strategies-investissement/?$ https://edueco.fr/investissement [R=301,L,NE]
+  RewriteRule ^actualites/?$ https://www.edueco.fr/blog/ [R=301,L,NE]
+  RewriteRule ^actualites/.*$ https://www.edueco.fr/blog/ [R=301,L,NE]
+  RewriteRule ^chroniques/?$ https://www.edueco.fr/blog/ [R=301,L,NE]
+  RewriteRule ^chroniques/.*$ https://www.edueco.fr/blog/ [R=301,L,NE]
+
+  # Enforce a single canonical origin (host + https) except WordPress blog.
+  RewriteCond %{REQUEST_URI} !^/blog(/|$) [NC]
+  RewriteCond %{HTTP_HOST} !^edueco\.fr$ [NC,OR]
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://edueco.fr%{REQUEST_URI} [R=301,L,NE]
+
+  # SPA fallback for client-side routes.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ /index.html [L]
+</IfModule>
+
 <IfModule mod_expires.c>
   ExpiresActive On
 

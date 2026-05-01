@@ -25,7 +25,7 @@ const ChapterOneParts = () => {
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Chapitre 1 : Une brève histoire de l'argent",
+        "name": "Chapitre 1 : Une brève histoire de l'échange",
         "item": "https://edueco.fr/parties-chapitre-un"
       }
     ]
@@ -36,7 +36,7 @@ const ChapterOneParts = () => {
       <Helmet>
         <html lang="fr" />
         {/* Titre et meta description pour améliorer l'indexation */}
-        <title>Chapitre 1 : Une brève histoire de l'argent | EduEco</title>
+        <title>Chapitre 1 : Une brève histoire de l'échange | EduEco</title>
         <meta
           name="description"
           content="Explorez l'évolution de l'argent à travers les âges, du troc à la monnaie moderne. Découvrez le rôle des échanges, de la monnaie et des banques dans cette histoire passionnante."
@@ -49,7 +49,7 @@ const ChapterOneParts = () => {
         <link rel="canonical" href="https://edueco.fr/parties-chapitre-un" />
 
         {/* Open Graph pour le partage sur les réseaux sociaux */}
-        <meta property="og:title" content="Chapitre 1 : Une brève histoire de l'argent | EduEco" />
+        <meta property="og:title" content="Chapitre 1 : Une brève histoire de l'échange | EduEco" />
         <meta
           property="og:description"
           content="Découvrez comment l'argent a évolué, du troc à la monnaie moderne, et le rôle fondamental joué par les banques dans cette transformation."
@@ -60,7 +60,7 @@ const ChapterOneParts = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Chapitre 1 : Une brève histoire de l'argent | EduEco" />
+        <meta name="twitter:title" content="Chapitre 1 : Une brève histoire de l'échange | EduEco" />
         <meta name="twitter:description" content="Plongez dans l'histoire de l'argent, du troc aux banques modernes, et comprenez les premières formes d'échange." />
 
         {/* JSON‑LD pour le fil d’Ariane */}
@@ -71,7 +71,7 @@ const ChapterOneParts = () => {
 
       <div className="chapter-page-container">
         <div className="chapter-book">
-          <h1 className="chapter-title">Chapitre 1 : Une brève histoire de l'argent</h1>
+          <h1 className="chapter-title">Chapitre 1 : Une brève histoire de l'échange</h1>
           <p className="chapter-intro">
             Découvrez comment l'argent a évolué à travers les âges, depuis le troc jusqu'à la monnaie moderne.
           </p>

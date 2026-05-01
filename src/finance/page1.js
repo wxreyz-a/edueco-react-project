@@ -99,7 +99,7 @@ const Finance = () => {
   return (
     <div className="page1-page">
       <Helmet>
-        <title>Parcours d'apprentissage - Introduction à la Finance | EduEco</title>
+        <title>Parcours d'apprentissage : Introduction à la Finance Personnelle | EduEco</title>
         <meta 
           name="description" 
           content="Découvrez notre parcours complet pour maîtriser la finance : budget, épargne, investissement, crédit, assurance, fiscalité, immobilier, retraite, bourse et crypto-monnaies." 
@@ -113,7 +113,7 @@ const Finance = () => {
       </Helmet>
 
       <header className="page1-header">
-        <h1 className="page1-slogan">Parcours d'apprentissage : Introduction à la Finance</h1>
+        <h1 className="page1-slogan">Parcours d'apprentissage : Introduction à la Finance Personelle</h1>
       </header>
 
       <main className="page1-container">

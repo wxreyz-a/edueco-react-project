@@ -24,10 +24,10 @@ const BudgetTrainingArticle = () => {
           content="Cet article complet vous explique comment créer et gérer efficacement votre budget mensuel pour mieux maîtriser vos finances personnelles." 
         />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://edueco.fr/budget" />
+        <meta property="og:url" content="https://edueco.fr/faire-un-budget" />
 
         {/* Lien canonique */}
-        <link rel="canonical" href="https://edueco.fr/budget" />
+        <link rel="canonical" href="https://edueco.fr/faire-un-budget" />
 
         {/* JSON-LD pour FAQ */}
         <script type="application/ld+json">
@@ -75,24 +75,17 @@ const BudgetTrainingArticle = () => {
         <section className="introduction">
           <h2>C'est quoi ?</h2>
           <p>
-            Un budget se définit simplement comme étant un outil de gestion financière.
-            Il permet de planifier et de suivre ses revenus et ses dépenses sur une période donnée.
+            Un budget se définit simplement comme un outil de gestion financière.
+            Il permet de planifier et de suivre les revenus et les dépenses sur une période donnée.
             Il aide à mieux contrôler ses finances, à éviter le surendettement 
             et à atteindre des objectifs, qu’ils soient personnels, professionnels ou 
             liés à un projet spécifique. En équilibrant les entrées et les sorties 
             d’argent, le budget favorise une gestion plus sereine et efficace des 
             ressources disponibles.
           </p>
-          <p>
-            Dans cet article, nous allons explorer <strong>comment se façonne un
-              budget, pourquoi il est impératif d'en avoir un, et quelles sont les 
-              erreurs à éviter.</strong>{' '}
-            Découvrez des méthodes éprouvées et des anecdotes pour vous motiver.
-          </p>
         </section>
 
         <section className="importance-budget">
-          <h2>Un Budget ? Pourquoi faire ?</h2>
           <p>
             Contrairement à ce que l'on croit, avoir un budget ne signifie 
             pas se priver, mais <strong>reprendre le contrôle de son argent</strong>. 
@@ -104,64 +97,67 @@ const BudgetTrainingArticle = () => {
             <li>📌 Une meilleure gestion des dettes et crédits</li>
             <li>📌 Une capacité accrue à épargner et investir</li>
           </ul>
+          <p>Pour construire un budget solide, il existe plusieurs règles importantes à respecter.
+            Voici cinq d'entre elles.
+          </p>
         </section>
 
         <section className="etapes-budget">
           <h2>Les 5 Étapes pour Construire un Budget Parfait</h2>
 
-          <h3>1. Faites l’Autopsie de Vos Finances</h3>
+          <h3>1. Faire l’Autopsie de Vos Finances</h3>
           <p>
             Avant de bâtir un budget, suivez vos dépenses pendant un mois. Cela 
             vous aidera à voir où part votre argent (même ces cafés quotidiens 
-            qui semblent anodins).
+            qui semblent anodins) et à identifier de potentielles sources 
+            d'économies et dépenses facultatives. 
           </p>
 
-          <h3>2. Appliquez la Règle du 50/30/20</h3>
+          <h3>2. La Règle du 50/30/20</h3>
           <p>
-            Une méthode simple pour répartir votre budget :
+            Une méthode simple et sûre pour construire votre budget  
+          est de le répartir de la manière suivante :
           </p>
           <ul>
-            <li>💰 <strong>50%</strong> pour les besoins essentiels (loyer, courses, factures).</li>
-            <li>🎉 <strong>30%</strong> pour les loisirs et envies.</li>
-            <li>💡 <strong>20%</strong> pour l’épargne et les investissements.</li>
+            <li>💰<strong>50 %</strong> pour les besoins essentiels tels que le loyer,
+            les courses, ou encore les factures et les frais de santé. Il s'agit de la 
+            part non négociable du budget et doit assurer toutes les dépenses 
+            obligatoires.</li>
+            <li>🎉 <strong>30 %</strong> du budget peut être alloué aux loisirs
+            et aux plaisirs. Cette part-là est plus flexible et peut être adaptée selon
+            les envies. Il ne faut cependant jamais la négliger entièrement.</li>
+            <li>💡 <strong>20 %</strong> pour l’épargne et les investissements, afin
+            de construire un fonds d'urgence, ou faire fructifier votre argent au fil 
+            des années. </li>
           </ul>
 
-          <h3>3. Anticipez les Dépenses Ponctuelles</h3>
+          <h3>3. Anticipation des dépenses ponctuelles</h3>
           <p>
-            Noëls, anniversaires, imprévus... Mettez de côté un petit montant 
-            chaque mois pour éviter les mauvaises surprises. Cela vous permettra d'avoir
-            plus de flexibilité et de ne pas impacter la structure de votre budget lorsque
-            des événements inattendus surviennent.
+            Noëls, anniversaires, imprévus... Mettre de côté un petit montant 
+            chaque mois permet d'éviter les mauvaises surprises. Cela vous permettra d'avoir
+            plus de flexibilité et de ne pas déséquilibrer votre budget lorsque
+            des événements inattendus surviennent. Pour ce faire, il est courant d'ouvrir 
+            un Livret A auprès de votre banque, ou de créer un compte épargne dédié. Vous pouvez
+            visiter la section <a href="/epargne" target="_blank" rel="noopener noreferrer">épargne</a> 
+            pour en savoir plus sur les bonnes pratiques à adopter pour épargner de manière durable.
           </p>
 
           <h3>4. Automatisez Votre Épargne</h3>
           <p>
-            Paramétrez un virement automatique vers un compte d’épargne 
+            Il vous est possible de paramétrer un virement automatique vers votre compte épargne ou Livret A
             dès que votre salaire tombe. Ainsi, vous économisez sans y penser. Plus de temps,
             moins de stress, tout benef' !
           </p>
 
-          <h3>5. Revoyez et Ajustez Chaque Mois</h3>
+          <h3>5. Revoir et Ajuster Chaque Mois</h3>
           <p>
-            Votre budget doit évoluer avec votre vie. Ajustez-le régulièrement 
-            pour rester aligné avec vos objectifs. Il est impératif de s'en tenir
-            à son budget, mais en vain si ce dernier n'est pas adapté à vos besoins.
+            Votre budget évolue avec votre quotidien. Il doit être ajusté régulièrement 
+            pour rester aligné avec vos objectifs, mais surtout avec vos nouveaux revenus
+            et sources de dépenses. Une nouvelle dépense peut par exemple vous contraindre à réduire la 
+            somme réservée à vos plaisirs. Au contraire, une nouvelle entrée d'argent peut booster vos
+            investissements. Il est bon de s'en tenir à son budget, mais uniquement si 
+            ce dernier est bien adapté à vos besoins.
           </p>
-        </section>
-
-        <section className="astuces-economies">
-          <h2>Comment Économiser Sans Se Priver ?</h2>
-          <ul>
-            <li>🚀 <strong>Faites le ménage dans vos abonnements :</strong> Netflix, 
-            Apple TV, Spotify… Avez-vous vraiment besoin de tout ça ? Non ? Poubelle...</li>
-            <li>🍽️ <strong>Cuisinez malin :</strong> Acheter un café chaque 
-            matin = 60€/mois. Une cafetière maison ? Rentabilisée en deux semaines.</li>
-            <li>💳 <strong>Utilisez les cashback et codes promos :</strong>{' '}
-            Avant tout achat, vérifiez s'il y a une réduction 
-            (Honey, Dealabs, iGraal).</li>
-            <li>📦 <strong>Revendez ce que vous n’utilisez plus :</strong> Vêtements, 
-            électronique… Vinted et Leboncoin peuvent vous rapporter gros.</li>
-          </ul>
         </section>
 
         <section className="investissement">
@@ -169,11 +165,12 @@ const BudgetTrainingArticle = () => {
           <p>
             Avoir un budget, c’est bien. Mais pour bâtir votre liberté financière, 
             il faut aussi <strong>investir intelligemment</strong>. Vous trouverez 
-            une section dédiée à l'investissement juste <a href="/investissement">ici</a> ☺️. 
+            une section dédiée à l'investissement juste <a href="/investissement" target="_blank" 
+            rel="noopener noreferrer">ici</a> ☺️. 
             Voici cependant quelques pistes qui pourront vous être utiles : 
           </p>
           <ul>
-            <li>📈 <strong>Le PEA et l’Assurance-Vie :</strong> Parfait pour 
+            <li>📈 <strong>Le PEA et l’Assurance-Vie :</strong> Parfaits pour 
             débuter en bourse.</li>
             <li>🏡 <strong>L’immobilier locatif :</strong> Un excellent moyen 
             de générer des revenus passifs.</li>
@@ -185,29 +182,33 @@ const BudgetTrainingArticle = () => {
         <section className="erreurs-a-eviter">
           <h2>Les Erreurs Courantes à Éviter</h2>
           <p>
-            Des erreurs récurrentes sont faites par beaucoup de personnes, ci-dessous
-            une courte liste de choses à ne pas faire : 
+            Voici une courte liste de choses à ne pas faire : 
           </p>
           <ul>
-            <li>🚨 <strong>Erreur #1 :</strong> Penser que le budget est figé → Ajustez-le chaque mois.</li>
-            <li>🚨 <strong>Erreur #2 :</strong> Ne pas anticiper les imprévus → Créez un <strong>fonds d’urgence</strong>.</li>
-            <li>🚨 <strong>Erreur #3 :</strong> Être trop strict → Accordez-vous des plaisirs (avec modération).</li>
-            <li>🚨 <strong>Erreur #4 :</strong> Ignorer les petits frais → 5€ par jour, c’est 150€ par mois !</li>
-          </ul>
+            <li><strong>🚨 Être trop strict :</strong> S'accorder des plaisirs occasionnels 
+            est la clé afin de tenir un budget de manière durable. Un budget trop rigide dès 
+            le départ est un obstacle à la motivation sur le long terme.</li>
+            <li><strong>🚨 Sous-estimer les petites dépenses :</strong> Les dépenses insignifiantes 
+            au premier abord représentent une somme importante lorsqu'elles sont accumulées.</li>
+            <li><strong>🚨 Oublier les dépenses irrégulières :</strong> Les paiements trimestriels 
+            ou semestriels ne viennent pas facilement à l'esprit et peuvent pourtant coûter cher. 
+            Afin de ne pas perturber l'équilibre de vos dépenses, il est primordial de les 
+            prendre en compte lors du réajustement de votre budget pour le mois en cours. </li>
+          </ul> 
         </section>
 
         <section className="conclusion">
           <h2>Conclusion : Passez à l’Action !</h2>
           <p>
-            Vous avez maintenant toutes les clés pour maîtriser votre 
-            budget <strong>sans frustration</strong>. 
-            Commencez dès aujourd’hui et voyez l’impact positif sur votre vie financière.
+            Ce guide constitue une introduction à la prise en main financière. En effet, 
+            construire un budget est la première étape à achever pour gérer son argent plus 
+            efficacement, et le plus tôt cela est fait, mieux c'est. Il est donc essentiel de 
+            commencer dès à présent à prendre conscience de la manière dont on dépense
+            l'argent au quotidien, et à poser les bases d'un budget qui vous 
+            permettra d'être plus serein au jour le jour et d'atteindre vos objectifs.
           </p>
           <ul>
-            <li>📊 <a href="/calculateur-epargne">Testez notre calculateur d’épargne</a></li>
-            <li>📚 <a href="/investissement">Apprenez à investir intelligemment</a></li>
           </ul>
-          <p><strong>💬 Quelle est votre plus grande difficulté avec le budget ?</strong></p>
         </section>
       </article>
     </div>

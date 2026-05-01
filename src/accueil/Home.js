@@ -231,7 +231,7 @@ const Hero = ({ query, setQuery, debouncedQuery = '', filteredResults }) => (
     <div className="boutons-container">
       <div className="boutonsdaccueil">
         <Link to="/apprendre" className="button" aria-label="En apprendre sur la finance">
-          <div className="button-title">En apprendre sur la finance</div>
+          <div className="button-title">Parcours d'apprentissage</div>
           <div className="button-description">
             Découvrez nos conseils pratiques pour optimiser votre gestion financière.
           </div>

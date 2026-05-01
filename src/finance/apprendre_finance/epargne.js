@@ -74,56 +74,84 @@ const EpargneTrainingArticle = () => {
 
       <div className="article">
         <header className="article-header">
-          <h1>💰 Apprendre à Épargner : Stratégies Pratiques pour Mieux Gérer Votre Argent</h1>
-          <p className="article-subtitle">De l'art de mettre de côté sans se priver 💰✨</p>
+          <h1>Apprendre à Épargner : Stratégies Pratiques pour Mieux Gérer Votre Argent</h1>
+          <p className="article-subtitle">De l'art de mettre de côté sans se priver ✨</p>
         </header>
         <article className="article-content">
           <section className="introduction">
-            <h2>Introduction</h2>
+            <h2>Bien plus que se serrer la seinture...</h2>
             <p>
-              L'épargne, c'est bien plus que "se serrer la ceinture" : c'est préparer son avenir tout en vivant le présent.
-              Imaginez que chaque euro mis de côté est comme un petit investissement dans votre futur.
+              Epargner ne consiste pas seulement à mettre de l'argent de coté, mais à l'utiliser 
+              avec modération afin d'être plus résilient face aux imprévus, et d'atteindre des objectifs fixés.
             </p>
             <p>
-              Dans cet article, nous allons explorer toutes les facettes de l'épargne : ses fondamentaux, des stratégies éprouvées, des anecdotes inspirantes et même quelques astuces que les banques préfèreraient garder secrètes 😉.
+              Dans cet article, nous allons explorer toutes les facettes de l'épargne : ses fondamentaux, 
+              des stratégies éprouvées, des anecdotes inspirantes et même quelques astuces que les banques 
+              préfèreraient garder secrètes 😉.
             </p>
           </section>
 
           <section className="fondamentaux">
-            <h2>Les Fondamentaux de l'Épargne</h2>
+            <h2>"Epargne" et "Epargne"</h2>
+            <p>L'épargne se divise en deux parties. La première est le <strong>fonds d'urgence</strong>. Il s'agit 
+              de l'équivalent de deux mois ou plus de vos dépenses à n'utiliser qu'en cas 
+              d'imprévu. Cette somme doit être restaurée en priorité lorsqu'une partie a été utilisée.
+              C'est en quelques sortes la bouée de sauvetage lorsque le navire de votre compte 
+              bancaire se met à couler. On ne redémarre pas sans nouvelle bouée.
+            </p>
+            <p>La deuxième partie de l'épargne est celle reservée à vos objectifs ou à une 
+              envie particulière. Si vous souhaitez accumuler une somme pour plus tard ou 
+              vous offrir un cadeau qui vous paraît pour l'instant trop couteux, c'est ici 
+              que ça se joue.
+            </p>
             <ul>
-              <li><strong>Fonds d'urgence :</strong> Votre bouée de sauvetage en cas d'imprévus 🚨.</li>
+              <li><strong>Fonds d'urgence :</strong> Votre bouée de sauvetage en cas d'imprévus.</li>
               <li><strong>Objectifs :</strong> Pour un achat important, un rêve ou la retraite, chaque euro compte.</li>
-              <li><strong>Discipline :</strong> L'épargne régulière s'accumule grâce aux intérêts composés 📈.</li>
             </ul>
-            <p>
-              Anecdote : Un lecteur a commencé à épargner 10€ par jour. Un an plus tard, il avait économisé plus de 3 600€ !
+            <h2>Où épargner ?</h2>
+            <p>Plusieurs choix s'offrent à vous pour épargner. Le premier, plus
+            "traditionnel", est d'ouvrir un compte d'épargne dédié à l'argent que vous 
+            économisez. Le deuxième, plus "récent", est d'ouvrir un Livret A directement depuis
+            un compte courant. Le but est de bénéficier des interêts composés dont on parlera 
+            plus en détail dans la catégorie <a href="/investissement" target="_blank" rel="noopener noreferrer">
+            investissement.</a>
             </p>
           </section>
+          
+          <section className="astuces-economies">
+            <section>
+              <h2>Comment Économiser Sans Se Priver ?</h2>
+          <ul>
+              <li>🚀 <strong>Faites le ménage dans vos abonnements : </strong> 
+            Netflix, Apple TV, Spotify… Les abonnements s’accumulent vite et passent souvent inaperçus. 
+            Faites un audit rapide : si vous ne l’utilisez pas régulièrement, supprimez-le. </li>
 
-          <section className="strategies">
-            <h2>Stratégies d'Épargne</h2>
-            <h3>1. La Règle du 50/30/20</h3>
-            <ul>
-              <li>💸 <strong>50%</strong> pour les dépenses essentielles.</li>
-              <li>🎉 <strong>30%</strong> pour les loisirs.</li>
-              <li>💰 <strong>20%</strong> pour l’épargne/investissement.</li>
-            </ul>
+            <li>🍽️ <strong>Cuisinez malin : </strong> 
+            Un café acheté chaque matin peut facilement représenter 50 à 60 € par mois. 
+            Avec une cafetière à la maison, l’investissement est vite rentabilisé. 
+            Même logique pour les repas : préparer ses plats réduit énormément le budget.</li>
 
+            <li>💳 <strong>Profitez des cashback et des codes promo : </strong> 
+            Avant de valider un achat en ligne, prenez 10 secondes pour vérifier s’il existe une réduction. 
+            Des services comme Honey, Dealabs ou iGraal permettent souvent de récupérer 
+            quelques euros ou d’obtenir une remise immédiate.</li>
+
+            <li>📦 <strong>Revendez ce que vous n’utilisez plus : </strong> 
+            Beaucoup d’objets dorment dans les placards : vêtements, électronique, livres… 
+            Des plateformes comme Vinted ou Leboncoin permettent de transformer 
+            ces objets inutilisés en argent.</li>
+          </ul>
+        </section>
             <h3>2. Automatisation de l'Épargne</h3>
             <p>
               Programmez un virement automatique. C’est simple, efficace, et vous évite de "oublier" d’épargner.
-              Essayez des apps comme <a href="https://www.bankin.com" target="_blank" rel="noopener noreferrer">Bankin'</a> ou <a href="https://www.ynab.com" target="_blank" rel="noopener noreferrer">YNAB</a>.
+              
             </p>
 
             <h3>3. Réduire les Dépenses Inutiles</h3>
             <p>
-              Analysez vos achats et éliminez ceux qui ne vous apportent pas de réelle valeur. Chaque euro économisé est un euro gagné !
-            </p>
-
-            <h3>4. Investir pour Faire Grandir son Épargne</h3>
-            <p>
-              Placez vos économies intelligemment (livrets, assurance-vie, etc.). Découvrez notre <a href="/investissement" target="_blank" rel="noopener noreferrer">ressource sur l'investissement</a>.
+              Analysez vos achats et éliminez ceux qui ne vous apportent pas de réelle valeur. 
+              Chaque euro économisé est un euro gagné !
             </p>
           </section>
 
@@ -133,7 +161,6 @@ const EpargneTrainingArticle = () => {
               <li>❌ Attendre trop longtemps avant de commencer à épargner.</li>
               <li>❌ Laisser ses économies dormir sur un compte courant.</li>
               <li>❌ Ne pas définir d'objectifs concrets.</li>
-              <li>❌ Sous-estimer l'impact des petites dépenses répétées.</li>
             </ul>
           </section>
 
@@ -149,12 +176,8 @@ const EpargneTrainingArticle = () => {
           <section className="conclusion">
             <h2>Conclusion</h2>
             <p>
-              En appliquant ces conseils, vous pouvez transformer l’épargne en un levier de liberté. Commencez petit, mais commencez maintenant !
+              
             </p>
-            <p>
-              Découvrez aussi nos autres ressources : <a href="/budget">Gérer son budget</a>, <a href="/investissement">Investir intelligemment</a>.
-            </p>
-            <p>Alors, prêt à prendre le contrôle de votre avenir financier ? 🚀</p>
           </section>
         </article>
       </div>
